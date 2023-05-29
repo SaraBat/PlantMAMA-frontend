@@ -1,13 +1,13 @@
 import React from 'react'
-import { Login } from 'components/Login';
-import { LandingPage } from 'components/LandingPage';
-import { Register } from 'components/Register';
-import { UserProfile } from 'components/UserProfile';
-import { UserGarden } from 'components/UserGarden';
-import { PlantProfile } from 'components/PlantProfile';
-import { PlantSpecies } from 'components/PlantSpecies';
-import { NotFound } from 'components/NotFound';
-import { Contacts } from 'components/Contacts';
+import { Login } from 'pages/Login';
+import { LandingPage } from 'pages/LandingPage';
+import { Register } from 'pages/Register';
+import { UserProfile } from 'pages/UserProfile';
+import { UserGarden } from 'pages/UserGarden';
+import { PlantProfile } from 'pages/PlantProfile';
+import { PlantSpecies } from 'pages/PlantSpecies';
+import { NotFound } from 'pages/NotFound';
+import { Contact } from 'pages/Contact';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 export const App = () => {
@@ -22,7 +22,7 @@ export const App = () => {
         <Route path="/:username/garden/:plantusername" element={<PlantProfile />} />
         <Route path="/:plantspecies" element={<PlantSpecies />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   )
