@@ -1,11 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export const UserProfile = () => {
   const navigate = useNavigate();
+  const { username } = useParams();
   const onGoToGardenButtonClick = () => {
     navigate('/:username/garden');
   };
+
   return (
     <div>
       <h1> Username </h1>
