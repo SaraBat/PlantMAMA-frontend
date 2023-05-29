@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 export const PlantProfile = () => {
   const navigate = useNavigate();
   const onGoToPlantSpeciesButtonClick = () => {
-    navigate('/:plantspecies');
+    navigate('/plantdatabase/:plantspecies');
   };
   return (
     <div>

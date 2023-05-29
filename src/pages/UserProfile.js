@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 export const UserProfile = () => {
   const navigate = useNavigate();
-  const { username } = useParams();
   const onGoToGardenButtonClick = () => {
     navigate('/:username/garden');
   };

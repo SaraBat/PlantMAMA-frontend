@@ -5,6 +5,7 @@ import { Register } from 'pages/Register';
 import { UserProfile } from 'pages/UserProfile';
 import { UserGarden } from 'pages/UserGarden';
 import { PlantProfile } from 'pages/PlantProfile';
+import { PlantDatabase } from 'pages/PlantDatabase';
 import { PlantSpecies } from 'pages/PlantSpecies';
 import { NotFound } from 'pages/NotFound';
 import { Contact } from 'pages/Contact';
@@ -20,7 +21,8 @@ export const App = () => {
         <Route path="/:username" element={<UserProfile />} />
         <Route path="/:username/garden" element={<UserGarden />} />
         <Route path="/:username/garden/:plantusername" element={<PlantProfile />} />
-        <Route path="/:plantspecies" element={<PlantSpecies />} />
+        <Route path="/plantdatabase" element={<PlantDatabase />} />
+        <Route path="/plantdatabase/:id" element={<PlantSpecies />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
