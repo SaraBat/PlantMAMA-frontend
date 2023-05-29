@@ -11,7 +11,7 @@ export const UserProfile = () => {
       <h1> Username </h1>
       <p> Bio </p>
       <image alt="user"> profile picture</image>
-      <button type="button" onClick={onGoToGardenButtonClick}> Register </button>
+      <button type="button" onClick={onGoToGardenButtonClick}> Go to Garden </button>
     </div>
   )
 }
