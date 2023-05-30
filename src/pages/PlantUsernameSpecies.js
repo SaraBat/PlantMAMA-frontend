@@ -6,7 +6,7 @@ export const PlantUsernameSpecies = () => {
   const { plantusernamespecies } = useParams();
   const [plantSpeciesList, setPlantSpeciesList] = useState([]);
   useEffect(() => {
-    fetch(`https://perenual.com/api/species-list?key=sk-uzEu646b489704d0e1015&q=${plantusernamespecies}`)
+    fetch(`https://perenual.com/api/species-list?key=sk-xKFD6475fa659b7581106&q=${plantusernamespecies}`)
       .then((response) => response.json())
       .then((data) => setPlantSpeciesList(data.data))
   }, [plantusernamespecies]);
@@ -27,23 +27,3 @@ export const PlantUsernameSpecies = () => {
 
 // missing plant image - need to access object
 // missing sunlight - need to access array
-
-/*  useEffect(() => {
-    plantSpeciesList.map((singlePlant) => {
-        const { id } = singlePlant.id;
-        fetch(`https://perenual.com/api/species/details/${id}?key=sk-uzEu646b489704d0e1015`)
-          .then((response) => response.json())
-          .then((data) => setSingleSpeciesOfPlant(data))
-        return (singleSpeciesOfPlant)
-      })
-    }, [plantSpeciesList, singleSpeciesOfPlant]);
-*/
-
-/*
-      <div key={plantSpecies.id}>
-        <h1>{plantSpecies.common_name} </h1>
-        <p>Cycle: {plantSpecies.cycle}</p>
-        <p>Watering: {plantSpecies.watering}</p>
-      </div>
-      <button type="button" onClick={onGoBackButtonClick}> Back </button>
-      */
