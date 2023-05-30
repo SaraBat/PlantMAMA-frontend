@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom';
 export const PlantDatabase = () => {
   const [plantSpeciesList, setPlantSpeciesList] = useState([]);
   useEffect(() => {
-    for (let i = 1; i < 4; i += 1) {
-      fetch(`https://perenual.com/api/species-list?page=${i}&key=sk-uzEu646b489704d0e1015&indoor=1`)
-        .then((response) => response.json())
-        .then((data) => setPlantSpeciesList(plantSpeciesList.concat(data.data)))
-    }
+    fetch('https://perenual.com/api/species-list?page=1&key=sk-uzEu646b489704d0e1015&indoor=1')
+      .then((response) => response.json())
+      .then((data) => setPlantSpeciesList((data.data)))
   }, []);
   console.log(plantSpeciesList);
   return (
