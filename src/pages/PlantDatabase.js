@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const PlantDatabase = () => {
   const [plantSpeciesList, setPlantSpeciesList] = useState([]);
   useEffect(() => {
-    fetch('https://perenual.com/api/species-list?page=1&key=key&indoor=1')
+    fetch('https://perenual.com/api/species-list?page=1&key=[key]&indoor=1')
       .then((response) => response.json())
       .then((data) => setPlantSpeciesList((data.data)))
   }, []);

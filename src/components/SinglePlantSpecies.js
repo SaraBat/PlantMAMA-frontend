@@ -8,21 +8,31 @@ export const SinglePlantSpecies = ({ id }) => {
   };
   const [plantSpecies, setPlantSpecies] = useState('');
   useEffect(() => {
-    fetch(`https://perenual.com/api/species/details/${id}?key=key`)
+    fetch(`https://perenual.com/api/species/details/${id}?key=[KEY]`)
       .then((response) => response.json())
       .then((data) => setPlantSpecies(data))
+      .catch((e) => console.log(e))
   }, [id]);
-  // h1>{plantSpecies.scientific_name} </h1>
-  // <p> Origin: {Origin}</p>
-  // {plantSpecies.scientific_name.map((item) => {return (<h1> {item}</h1>)})}
-  // propagation
-  // sunlight
-  // soil
+  /*
+  const ScientificName = plantSpecies.scientific_name[0];
+  const origin = plantSpecies.origin[0];
+
+  // const sunlight = plantSpecies.sunlight.map((item) => { return (item) });
+  // console.log(sunlight);
+  // build out propagation
+  // build out sunlight
+  // build out soil
+
+          <h1>{ScientificName}</h1>
+          <p> Origin: {origin}</p>
+
+  */
   return (
     <div>
       <section>
         <div key={plantSpecies.id}>
           <h1>{plantSpecies.common_name} </h1>
+
           <p> Maintenance:{plantSpecies.maintenance} </p>
           <p> Care Level:{plantSpecies.care_level} </p>
           <p> Description:{plantSpecies.description} </p>
@@ -46,8 +56,8 @@ export const SinglePlantSpecies = ({ id }) => {
             <p>Edible Leaf: {plantSpecies.edible_leaf}</p>
             <p>Medicinal: {plantSpecies.medicinal}</p>
           </div>
+          <button type="button" onClick={onGoBackButtonClick}> Back </button>
         </div>
-        <button type="button" onClick={onGoBackButtonClick}> Back </button>
       </section>
     </div>
   )
