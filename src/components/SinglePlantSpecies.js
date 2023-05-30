@@ -1,12 +1,29 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const SinglePlantSpecies = () => {
-  const params = useParams();
-  const speciesMatch = //array.find((plant) => plant.name = params.name);
+  const navigate = useNavigate();
+  const onGoBackButtonClick = () => {
+    navigate(-1);
+  };
+  const [plantSpecies, setPlantSpecies] = useState('');
+  useEffect((id) => {
+    fetch(`https://perenual.com/api/species/details/${id}?key=sk-uzEu646b489704d0e1015`)
+      .then((response) => response.json())
+      .then((data) => setPlantSpecies(data))
+  }, []);
+  // missing plant image - need to access object
+  // missing sunlight - need to access array
   return (
     <div>
-      return plant species
+      <section>
+        <div key={plantSpecies.id}>
+          <h1>{plantSpecies.common_name} </h1>
+          <p>Cycle: {plantSpecies.cycle}</p>
+          <p>Watering: {plantSpecies.watering}</p>
+        </div>
+        <button type="button" onClick={onGoBackButtonClick}> Back </button>
+      </section>
     </div>
   )
 }
