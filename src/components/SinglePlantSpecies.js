@@ -8,7 +8,7 @@ export const SinglePlantSpecies = ({ id }) => {
   };
   const [plantSpecies, setPlantSpecies] = useState('');
   useEffect(() => {
-    fetch(`https://perenual.com/api/species/details/${id}?key=sk-xKFD6475fa659b7581106`)
+    fetch(`https://perenual.com/api/species/details/${id}?key=key`)
       .then((response) => response.json())
       .then((data) => setPlantSpecies(data))
   }, [id]);
