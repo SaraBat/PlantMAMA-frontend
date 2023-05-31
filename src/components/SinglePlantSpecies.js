@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { NotFound } from 'pages/NotFound';
 import { Loading } from './Loading';
 
 export const SinglePlantSpecies = ({ id }) => {
@@ -9,7 +8,6 @@ export const SinglePlantSpecies = ({ id }) => {
     navigate(-1);
   };
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false)
   const [plantSpecies, setPlantSpecies] = useState('');
   useEffect(() => {
     fetch(`https://perenual.com/api/species/details/${id}?key=sk-xKFD6475fa659b7581106`)
@@ -17,13 +15,15 @@ export const SinglePlantSpecies = ({ id }) => {
       .then((data) => {
         if (data) {
           setPlantSpecies(data); setLoading(false)
-        } else { setError(true) }
+        }
       })
       .catch((e) => console.log(e));
   }, [id]);
 
+  const pictureUrl = plantSpecies ? plantSpecies.default_image.small_url : '';
   const ScientificName = plantSpecies ? plantSpecies.scientific_name[0] : '';
   const origin = plantSpecies ? plantSpecies.origin[0] : '';
+  console.log(pictureUrl);
 
   let sunlight = [];
   if (plantSpecies.sunlight) {
@@ -35,8 +35,6 @@ export const SinglePlantSpecies = ({ id }) => {
     soil = plantSpecies.soil.map((item) => item);
   } else { soil = [] }
 
-  if (error) { return (<NotFound />) }
-
   if (loading) { return (<Loading />) }
 
   return (
@@ -45,6 +43,7 @@ export const SinglePlantSpecies = ({ id }) => {
         <div key={plantSpecies.id}>
           <h1>{plantSpecies.common_name} </h1>
           <h1>{ScientificName}</h1>
+          <image alt="profile" src={pictureUrl} />
           <p> Origin: {origin}</p>
           <p> Maintenance:{plantSpecies.maintenance} </p>
           <p> Care Level:{plantSpecies.care_level} </p>
