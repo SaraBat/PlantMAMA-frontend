@@ -10,7 +10,7 @@ export const SinglePlantSpecies = ({ id }) => {
   const [loading, setLoading] = useState(true);
   const [plantSpecies, setPlantSpecies] = useState('');
   useEffect(() => {
-    fetch(`https://perenual.com/api/species/details/${id}?key=sk-xKFD6475fa659b7581106`)
+    fetch(`https://perenual.com/api/species/details/${id}?key={key}`)
       .then((response) => response.json())
       .then((data) => {
         if (data) {
@@ -36,6 +36,8 @@ export const SinglePlantSpecies = ({ id }) => {
   } else { soil = [] }
 
   if (loading) { return (<Loading />) }
+
+  // picture doesn't work
 
   return (
     <div>
