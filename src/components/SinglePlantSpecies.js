@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { NotFound } from 'pages/NotFound';
+import { Loading } from './Loading';
 
 export const SinglePlantSpecies = ({ id }) => {
   const navigate = useNavigate();
   const onGoBackButtonClick = () => {
     navigate(-1);
   };
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false)
   const [plantSpecies, setPlantSpecies] = useState('');
   useEffect(() => {
     fetch(`https://perenual.com/api/species/details/${id}?key=sk-xKFD6475fa659b7581106`)
       .then((response) => response.json())
-      .then((data) => setPlantSpecies(data))
+      .then((data) => {
+        if (data) {
+          setPlantSpecies(data); setLoading(false)
+        } else { setError(true) }
+      })
       .catch((e) => console.log(e));
   }, [id]);
 
@@ -26,6 +34,10 @@ export const SinglePlantSpecies = ({ id }) => {
   if (plantSpecies.soil) {
     soil = plantSpecies.soil.map((item) => item);
   } else { soil = [] }
+
+  if (error) { return (<NotFound />) }
+
+  if (loading) { return (<Loading />) }
 
   return (
     <div>
