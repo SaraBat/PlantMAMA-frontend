@@ -2,6 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export const PlantDatabase = () => {
+  // we could filter API data by
+  /*
+  Cycle - optional, string
+   The plant cycle of the species.
+   Options - perennial, annual, biennial, biannual
+   https://perenual.com/api/species-list?key=[YOUR-API-KEY]&cycle=annual
+  */
+  /*
+  Watering - optional, string
+   The watering amount of the species.
+   Options - frequent, average, minimum, none
+   https://perenual.com/api/species-list?key=[YOUR-API-KEY]&watering=frequent
+ */
+  /*
+  Sunlight - optional, string
+   The sunlight amount of the species.
+   Options - full_shade, part_shade, sun-part_shade, full_sun
+   https://perenual.com/api/species-list?key=[YOUR-API-KEY]&sunlight=full_sun
+ */
+
   const [plantSpeciesList, setPlantSpeciesList] = useState([]);
   useEffect(() => {
     fetch('https://perenual.com/api/species-list?page=1&key=[key]&indoor=1')
@@ -21,29 +41,3 @@ export const PlantDatabase = () => {
     </div>
   )
 }
-
-/*
-  return (
-    <div>
-      {plantSpeciesList.map((singleSpecies) => {
-        return (
-          <div key={singleSpecies.id}>
-            <h1>{singleSpecies.common_name} </h1>
-            <p>Cycle: {singleSpecies.cycle}</p>
-            <p>Watering: {singleSpecies.watering}</p>
-          </div>
-        )
-      })}
-    </div>
-  )
-*/
-
-/*
-            {singleSpecies.map((item) => {
-              return (
-                <div key={item.id}>
-                  <p> {item.sunlight} </p>
-                </div>
-              )
-            })}
-*/
