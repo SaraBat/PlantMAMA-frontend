@@ -23,6 +23,7 @@ export const UserProfile = () => {
     if (!accessToken) {
       navigate('/login')
     }
+  // eslint-disable-next-line
   }, [accessToken]);
 
   useEffect(() => {
@@ -44,7 +45,8 @@ export const UserProfile = () => {
           dispatch(plants.actions.setItems([]))
         }
       });
-  }, []);
+  // eslint-disable-next-line
+  }, [accessToken]);
   const onLogoutClick = () => {
     dispatch(user.actions.setAccessToken(null));
     dispatch(user.actions.setUsername(null));
@@ -54,15 +56,15 @@ export const UserProfile = () => {
   };
   return (
     <div>
-      <h1> Username </h1>
-      <p> Bio </p>
-      <image alt="user"> profile picture</image>
-
       <button
         type="button"
         onClick={onLogoutClick}> Log Out
       </button>
-      {username ? (<h2> these are the thoughts of {username.toUpperCase()}</h2>) : ''}
+      <h1> {username} </h1>
+      <p> Bio </p>
+      <image alt="user" />
+
+      <h2> these are the plants of {username.toUpperCase()}</h2>
       {plantItems ? (() => {
         plantItems.map((item) => {
           return (
