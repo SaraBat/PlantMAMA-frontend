@@ -2,6 +2,7 @@
 
 import { Loading } from 'components/Loading';
 import React, { useState, useEffect } from 'react'
+import { REACT_APP_WEATHER_API_KEY } from 'utils/BackendUrl';
 
 export const UserGarden = () => {
   const [loading, setLoading] = useState(true);
@@ -19,6 +20,7 @@ export const UserGarden = () => {
     alert('Geolocation not avalible.');
   };
 
+  // eslint-disable-next-line no-unused-vars
   const getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -35,12 +37,7 @@ export const UserGarden = () => {
   }, []);
 
   useEffect(() => {
-    console.log(latitude);
-    console.log(longitude);
-  }, [latitude, longitude]);
-
-  useEffect(() => {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&APPID=cc0aa000ffd02ae8117bc95ff6ed2d28`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&APPID=${REACT_APP_WEATHER_API_KEY}`)
       .then((response) => response.json())
       .then((data) => {
         if (data) {
