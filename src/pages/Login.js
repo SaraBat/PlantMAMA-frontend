@@ -10,17 +10,20 @@ export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // responsible for login
-  const [mode, setMode] = useState('login');
+  const mode = 'login';
   // dispatch to put access token into main component
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const onGoToRegistrationButtonClick = () => {
+    navigate('/register');
+  };
   // get accessToken from store
   const accessToken = useSelector((store) => store.user.accessToken);
   useEffect(() => {
     if (accessToken) {
-      navigate('/:username')
+      navigate(`/${username}`)
     }
-  }, [accessToken, navigate]);
+  }, [accessToken]);
   const onFormSubmit = (event) => {
     // form not to reload page
     event.preventDefault();
@@ -53,22 +56,6 @@ export const Login = () => {
   }
   return (
     <>
-      <label
-        htmlFor="register"> Register
-      </label>
-      <input
-        type="radio"
-        id="register"
-        checked={mode === 'register'}
-        onChange={() => setMode('register')} />
-      <label
-        htmlFor="login"> Login
-      </label>
-      <input
-        type="radio"
-        id="login"
-        checked={mode === 'login'}
-        onChange={() => setMode('login')} />
       <form onSubmit={onFormSubmit}>
         <label htmlFor="username"> Username </label>
         <input
@@ -88,8 +75,12 @@ export const Login = () => {
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)} />
-        <button type="submit">Submit</button>
+        <button type="submit">Login</button>
       </form>
+      <button
+        type="button"
+        onClick={onGoToRegistrationButtonClick}> register as a Plant Parent
+      </button>
     </>
   )
 }

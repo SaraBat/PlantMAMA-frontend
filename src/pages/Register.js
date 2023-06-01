@@ -1,9 +1,77 @@
-import React from 'react'
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { API_URL } from 'utils/BackendUrl';
+import user from 'reducers/user';
 
 export const Register = () => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const mode = 'register';
+  // dispatch to put access token into main component
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // get accessToken from store
+  const accessToken = useSelector((store) => store.user.accessToken);
+  useEffect(() => {
+    if (accessToken) {
+      navigate(`/${username}`)
+    }
+  }, [accessToken]);
+  const onFormSubmit = (event) => {
+    // form not to reload page
+    event.preventDefault();
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      // eslint-disable-next-line object-shorthand
+      body: JSON.stringify({ username: username, email: email, password: password })
+    };
+    fetch(API_URL(mode), options)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          console.log(data)
+          dispatch(user.actions.setAccessToken(data.response.accessToken));
+          dispatch(user.actions.setUsername(data.response.username));
+          dispatch(user.actions.setEmail(data.response.email));
+          dispatch(user.actions.setUserId(data.response.id));
+          dispatch(user.actions.setError(null));
+          navigate('/login')
+        } else {
+          dispatch(user.actions.setAccessToken(null));
+          dispatch(user.actions.setUsername(null));
+          dispatch(user.actions.setEmail(null));
+          dispatch(user.actions.setUserId(null));
+          dispatch(user.actions.setError(data.response))
+        }
+      })
+  }
   return (
-    <div>
-      Lalalalalala
-    </div>
+    <form onSubmit={onFormSubmit}>
+      <label htmlFor="username"> Username </label>
+      <input
+        type="text"
+        id="username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)} />
+      <label htmlFor="email"> Email </label>
+      <input
+        type="email"
+        id="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)} />
+      <label htmlFor="password"> Password </label>
+      <input
+        type="password"
+        id="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)} />
+      <button type="submit">Register</button>
+    </form>
   )
 }

@@ -19,9 +19,10 @@ import { Provider } from 'react-redux';
 export const App = () => {
   const reducer = combineReducers({
     user: user.reducer,
-    thoughts: plants.reducer
+    plants: plants.reducer
   });
   const store = configureStore({ reducer })
+
   return (
     <Provider store={store}>
       <BrowserRouter>
