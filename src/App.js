@@ -11,23 +11,34 @@ import { PlantSpecies } from 'pages/PlantSpecies';
 import { NotFound } from 'pages/NotFound';
 import { Contact } from 'pages/Contact';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import user from 'reducers/user';
+import plants from 'reducers/plants';
+import { Provider } from 'react-redux';
 
 export const App = () => {
+  const reducer = combineReducers({
+    user: user.reducer,
+    thoughts: plants.reducer
+  });
+  const store = configureStore({ reducer })
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/:username" element={<UserProfile />} />
-        <Route path="/:username/garden" element={<UserGarden />} />
-        <Route path="/:username/garden/:plantusername" element={<PlantProfile />} />
-        <Route path="/:username/garden/:plantusername/:plantusernamespecies" element={<PlantUsernameSpecies />} />
-        <Route path="/plantdatabase" element={<PlantDatabase />} />
-        <Route path="/plantdatabase/:id" element={<PlantSpecies />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/:username" element={<UserProfile />} />
+          <Route path="/:username/garden" element={<UserGarden />} />
+          <Route path="/:username/:plantId" element={<PlantProfile />} />
+          <Route path="/:username/:plantId/:plantusernamespecies" element={<PlantUsernameSpecies />} />
+          <Route path="/plantdatabase" element={<PlantDatabase />} />
+          <Route path="/plantdatabase/:id" element={<PlantSpecies />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   )
 }
