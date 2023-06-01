@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { REACT_APP_PLANT_API_KEY } from 'utils/BackendUrl';
 
 export const PlantDatabase = () => {
   // we could filter API data by
@@ -24,7 +25,7 @@ export const PlantDatabase = () => {
 
   const [plantSpeciesList, setPlantSpeciesList] = useState([]);
   useEffect(() => {
-    fetch('https://perenual.com/api/species-list?page=1&key=[key]&indoor=1')
+    fetch(`https://perenual.com/api/species-list?page=1&key=${REACT_APP_PLANT_API_KEY}&indoor=1`)
       .then((response) => response.json())
       .then((data) => setPlantSpeciesList((data.data)))
   }, []);

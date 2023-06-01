@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { REACT_APP_PLANT_API_KEY } from 'utils/BackendUrl';
 import { SinglePlantSpecies } from 'components/SinglePlantSpecies';
 
 export const PlantUsernameSpecies = () => {
   const { plantusernamespecies } = useParams();
   const [plantSpeciesList, setPlantSpeciesList] = useState([]);
   useEffect(() => {
-    fetch(`https://perenual.com/api/species-list?key={key}&q=${plantusernamespecies}`)
+    fetch(`https://perenual.com/api/species-list?key=${REACT_APP_PLANT_API_KEY}&q=${plantusernamespecies}`)
       .then((response) => response.json())
       .then((data) => setPlantSpeciesList(data.data))
   }, [plantusernamespecies]);

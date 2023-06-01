@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { REACT_APP_PLANT_API_KEY } from 'utils/BackendUrl';
 import { Loading } from './Loading';
 
 export const SinglePlantSpecies = ({ id }) => {
@@ -10,7 +11,7 @@ export const SinglePlantSpecies = ({ id }) => {
   const [loading, setLoading] = useState(true);
   const [plantSpecies, setPlantSpecies] = useState('');
   useEffect(() => {
-    fetch(`https://perenual.com/api/species/details/${id}?key={key}`)
+    fetch(`https://perenual.com/api/species/details/${id}?key=${REACT_APP_PLANT_API_KEY}`)
       .then((response) => response.json())
       .then((data) => {
         if (data) {
