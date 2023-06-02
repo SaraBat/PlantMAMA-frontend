@@ -1,18 +1,15 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { API_URL } from 'utils/BackendUrl';
 import plants from 'reducers/plants';
 
-export const Login = () => {
+export const AddPlant = () => {
   const [plantname, setPlantname] = useState('');
   const [species, setSpecies] = useState('');
-  // responsible for login
-  const mode = 'login';
+
   // dispatch to put access token into main component
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   // get accessToken from store
   const accessToken = useSelector((store) => store.user.accessToken);
@@ -23,32 +20,30 @@ export const Login = () => {
     const options = {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: accessToken
       },
       // eslint-disable-next-line object-shorthand
       body: JSON.stringify({ plantname: { plantname }, species: { species } })
     };
-    fetch(API_URL(mode), options)
+    fetch(API_URL, options)
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
           console.log(data)
-          dispatch(plants.actions.setAccessToken(data.response.accessToken));
           dispatch(plants.actions.setPlantname(data.response.plantname));
-          dispatch(plants.actions.setEmail(data.response.species));
+          dispatch(plants.actions.setSpecies(data.response.species));
           dispatch(plants.actions.setError(null));
         } else {
-          dispatch(plants.actions.setAccessToken(null));
-          dispatch(plants.actions.setUsername(null));
-          dispatch(plants.actions.setEmail(null));
-          dispatch(plants.actions.setUserId(null));
+          dispatch(plants.actions.setPlantname(null));
+          dispatch(plants.actions.setSpecies(null));
           dispatch(plants.actions.setError(data.response))
         }
       })
   }
   return (
     <form onSubmit={onFormSubmit}>
-      <label htmlFor="plantname"> Username </label>
+      <label htmlFor="plantname"> Name of your plant baby </label>
       <input
         type="text"
         id="plantname"
@@ -56,7 +51,7 @@ export const Login = () => {
         onChange={(e) => setPlantname(e.target.value)} />
       <label htmlFor="species"> Species </label>
       <input
-        type="species"
+        type="text"
         id="species"
         value={species}
         onChange={(e) => setSpecies(e.target.value)} />
