@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import plants from 'reducers/plants';
 import { API_URL } from 'utils/BackendUrl';
 import user from 'reducers/user';
+import { AddPlant } from 'components/AddPlant';
 
 export const UserGarden = () => {
   const navigate = useNavigate();
@@ -61,6 +62,7 @@ export const UserGarden = () => {
         onClick={onLogoutClick}> Log Out
       </button>
       <Weather />
+      <AddPlant />
       <h2> these are the plants of {username.toUpperCase()}</h2>
       {plantItems ? (
         plantItems.map((item) => {

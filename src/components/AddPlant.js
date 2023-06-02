@@ -26,7 +26,7 @@ export const AddPlant = () => {
       // eslint-disable-next-line object-shorthand
       body: JSON.stringify({ plantname: { plantname }, species: { species } })
     };
-    fetch(API_URL, options)
+    fetch(API_URL(''), options)
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
