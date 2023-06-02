@@ -3,19 +3,10 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import plants from 'reducers/plants';
-import { API_URL } from 'utils/BackendUrl';
 import user from 'reducers/user';
 
 export const UserProfile = () => {
   const navigate = useNavigate();
-  /*
-  const onGoToGardenButtonClick = () => {
-    navigate('/:username/garden');
-  };
-
-  <button type="button" onClick={onGoToGardenButtonClick}> Go to Garden </button>
-  */
-  const plantItems = useSelector((store) => store.plants.items);
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
@@ -23,28 +14,6 @@ export const UserProfile = () => {
     if (!accessToken) {
       navigate('/login')
     }
-  // eslint-disable-next-line
-  }, [accessToken]);
-
-  useEffect(() => {
-    const options = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: accessToken
-      }
-    }
-    fetch(API_URL('plants'), options)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          dispatch(plants.actions.setError(null));
-          dispatch(plants.actions.setItems(data.response))
-        } else {
-          dispatch(plants.actions.setError(data.response));
-          dispatch(plants.actions.setItems([]))
-        }
-      });
   // eslint-disable-next-line
   }, [accessToken]);
   const onLogoutClick = () => {
@@ -55,6 +24,9 @@ export const UserProfile = () => {
     dispatch(plants.actions.setItems([]));
     navigate('/')
   };
+  const onGoToGardenButtonClick = () => {
+    navigate('garden');
+  };
   return (
     <div>
       <button
@@ -64,17 +36,7 @@ export const UserProfile = () => {
       <h1> {username} </h1>
       <p> Bio </p>
       <image alt="user" />
-
-      <h2> these are the plants of {username.toUpperCase()}</h2>
-      {plantItems ? (() => {
-        plantItems.map((item) => {
-          return (
-            <p key={item._id}>
-              {item.message}
-            </p>
-          )
-        })
-      }) : ''}
+      <button type="button" onClick={onGoToGardenButtonClick}> Go to Garden </button>
     </div>
   )
 }

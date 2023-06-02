@@ -37,34 +37,35 @@ export const Weather = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&APPID=${REACT_APP_WEATHER_API_KEY}`)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data) {
-          console.log(data);
-          setCity(data.name);
-          setMain(data.weather[0].main);
-          setDescription(data.weather[0].description);
-          setTemp(data.main.temp);
-          setHumidity(data.main.humidity);
+    if (latitude && longitude) {
+      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&APPID=${REACT_APP_WEATHER_API_KEY}`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data) {
+            setCity(data.name);
+            setMain(data.weather[0].main);
+            setDescription(data.weather[0].description);
+            setTemp(data.main.temp);
+            setHumidity(data.main.humidity);
 
-          const sunriseTimeStamp = (data.sys.sunrise * 1000);
-          const sunriseFormat = new Date(sunriseTimeStamp);
-          const sunriseHours = sunriseFormat.getHours().toString().padStart(2, '0');
-          const sunriseMinutes = sunriseFormat.getMinutes().toString().padStart(2, '0');
-          const sunriseFinal = `${sunriseHours}:${sunriseMinutes}`;
-          setSunrise(sunriseFinal);
+            const sunriseTimeStamp = (data.sys.sunrise * 1000);
+            const sunriseFormat = new Date(sunriseTimeStamp);
+            const sunriseHours = sunriseFormat.getHours().toString().padStart(2, '0');
+            const sunriseMinutes = sunriseFormat.getMinutes().toString().padStart(2, '0');
+            const sunriseFinal = `${sunriseHours}:${sunriseMinutes}`;
+            setSunrise(sunriseFinal);
 
-          const sunsetTimeStamp = (data.sys.sunset * 1000);
-          const sunsetFormat = new Date(sunsetTimeStamp);
-          const sunsetHours = sunsetFormat.getHours().toString().padStart(2, '0');
-          const sunsetMinutes = sunsetFormat.getMinutes().toString().padStart(2, '0');
-          const sunsetFinal = `${sunsetHours}:${sunsetMinutes}`;
-          setSunset(sunsetFinal);
-          setLoading(false);
-        }
-      })
-      .catch((e) => console.log(e));
+            const sunsetTimeStamp = (data.sys.sunset * 1000);
+            const sunsetFormat = new Date(sunsetTimeStamp);
+            const sunsetHours = sunsetFormat.getHours().toString().padStart(2, '0');
+            const sunsetMinutes = sunsetFormat.getMinutes().toString().padStart(2, '0');
+            const sunsetFinal = `${sunsetHours}:${sunsetMinutes}`;
+            setSunset(sunsetFinal);
+            setLoading(false);
+          }
+        })
+        .catch((e) => console.log(e));
+    }
   }, [latitude, longitude]);
 
   if (!navigator.geolocation) { return (error) }
