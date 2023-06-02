@@ -4,6 +4,7 @@ import { REACT_APP_PLANT_API_KEY } from 'utils/BackendUrl';
 
 export const PlantDatabase = () => {
   // we could filter API data by
+
   /*
   Cycle - optional, string
    The plant cycle of the species.

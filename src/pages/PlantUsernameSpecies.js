@@ -25,6 +25,3 @@ export const PlantUsernameSpecies = () => {
     </section>
   )
 }
-
-// missing plant image - need to access object
-// missing sunlight - need to access array
