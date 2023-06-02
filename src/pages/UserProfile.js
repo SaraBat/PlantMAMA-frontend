@@ -53,6 +53,7 @@ export const UserProfile = () => {
     dispatch(user.actions.setUserId(null));
     dispatch(user.actions.setError(null));
     dispatch(plants.actions.setItems([]));
+    navigate('/')
   };
   return (
     <div>

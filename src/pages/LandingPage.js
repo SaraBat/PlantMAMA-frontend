@@ -1,3 +1,4 @@
+import { Nav } from 'components/Nav';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,6 +12,7 @@ export const LandingPage = () => {
   }
   return (
     <div>
+      <Nav />
       <h1> WELCOME TO PLANT MAMA </h1>
       <button type="button" onClick={onRegisterButtonClick}> Register </button>
       <button type="button" onClick={onLoginButtonClick}> Login </button>
