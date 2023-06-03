@@ -19,6 +19,7 @@ export const Register = () => {
     if (accessToken) {
       navigate(`/${username}`)
     }
+  // eslint-disable-next-line
   }, [accessToken]);
   const onFormSubmit = (event) => {
     // form not to reload page
