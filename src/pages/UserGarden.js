@@ -61,25 +61,26 @@ export const UserGarden = () => {
   if (loading) { return (<Loading />) }
   return (
     <div>
+      <h5> Weather</h5>
+      <Weather />
+      <h2> Add Plant </h2>
+      <AddPlant />
+      <h2> Garden of {username.toUpperCase()}</h2>
+      <div className="garden">
+        {plantItems ? (
+          plantItems.map((item) => {
+            return (
+              <div key={item._id}>
+                <p> Name: {item.plantname} | <Link to={item._id}> Profile </Link></p>
+              </div>
+            )
+          })
+        ) : ''}
+      </div>
       <button
         type="button"
         onClick={onLogoutClick}> Log Out
       </button>
-      <h1> Weather</h1>
-      <Weather />
-      <h1> Add Plant </h1>
-      <AddPlant />
-      <h1> Garden of {username.toUpperCase()}</h1>
-      {plantItems ? (
-        plantItems.map((item) => {
-          return (
-            <div key={item._id}>
-              <p> Name: {item.plantname} </p>
-              <Link to={item._id}>Go to Plant Profile </Link>
-            </div>
-          )
-        })
-      ) : ''}
     </div>
   )
 }

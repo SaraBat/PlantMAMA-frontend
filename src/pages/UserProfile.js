@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint no-underscore-dangle: ["error", { "allow": [ "_id"] }] */
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -31,14 +32,14 @@ export const UserProfile = () => {
   };
   return (
     <div>
+      <h1> {username} </h1>
+      <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. </p>
+      <image alt="user" />
+      <button type="button" onClick={onGoToGardenButtonClick}> Go to Garden </button>
       <button
         type="button"
         onClick={onLogoutClick}> Log Out
       </button>
-      <h1> {username} </h1>
-      <p> Bio </p>
-      <image alt="user" />
-      <button type="button" onClick={onGoToGardenButtonClick}> Go to Garden </button>
     </div>
   )
 }

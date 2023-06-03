@@ -11,3 +11,80 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: 100vh;
+  background-color: #7B9E89;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 50vh;
+  width: 90%;
+  color: white;
+}
+
+.garden {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5%;
+}
+
+nav {
+  margin-top: 0;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #EB7453;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+button {
+  margin: 5px;
+  padding: 8px;
+  background-color: white;
+  color: black;
+  background-color: #F18805;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+button:hover {
+  background-color: white;
+}
