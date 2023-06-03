@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import plants from 'reducers/plants';
 import user from 'reducers/user';
 
+// Why is this component calling UserGarden API?
+
 export const UserProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();

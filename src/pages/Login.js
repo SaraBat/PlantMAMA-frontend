@@ -78,7 +78,7 @@ export const Login = () => {
       </form>
       <button
         type="button"
-        onClick={onGoToRegistrationButtonClick}> register as a Plant Parent
+        onClick={onGoToRegistrationButtonClick}> Not a plant parent yet? Register here
       </button>
     </>
   )

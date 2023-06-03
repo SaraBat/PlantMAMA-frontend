@@ -32,8 +32,8 @@ export const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/:username" element={<UserProfile />} />
           <Route path="/:username/garden" element={<UserGarden />} />
-          <Route path="/:username/:plantId" element={<PlantProfile />} />
-          <Route path="/:username/:plantId/:plantusernamespecies" element={<PlantUsernameSpecies />} />
+          <Route path="/:username/garden/:plantId" element={<PlantProfile />} />
+          <Route path="/:username/garden/:plantId/:plantusernamespecies" element={<PlantUsernameSpecies />} />
           <Route path="/plantdatabase" element={<PlantDatabase />} />
           <Route path="/plantdatabase/:id" element={<PlantSpecies />} />
           <Route path="*" element={<NotFound />} />

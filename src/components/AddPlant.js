@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,7 +14,6 @@ export const AddPlant = () => {
 
   // get accessToken from store
   const accessToken = useSelector((store) => store.user.accessToken);
-  console.log(accessToken);
 
   const onFormSubmit = (event) => {
     // form not to reload page
@@ -33,6 +33,10 @@ export const AddPlant = () => {
         if (data.success) {
           dispatch(plants.actions.setPlantname(data.response.plantname));
           dispatch(plants.actions.setSpecies(data.response.species));
+          dispatch(plants.actions.setPlantId(data.response._id))
+          dispatch(plants.actions.setBirthday(data.response.birthday));
+          dispatch(plants.actions.setLastWatered(data.response.lastWatered));
+          dispatch(plants.actions.setLastSoilChange(data.response.lastSoilChange));
           dispatch(plants.actions.setError(null));
         } else {
           dispatch(plants.actions.setPlantname(null));
@@ -40,6 +44,10 @@ export const AddPlant = () => {
           dispatch(plants.actions.setError(data.response))
         }
       })
+      .then(
+        setPlantname(''),
+        setSpecies('')
+      )
   }
   return (
     <form onSubmit={onFormSubmit}>
