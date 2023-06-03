@@ -63,7 +63,7 @@ export const AddPlant = () => {
         id="species"
         value={species}
         onChange={(e) => setSpecies(e.target.value)} />
-      <button type="submit"> Create Plant </button>
+      <button type="submit"> Add Plant to my garden </button>
     </form>
   )
 }

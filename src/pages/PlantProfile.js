@@ -49,13 +49,13 @@ export const PlantProfile = () => {
       <p> Name: {plantname} </p>
       <p> PlantMama {username} </p>
       <p> Species: {species} </p>
-      <button type="button" onClick={onGoToPlantSpeciesButtonClick}> link to plant species page </button>
+      <button type="button" onClick={onGoToPlantSpeciesButtonClick}> WIP link to plant species page </button>
       <p> Last Drink:
         {formatDistance(new Date(lastWatered), Date.now(), { addSuffix: true })}
       </p>
       <p> Birthday: {birthday} </p>
       <p> Lst Soil change: {lastSoilChange} </p>
-      <Link to="">Go to Plant Species </Link>
+      <Link to="">WIP Go to Plant Species </Link>
     </div>
   )
 }

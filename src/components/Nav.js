@@ -5,8 +5,10 @@ export const Nav = () => {
 // NavLinks have "active" class that can be styled
   return (
     <nav>
-      <Link to="/"> Plant Mama </Link>
       <ul>
+        <li>
+          <Link to="/"> Plant Mama </Link>
+        </li>
         <li>
           <NavLink to="/"> Home </NavLink>
         </li>

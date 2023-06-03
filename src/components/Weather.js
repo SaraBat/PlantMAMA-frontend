@@ -71,15 +71,7 @@ export const Weather = () => {
   if (!navigator.geolocation) { return (error) }
   if (loading) { return (<Loading />) }
   return (
-    <section>
-      <p>{city}</p>
-      <p>{main}</p>
-      <p>{description}</p>
-      <p>{temp}°</p>
-      <p>{humidity}%</p>
-      <p> {sunrise}</p>
-      <p>{sunset} </p>
-    </section>
+    <p>{city} | {main} | {description} | {temp}° | {humidity}% | {sunrise} | {sunset} </p>
 
   )
 }
