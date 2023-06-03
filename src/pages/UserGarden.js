@@ -1,14 +1,16 @@
-// eslint-disable-no-useless-concat
+/* eslint-disable-no-useless-concat */
+/* eslint-disable no-underscore-dangle */
 import { Weather } from 'components/Weather';
 import { Loading } from 'components/Loading';
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import plants from 'reducers/plants';
 import { API_URL } from 'utils/BackendUrl';
 import user from 'reducers/user';
 import { AddPlant } from 'components/AddPlant';
-import { PlantProfile } from './PlantProfile';
+
+// why does this component call the API inside of AddPlant?
 
 export const UserGarden = () => {
   const navigate = useNavigate();
@@ -17,11 +19,11 @@ export const UserGarden = () => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
+
   useEffect(() => {
     if (!accessToken) {
       navigate('/login')
     }
-  // eslint-disable-next-line
   });
 
   useEffect(() => {
@@ -36,7 +38,6 @@ export const UserGarden = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          console.log(data);
           dispatch(plants.actions.setError(null));
           dispatch(plants.actions.setItems(data.response));
           setLoading(false);
@@ -47,6 +48,7 @@ export const UserGarden = () => {
       });
   // eslint-disable-next-line
   }, []);
+
   const onLogoutClick = () => {
     dispatch(user.actions.setAccessToken(null));
     dispatch(user.actions.setUsername(null));
@@ -55,6 +57,7 @@ export const UserGarden = () => {
     dispatch(plants.actions.setItems([]));
     navigate('/')
   }
+
   if (loading) { return (<Loading />) }
   return (
     <div>
@@ -70,9 +73,9 @@ export const UserGarden = () => {
       {plantItems ? (
         plantItems.map((item) => {
           return (
-            // eslint-disable-next-line no-underscore-dangle
             <div key={item._id}>
-              <PlantProfile />
+              <p> Name: {item.plantname} </p>
+              <Link to={item._id}>Go to Plant Profile </Link>
             </div>
           )
         })
