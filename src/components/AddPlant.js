@@ -13,6 +13,7 @@ export const AddPlant = () => {
 
   // get accessToken from store
   const accessToken = useSelector((store) => store.user.accessToken);
+  console.log(accessToken);
 
   const onFormSubmit = (event) => {
     // form not to reload page
@@ -24,13 +25,12 @@ export const AddPlant = () => {
         Authorization: accessToken
       },
       // eslint-disable-next-line object-shorthand
-      body: JSON.stringify({ plantname: { plantname }, species: { species } })
+      body: JSON.stringify({ plantname: plantname, species: species })
     };
-    fetch(API_URL(''), options)
+    fetch(API_URL('addplant'), options)
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          console.log(data)
           dispatch(plants.actions.setPlantname(data.response.plantname));
           dispatch(plants.actions.setSpecies(data.response.species));
           dispatch(plants.actions.setError(null));

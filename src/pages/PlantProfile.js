@@ -1,15 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const PlantProfile = () => {
+export const PlantProfile = (item) => {
   const navigate = useNavigate();
   const onGoToPlantSpeciesButtonClick = () => {
     navigate('/plantdatabase/:plantspecies');
   };
   return (
     <div>
-      <h1>Plant name</h1>
-      <h2> Plant species </h2>
+      <p> Name: {item.plantname} </p>
+      <p> Species: {item.species} </p>
       <button type="button" onClick={onGoToPlantSpeciesButtonClick}> link to plant species page </button>
       <h3> Birthday </h3>
       <h3> Last watered </h3>
