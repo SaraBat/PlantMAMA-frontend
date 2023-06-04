@@ -56,6 +56,10 @@ export const Login = () => {
   }
   return (
     <>
+      <button
+        type="button"
+        onClick={onGoToRegistrationButtonClick}> Not a plant parent yet? Register here
+      </button>
       <form onSubmit={onFormSubmit}>
         <label htmlFor="username"> Username </label>
         <input
@@ -77,10 +81,6 @@ export const Login = () => {
           onChange={(e) => setPassword(e.target.value)} />
         <button type="submit">Login</button>
       </form>
-      <button
-        type="button"
-        onClick={onGoToRegistrationButtonClick}> Not a plant parent yet? Register here
-      </button>
     </>
   )
 }
