@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from 'utils/BackendUrl';
 import plants from 'reducers/plants';
 
-export const AddPlant = () => {
+export const AddPlant = ({ handleAddPlant }) => {
   const [plantname, setPlantname] = useState('');
   const [species, setSpecies] = useState('');
 
@@ -24,31 +24,37 @@ export const AddPlant = () => {
         'Content-Type': 'application/json',
         Authorization: accessToken
       },
-      // eslint-disable-next-line object-shorthand
-      body: JSON.stringify({ plantname: plantname, species: species })
+      body: JSON.stringify({ plantname, species })
     };
     fetch(API_URL('addplant'), options)
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          dispatch(plants.actions.setPlantname(data.response.plantname));
-          dispatch(plants.actions.setSpecies(data.response.species));
-          dispatch(plants.actions.setPlantId(data.response._id))
-          dispatch(plants.actions.setBirthday(data.response.birthday));
-          dispatch(plants.actions.setLastWatered(data.response.lastWatered));
-          dispatch(plants.actions.setLastSoilChange(data.response.lastSoilChange));
+          // creating a new plant-object with data based on the plant-schema:
+          const newPlant = {
+            _id: data.response._id,
+            plantname,
+            species,
+            birthday: data.response.birthday,
+            lastWatered: data.response.lastWatered,
+            lastSoilChange: data.response.lastSoilChange
+          };
           dispatch(plants.actions.setError(null));
+          // calling the handleAddPlant-function with the newPlant-object
+          // as an argument, comprised of all the data the user passed in themselves
+          handleAddPlant(newPlant);
         } else {
-          dispatch(plants.actions.setPlantname(null));
-          dispatch(plants.actions.setSpecies(null));
-          dispatch(plants.actions.setError(data.response))
+          // dispatching error message if plant object wasn't successfully created
+          dispatch(plants.actions.setError(data.response));
         }
       })
-      .then(
-        setPlantname(''),
-        setSpecies('')
-      )
-  }
+      // emptying the form when the new plant has been added
+      .then(() => {
+        setPlantname('');
+        setSpecies('');
+      });
+  };
+
   return (
     <form onSubmit={onFormSubmit}>
       <label htmlFor="plantname"> Name of your plant baby </label>

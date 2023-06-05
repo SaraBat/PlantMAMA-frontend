@@ -56,15 +56,26 @@ export const UserGarden = () => {
     dispatch(user.actions.setError(null));
     dispatch(plants.actions.setItems([]));
     navigate('/')
+  };
+
+  // function that takes a new plant as a param and updates the state of the plants
+  // array using spread operator. it creates a new array with the existing plants
+  // and the new plant added to it.
+  const handleAddPlant = (newPlant) => {
+    dispatch(plants.actions.setItems([...plantItems, newPlant]));
+  };
+
+  if (loading) {
+    return (<Loading />)
   }
 
-  if (loading) { return (<Loading />) }
   return (
     <div>
       <h5> Weather</h5>
       <Weather />
       <h2> Add Plant </h2>
-      <AddPlant />
+      {/* passing the handleAddPlant-function into the addplant-component */}
+      <AddPlant handleAddPlant={handleAddPlant} />
       <h2> Garden of {username.toUpperCase()}</h2>
       <div className="garden">
         {plantItems ? (
@@ -83,4 +94,4 @@ export const UserGarden = () => {
       </button>
     </div>
   )
-}
+};
