@@ -27,37 +27,27 @@ export const UserGarden = () => {
   });
 
   useEffect(() => {
-    const fetchPlants = async () => {
-      try {
-        const options = {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: accessToken
-          }
-        };
-        const response = fetch(API_URL(`${username}/garden`), options);
-        const data = await (await response).json();
-        // fetch(API_URL(`${username}/garden`), options)
-        //   .then((response) => response.json())
-        //   .then((data) => {
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      }
+    }
+    fetch(API_URL(`${username}/garden`), options)
+      .then((response) => response.json())
+      .then((data) => {
         if (data.success) {
           dispatch(plants.actions.setError(null));
           dispatch(plants.actions.setItems(data.response));
-          // setLoading(false);
+          setLoading(false);
         } else {
           dispatch(plants.actions.setError(data.response));
           dispatch(plants.actions.setItems([]))
         }
-      } catch (error) {
-        dispatch(plants.actions.setError(error.message));
-        dispatch(plants.actions.setItems([]));
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchPlants();
-  }, [accessToken, dispatch, username])
+      });
+  // eslint-disable-next-line
+  }, []);
 
   const onLogoutClick = () => {
     dispatch(user.actions.setAccessToken(null));
