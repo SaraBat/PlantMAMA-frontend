@@ -27,27 +27,37 @@ export const UserGarden = () => {
   });
 
   useEffect(() => {
-    const options = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: accessToken
-      }
-    }
-    fetch(API_URL(`${username}/garden`), options)
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchPlants = async () => {
+      try {
+        const options = {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: accessToken
+          }
+        };
+        const response = fetch(API_URL(`${username}/garden`), options);
+        const data = await (await response).json();
+        // fetch(API_URL(`${username}/garden`), options)
+        //   .then((response) => response.json())
+        //   .then((data) => {
         if (data.success) {
           dispatch(plants.actions.setError(null));
           dispatch(plants.actions.setItems(data.response));
-          setLoading(false);
+          // setLoading(false);
         } else {
           dispatch(plants.actions.setError(data.response));
           dispatch(plants.actions.setItems([]))
         }
-      });
-  // eslint-disable-next-line
-  }, []);
+      } catch (error) {
+        dispatch(plants.actions.setError(error.message));
+        dispatch(plants.actions.setItems([]));
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchPlants();
+  }, [accessToken, dispatch, username])
 
   const onLogoutClick = () => {
     dispatch(user.actions.setAccessToken(null));
@@ -56,15 +66,26 @@ export const UserGarden = () => {
     dispatch(user.actions.setError(null));
     dispatch(plants.actions.setItems([]));
     navigate('/')
+  };
+
+  // function that takes a new plant as a param and updates the state of the plants
+  // array using spread operator. it creates a new array with the existing plants
+  // and the new plant added to it.
+  const handleAddPlant = (newPlant) => {
+    dispatch(plants.actions.setItems([...plantItems, newPlant]));
+  };
+
+  if (loading) {
+    return (<Loading />)
   }
 
-  if (loading) { return (<Loading />) }
   return (
     <div>
       <h5> Weather</h5>
       <Weather />
       <h2> Add Plant </h2>
-      <AddPlant />
+      {/* passing the handleAddPlant-function into the addplant-component */}
+      <AddPlant handleAddPlant={handleAddPlant} />
       <h2> Garden of {username.toUpperCase()}</h2>
       <div className="garden">
         {plantItems ? (
@@ -83,4 +104,4 @@ export const UserGarden = () => {
       </button>
     </div>
   )
-}
+};
