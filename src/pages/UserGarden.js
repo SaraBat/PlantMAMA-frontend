@@ -19,6 +19,9 @@ export const UserGarden = () => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
+  const onBackClick = () => {
+    navigate(-1);
+  };
 
   useEffect(() => {
     if (!accessToken) {
@@ -91,6 +94,10 @@ export const UserGarden = () => {
       <button
         type="button"
         onClick={onLogoutClick}> Log Out
+      </button>
+      <button
+        type="button"
+        onClick={onBackClick}> Back
       </button>
     </div>
   )

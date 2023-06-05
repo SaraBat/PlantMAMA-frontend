@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { REACT_APP_PLANT_API_KEY } from 'utils/BackendUrl';
 import { SinglePlantSpecies } from 'components/SinglePlantSpecies';
 
 export const PlantUsernameSpecies = () => {
   const { plantusernamespecies } = useParams();
+  const navigate = useNavigate();
   const [plantSpeciesList, setPlantSpeciesList] = useState([]);
+  const onBackClick = () => {
+    navigate(-1);
+  };
   useEffect(() => {
     fetch(`https://perenual.com/api/species-list?key=${REACT_APP_PLANT_API_KEY}&q=${plantusernamespecies}`)
       .then((response) => response.json())
@@ -22,6 +26,10 @@ export const PlantUsernameSpecies = () => {
   return (
     <section>
       <SinglePlantSpecies id={id} />
+      <button
+        type="button"
+        onClick={onBackClick}> Back
+      </button>
     </section>
   )
 }

@@ -21,6 +21,10 @@ export const Register = () => {
     }
   // eslint-disable-next-line
   }, [accessToken]);
+
+  const onBackClick = () => {
+    navigate(-1);
+  };
   const onFormSubmit = (event) => {
     // form not to reload page
     event.preventDefault();
@@ -73,6 +77,10 @@ export const Register = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)} />
       <button type="submit">Register</button>
+      <button
+        type="button"
+        onClick={onBackClick}> Back
+      </button>
     </form>
   )
 }
