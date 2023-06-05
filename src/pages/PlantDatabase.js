@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { REACT_APP_PLANT_API_KEY } from 'utils/BackendUrl';
 
 export const PlantDatabase = () => {
+  const navigate = useNavigate();
+  const onBackClick = () => {
+    navigate(-1);
+  }
+
   // we could filter API data by
 
   /*
@@ -40,6 +45,10 @@ export const PlantDatabase = () => {
           </div>
         )
       })}
+      <button
+        type="button"
+        onClick={onBackClick}> Back
+      </button>
     </div>
   )
 }

@@ -17,6 +17,10 @@ export const Login = () => {
   const onGoToRegistrationButtonClick = () => {
     navigate('/register');
   };
+
+  const onBackClick = () => {
+    navigate(-1);
+  }
   // get accessToken from store
   const accessToken = useSelector((store) => store.user.accessToken);
   useEffect(() => {
@@ -81,6 +85,10 @@ export const Login = () => {
           onChange={(e) => setPassword(e.target.value)} />
         <button type="submit">Login</button>
       </form>
+      <button
+        type="button"
+        onClick={onBackClick}> Back
+      </button>
     </>
   )
 }

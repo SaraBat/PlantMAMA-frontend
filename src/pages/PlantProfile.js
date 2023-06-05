@@ -23,6 +23,10 @@ export const PlantProfile = () => {
     navigate('/plantdatabase/:plantspecies');
   };
 
+  const onBackClick = () => {
+    navigate(-1);
+  }
+
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -80,6 +84,10 @@ export const PlantProfile = () => {
       <button
         type="button"
         onClick={onDeletePlantClick}> Delete Plant
+      </button>
+      <button
+        type="button"
+        onClick={onBackClick}> Back
       </button>
     </div>
   )
