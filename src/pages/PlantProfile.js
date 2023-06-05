@@ -58,14 +58,9 @@ export const PlantProfile = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        dispatch(plants.actions.setPlantId(null));
-        dispatch(plants.actions.setPlantname(null));
-        dispatch(plants.actions.setSpecies(null));
-        dispatch(plants.actions.setLastWatered(null));
-        dispatch(plants.actions.setBirthday(null));
-        dispatch(plants.actions.setLastSoilChange(null));
+        dispatch(plants.actions.deleteSinglePlant(plantId));
+        navigate(-1)
         dispatch(plants.actions.setError(null));
-        navigate('garden')
       });
   }
 
