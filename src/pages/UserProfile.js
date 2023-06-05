@@ -15,7 +15,7 @@ export const UserProfile = () => {
   const username = useSelector((store) => store.user.username);
   useEffect(() => {
     if (!accessToken) {
-      navigate('/login')
+      navigate('/login');
     }
   // eslint-disable-next-line
   }, [accessToken]);
@@ -25,7 +25,7 @@ export const UserProfile = () => {
     dispatch(user.actions.setUserId(null));
     dispatch(user.actions.setError(null));
     dispatch(plants.actions.setItems([]));
-    navigate('/')
+    navigate('/');
   };
   const onGoToGardenButtonClick = () => {
     navigate('garden');
@@ -41,5 +41,5 @@ export const UserProfile = () => {
         onClick={onLogoutClick}> Log Out
       </button>
     </div>
-  )
-}
+  );
+};

@@ -8,5 +8,5 @@ export const PlantSpecies = () => {
     <section>
       <SinglePlantSpecies id={id} />
     </section>
-  )
-}
+  );
+};

@@ -9,7 +9,7 @@ export const PlantUsernameSpecies = () => {
   useEffect(() => {
     fetch(`https://perenual.com/api/species-list?key=${REACT_APP_PLANT_API_KEY}&q=${plantusernamespecies}`)
       .then((response) => response.json())
-      .then((data) => setPlantSpeciesList(data.data))
+      .then((data) => setPlantSpeciesList(data.data));
   }, [plantusernamespecies]);
   console.log(plantSpeciesList);
   const ids = [];
@@ -23,5 +23,5 @@ export const PlantUsernameSpecies = () => {
     <section>
       <SinglePlantSpecies id={id} />
     </section>
-  )
-}
+  );
+};

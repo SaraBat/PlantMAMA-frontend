@@ -12,30 +12,30 @@ const plants = createSlice({
   },
   reducers: {
     setItems: (store, action) => {
-      store.items = action.payload
+      store.items = action.payload;
     },
     setError: (store, action) => {
-      store.error = action.payload
+      store.error = action.payload;
     },
     setPlantId: (store, action) => {
-      store.items.plantID = action.payload
+      store.items.plantID = action.payload;
     },
     setPlantname: (store, action) => {
-      store.items.plantname = action.payload
+      store.items.plantname = action.payload;
     },
     setSpecies: (store, action) => {
-      store.items.species = action.payload
+      store.items.species = action.payload;
     },
     setBirthday: (store, action) => {
-      store.items.species = action.payload
+      store.items.species = action.payload;
     },
     setLastWatered: (store, action) => {
-      store.items.species = action.payload
+      store.items.species = action.payload;
     },
     setLastSoilChange: (store, action) => {
-      store.items.species = action.payload
+      store.items.species = action.payload;
     }
   }
 });
 
-export default plants
+export default plants;

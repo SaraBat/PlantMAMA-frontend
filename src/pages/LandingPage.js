@@ -8,12 +8,12 @@ export const LandingPage = () => {
   };
   const onLoginButtonClick = () => {
     navigate('/login');
-  }
+  };
   return (
     <div>
       <h1> WELCOME TO PLANT MAMA </h1>
       <button type="button" onClick={onRegisterButtonClick}> Register </button>
       <button type="button" onClick={onLoginButtonClick}> Login </button>
     </div>
-  )
-}
+  );
+};

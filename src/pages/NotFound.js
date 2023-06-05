@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 export const NotFound = () => {
@@ -13,5 +13,5 @@ export const NotFound = () => {
         <Link to="/login"> Go to Login</Link>
       </p>
     </div>
-  )
-}
+  );
+};

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Login } from 'pages/Login';
 import { LandingPage } from 'pages/LandingPage';
 import { Register } from 'pages/Register';
@@ -22,7 +22,7 @@ export const App = () => {
     user: user.reducer,
     plants: plants.reducer
   });
-  const store = configureStore({ reducer })
+  const store = configureStore({ reducer });
 
   return (
     <div className="main">
@@ -47,5 +47,5 @@ export const App = () => {
         </BrowserRouter>
       </Provider>
     </div>
-  )
-}
+  );
+};

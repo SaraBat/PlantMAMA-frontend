@@ -21,7 +21,7 @@ export const Login = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   useEffect(() => {
     if (accessToken) {
-      navigate(`/${username}`)
+      navigate(`/${username}`);
     }
   // eslint-disable-next-line
   }, [accessToken]);
@@ -50,10 +50,10 @@ export const Login = () => {
           dispatch(user.actions.setUsername(null));
           dispatch(user.actions.setEmail(null));
           dispatch(user.actions.setUserId(null));
-          dispatch(user.actions.setError(data.response))
+          dispatch(user.actions.setError(data.response));
         }
-      })
-  }
+      });
+  };
   return (
     <>
       <button
@@ -82,5 +82,5 @@ export const Login = () => {
         <button type="submit">Login</button>
       </form>
     </>
-  )
-}
+  );
+};

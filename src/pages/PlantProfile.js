@@ -30,7 +30,7 @@ export const PlantProfile = () => {
         'Content-Type': 'application/json',
         Authorization: accessToken
       }
-    }
+    };
     fetch(API_URL(`${username}/garden/${plantId}`), options)
       .then((response) => response.json())
       .then((data) => {
@@ -40,10 +40,10 @@ export const PlantProfile = () => {
         setLastWatered(data.response.lastWatered);
         setBirthday(data.response.birthday);
         setLastSoilChange(data.response.lastSoilChange);
-        setLoading(false)
+        setLoading(false);
       });
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   const onDeletePlantClick = () => {
     const options = {
@@ -52,7 +52,7 @@ export const PlantProfile = () => {
         'Content-Type': 'application/json',
         Authorization: accessToken
       }
-    }
+    };
     // eslint-disable-next-line space-unary-ops
     fetch(API_URL(`${username}/garden/${plantId}`), options)
       .then((response) => response.json())
@@ -65,9 +65,9 @@ export const PlantProfile = () => {
         dispatch(plants.actions.setBirthday(null));
         dispatch(plants.actions.setLastSoilChange(null));
         dispatch(plants.actions.setError(null));
-        navigate('garden')
+        navigate('garden');
       });
-  }
+  };
 
   if (loading) return (<Loading />);
   return (
@@ -87,6 +87,6 @@ export const PlantProfile = () => {
         onClick={onDeletePlantClick}> Delete Plant
       </button>
     </div>
-  )
-}
+  );
+};
 

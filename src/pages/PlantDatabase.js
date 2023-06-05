@@ -28,7 +28,7 @@ export const PlantDatabase = () => {
   useEffect(() => {
     fetch(`https://perenual.com/api/species-list?page=1&key=${REACT_APP_PLANT_API_KEY}&indoor=1`)
       .then((response) => response.json())
-      .then((data) => setPlantSpeciesList((data.data)))
+      .then((data) => setPlantSpeciesList((data.data)));
   }, []);
   console.log(plantSpeciesList);
   return (
@@ -38,8 +38,8 @@ export const PlantDatabase = () => {
           <div key={singleSpecies.id}>
             <Link to={`/plantdatabase/${singleSpecies.id}`}> Learn more about {singleSpecies.common_name}  </Link>
           </div>
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};

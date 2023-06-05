@@ -17,7 +17,7 @@ export const Register = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   useEffect(() => {
     if (accessToken) {
-      navigate(`/${username}`)
+      navigate(`/${username}`);
     }
   // eslint-disable-next-line
   }, [accessToken]);
@@ -36,22 +36,22 @@ export const Register = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          console.log(data)
+          console.log(data);
           dispatch(user.actions.setAccessToken(data.response.accessToken));
           dispatch(user.actions.setUsername(data.response.username));
           dispatch(user.actions.setEmail(data.response.email));
           dispatch(user.actions.setUserId(data.response.id));
           dispatch(user.actions.setError(null));
-          navigate('/login')
+          navigate('/login');
         } else {
           dispatch(user.actions.setAccessToken(null));
           dispatch(user.actions.setUsername(null));
           dispatch(user.actions.setEmail(null));
           dispatch(user.actions.setUserId(null));
-          dispatch(user.actions.setError(data.response))
+          dispatch(user.actions.setError(data.response));
         }
-      })
-  }
+      });
+  };
   return (
     <form onSubmit={onFormSubmit}>
       <label htmlFor="username"> Username </label>
@@ -74,5 +74,5 @@ export const Register = () => {
         onChange={(e) => setPassword(e.target.value)} />
       <button type="submit">Register</button>
     </form>
-  )
-}
+  );
+};

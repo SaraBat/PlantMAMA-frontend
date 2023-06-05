@@ -11,21 +11,21 @@ const user = createSlice({
   },
   reducers: {
     setUsername: (store, action) => {
-      store.username = action.payload
+      store.username = action.payload;
     },
     setEmail: (store, action) => {
-      store.email = action.payload
+      store.email = action.payload;
     },
     setUserId: (store, action) => {
-      store.userId = action.payload
+      store.userId = action.payload;
     },
     setAccessToken: (store, action) => {
-      store.accessToken = action.payload
+      store.accessToken = action.payload;
     },
     setError: (store, action) => {
-      store.error = action.payload
+      store.error = action.payload;
     }
   }
 });
 
-export default user
+export default user;

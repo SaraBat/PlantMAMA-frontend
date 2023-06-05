@@ -22,7 +22,7 @@ export const UserGarden = () => {
 
   useEffect(() => {
     if (!accessToken) {
-      navigate('/login')
+      navigate('/login');
     }
   });
 
@@ -33,7 +33,7 @@ export const UserGarden = () => {
         'Content-Type': 'application/json',
         Authorization: accessToken
       }
-    }
+    };
     fetch(API_URL(`${username}/garden`), options)
       .then((response) => response.json())
       .then((data) => {
@@ -43,7 +43,7 @@ export const UserGarden = () => {
           setLoading(false);
         } else {
           dispatch(plants.actions.setError(data.response));
-          dispatch(plants.actions.setItems([]))
+          dispatch(plants.actions.setItems([]));
         }
       });
   // eslint-disable-next-line
@@ -55,7 +55,7 @@ export const UserGarden = () => {
     dispatch(user.actions.setUserId(null));
     dispatch(user.actions.setError(null));
     dispatch(plants.actions.setItems([]));
-    navigate('/')
+    navigate('/');
   };
 
   // function that takes a new plant as a param and updates the state of the plants
@@ -66,7 +66,7 @@ export const UserGarden = () => {
   };
 
   if (loading) {
-    return (<Loading />)
+    return (<Loading />);
   }
 
   return (
@@ -84,7 +84,7 @@ export const UserGarden = () => {
               <div key={item._id}>
                 <p> Name: {item.plantname} | <Link to={item._id}> Profile </Link></p>
               </div>
-            )
+            );
           })
         ) : ''}
       </div>
@@ -93,5 +93,5 @@ export const UserGarden = () => {
         onClick={onLogoutClick}> Log Out
       </button>
     </div>
-  )
+  );
 };
