@@ -25,7 +25,10 @@ export const PlantProfile = () => {
 
   const onBackClick = () => {
     navigate(-1);
-  }
+  };
+  const onEditPlantClick = () => {
+    navigate(`/${username}/garden/${plantId}/editPlant`);
+  };
 
   useEffect(() => {
     const options = {
@@ -66,7 +69,7 @@ export const PlantProfile = () => {
         navigate(-1)
         dispatch(plants.actions.setError(null));
       });
-  }
+  };
 
   if (loading) return (<Loading />);
   return (
@@ -84,6 +87,10 @@ export const PlantProfile = () => {
       <button
         type="button"
         onClick={onDeletePlantClick}> Delete Plant
+      </button>
+      <button
+        type="button"
+        onClick={onEditPlantClick}> Edit Plant
       </button>
       <button
         type="button"

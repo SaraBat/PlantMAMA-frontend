@@ -1,3 +1,5 @@
+/* eslint-disable prefer-destructuring */
+/* eslint-disable max-len */
 import { createSlice } from '@reduxjs/toolkit';
 
 const plants = createSlice({
@@ -17,6 +19,7 @@ const plants = createSlice({
     setError: (store, action) => {
       store.error = action.payload
     },
+    /*
     setPlantId: (store, action) => {
       store.items.plantID = action.payload
     },
@@ -35,17 +38,37 @@ const plants = createSlice({
     setLastSoilChange: (store, action) => {
       store.items.species = action.payload
     },
+    */
     deleteSinglePlant: (store, action) => {
-      const id = action.payload;
+      const plantId = action.payload;
       // splice method to remove single element from array based on index
       // copy array to work in immutable way
       const copyOfPlantArrayFromStoreState = store.items;
       // the id of element we're looking for needs to match action payload id
-      const condition = (element) => element.id === id;
+      const condition = (element) => element.plantId === plantId;
       // apply findIndex method to array copy with condition above
       const foundIndex = (copyOfPlantArrayFromStoreState.findIndex(condition));
       // remove 1 element from array whose id is 'foundIndex'
       copyOfPlantArrayFromStoreState.splice(foundIndex, 1);
+      // assign new value to original array without mutating it
+      store.items = copyOfPlantArrayFromStoreState;
+    },
+    editSinglePlant: (store, action) => {
+      const { plantId } = action.payload;
+      const { plantname } = action.payload;
+      const { species } = action.payload;
+      const { birthday } = action.payload;
+      // copy array to work in immutable way
+      const copyOfPlantArrayFromStoreState = store.items;
+      // the id of element we're looking for needs to match action payload id
+      const condition = (element) => element.plantId === plantId;
+      // apply findIndex method to array copy with condition above
+      const foundIndex = (copyOfPlantArrayFromStoreState.findIndex(condition));
+      // access task corresponding to index found, copy array and invert boolean (t/f)
+      // eslint-disable-next-line max-len
+      if (plantname) copyOfPlantArrayFromStoreState[foundIndex].plantname = plantname;
+      if (species) copyOfPlantArrayFromStoreState[foundIndex].species = species;
+      if (birthday) copyOfPlantArrayFromStoreState[foundIndex].birthday = birthday;
       // assign new value to original array without mutating it
       store.items = copyOfPlantArrayFromStoreState;
     }
