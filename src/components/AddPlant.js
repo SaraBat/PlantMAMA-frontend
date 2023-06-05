@@ -33,8 +33,8 @@ export const AddPlant = ({ handleAddPlant }) => {
           // creating a new plant-object with data based on the plant-schema:
           const newPlant = {
             _id: data.response._id,
-            plantname,
-            species,
+            plantname: data.response.plantname,
+            species: data.response.species,
             birthday: data.response.birthday,
             lastWatered: data.response.lastWatered,
             lastSoilChange: data.response.lastSoilChange
@@ -71,5 +71,5 @@ export const AddPlant = ({ handleAddPlant }) => {
         onChange={(e) => setSpecies(e.target.value)} />
       <button type="submit"> Add Plant to my garden </button>
     </form>
-  )
-}
+  );
+};
