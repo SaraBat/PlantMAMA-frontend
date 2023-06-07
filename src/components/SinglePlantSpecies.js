@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { REACT_APP_PLANT_API_KEY } from 'utils/BackendUrl';
 import { Loading } from './Loading';
 
 export const SinglePlantSpecies = ({ id }) => {
-  const navigate = useNavigate();
-  const onGoBackButtonClick = () => {
-    navigate(-1);
-  };
   const [loading, setLoading] = useState(true);
   const [plantSpecies, setPlantSpecies] = useState('');
   useEffect(() => {
@@ -46,7 +41,8 @@ export const SinglePlantSpecies = ({ id }) => {
         <div key={plantSpecies.id}>
           <h1>{plantSpecies.common_name} </h1>
           <h1>{ScientificName}</h1>
-          <image alt="profile" src={pictureUrl} />
+          <img alt="profile" src={pictureUrl} />
+          <p> pictureUrl: {pictureUrl} </p>
           <p> Origin: {origin}</p>
           <p> Maintenance:{plantSpecies.maintenance} </p>
           <p> Care Level:{plantSpecies.care_level} </p>
@@ -73,7 +69,6 @@ export const SinglePlantSpecies = ({ id }) => {
             <p> Edible Leaf: {plantSpecies.edible_leaf}</p>
             <p> Medicinal: {plantSpecies.medicinal}</p>
           </div>
-          <button type="button" onClick={onGoBackButtonClick}> Back </button>
         </div>
       </section>
     </div>
