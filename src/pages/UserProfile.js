@@ -34,6 +34,9 @@ export const UserProfile = () => {
   const onGoToGardenButtonClick = () => {
     navigate('garden');
   };
+  const onEditUserClick = () => {
+    navigate(`/${username}/editUser`);
+  };
   const onDeleteUserClick = () => {
     const options = {
       method: 'DELETE',
@@ -61,6 +64,10 @@ export const UserProfile = () => {
       <button
         type="button"
         onClick={onLogoutClick}> Log Out
+      </button>
+      <button
+        type="button"
+        onClick={onEditUserClick}> Edit User
       </button>
       <button
         type="button"

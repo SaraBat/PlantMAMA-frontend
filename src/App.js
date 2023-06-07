@@ -3,6 +3,7 @@ import { Login } from 'pages/Login';
 import { LandingPage } from 'pages/LandingPage';
 import { Register } from 'pages/Register';
 import { UserProfile } from 'pages/UserProfile';
+import { EditUserProfile } from 'pages/EditUserProfile';
 import { UserGarden } from 'pages/UserGarden';
 import { PlantProfile } from 'pages/PlantProfile';
 import { EditPlantProfile } from 'pages/EditPlantProfile';
@@ -36,6 +37,7 @@ export const App = () => {
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
               <Route path="/:username" element={<UserProfile />} />
+              <Route path="/:username/editUser" element={<EditUserProfile />} />
               <Route path="/:username/garden" element={<UserGarden />} />
               <Route path="/:username/garden/:plantId" element={<PlantProfile />} />
               <Route path="/:username/garden/:plantId/editPlant" element={<EditPlantProfile />} />
