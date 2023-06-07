@@ -24,6 +24,13 @@ const user = createSlice({
     },
     setError: (store, action) => {
       store.error = action.payload
+    },
+    deleteUser: (store) => {
+      store.username = null;
+      store.email = null;
+      store.userId = null;
+      store.accessToken = null;
+      store.error = null
     }
   }
 });

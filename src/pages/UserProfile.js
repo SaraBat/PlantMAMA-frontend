@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { API_URL } from 'utils/BackendUrl';
 import plants from 'reducers/plants';
 import user from 'reducers/user';
 
@@ -33,6 +34,23 @@ export const UserProfile = () => {
   const onGoToGardenButtonClick = () => {
     navigate('garden');
   };
+  const onDeleteUserClick = () => {
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      }
+    }
+    // eslint-disable-next-line space-unary-ops
+    fetch(API_URL(`${username}`), options)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        dispatch(user.actions.deleteUser());
+        navigate('/')
+      });
+  };
   return (
     <div>
       <h1> {username} </h1>
@@ -43,6 +61,10 @@ export const UserProfile = () => {
       <button
         type="button"
         onClick={onLogoutClick}> Log Out
+      </button>
+      <button
+        type="button"
+        onClick={onDeleteUserClick}> Delete User
       </button>
     </div>
   )
