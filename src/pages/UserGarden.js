@@ -50,7 +50,7 @@ export const UserGarden = () => {
         }
       });
   // eslint-disable-next-line
-  }, []);
+  }, [plantItems]);
 
   const onLogoutClick = () => {
     dispatch(user.actions.setAccessToken(null));
