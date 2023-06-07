@@ -5,6 +5,7 @@ import { SinglePlantSpecies } from 'components/SinglePlantSpecies';
 
 export const PlantUsernameSpecies = () => {
   const { plantusernamespecies } = useParams();
+  console.log(plantusernamespecies)
   const navigate = useNavigate();
   const [plantSpeciesList, setPlantSpeciesList] = useState([]);
   const onBackClick = () => {
@@ -12,8 +13,10 @@ export const PlantUsernameSpecies = () => {
   };
   useEffect(() => {
     fetch(`https://perenual.com/api/species-list?key=${REACT_APP_PLANT_API_KEY}&q=${plantusernamespecies}`)
+    // https://perenual.com/api/species-list?key=[YOUR-API-KEY]&q=monstera
       .then((response) => response.json())
       .then((data) => setPlantSpeciesList(data.data))
+      .catch((e) => console.log(e))
   }, [plantusernamespecies]);
   console.log(plantSpeciesList);
   const ids = [];

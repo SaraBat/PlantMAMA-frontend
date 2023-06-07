@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { API_URL } from 'utils/BackendUrl';
 import { Loading } from 'components/Loading';
 import { formatDistance } from 'date-fns';
@@ -20,7 +20,7 @@ export const PlantProfile = () => {
   const dispatch = useDispatch();
 
   const onGoToPlantSpeciesButtonClick = () => {
-    navigate('/plantdatabase/:plantspecies');
+    navigate(`/${username}/garden/${plantId}/species/${species}`);
   };
 
   const onBackClick = () => {
@@ -77,13 +77,12 @@ export const PlantProfile = () => {
       <p> Name: {plantname} </p>
       <p> PlantMama {username} </p>
       <p> Species: {species} </p>
-      <button type="button" onClick={onGoToPlantSpeciesButtonClick}> WIP link to plant species page </button>
+      <button type="button" onClick={onGoToPlantSpeciesButtonClick}> See plant species page </button>
       <p> Last Drink:
         {formatDistance(new Date(lastWatered), Date.now(), { addSuffix: true })}
       </p>
       <p> Birthday: {birthday} </p>
       <p> Lst Soil change: {lastSoilChange} </p>
-      <Link to="">WIP Go to Plant Species </Link>
       <button
         type="button"
         onClick={onDeletePlantClick}> Delete Plant
