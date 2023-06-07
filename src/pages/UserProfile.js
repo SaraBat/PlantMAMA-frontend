@@ -37,6 +37,9 @@ export const UserProfile = () => {
   const onEditUserClick = () => {
     navigate(`/${username}/editUser`);
   };
+  const onToDoClick = () => {
+    navigate(`/${username}/toDo`);
+  };
   const onDeleteUserClick = () => {
     const options = {
       method: 'DELETE',
@@ -61,6 +64,10 @@ export const UserProfile = () => {
       <image alt="user" />
       <button type="button" onClick={onGoToGardenButtonClick}> Go to my Garden </button>
       <button type="button" onClick={onGoToDatabaseButtonClick}> See plant database </button>
+      <button
+        type="button"
+        onClick={onToDoClick}> To Do List
+      </button>
       <button
         type="button"
         onClick={onLogoutClick}> Log Out
