@@ -9,8 +9,8 @@ import plants from 'reducers/plants';
 export const EditPlantProfile = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
-  const { plantId } = useParams();
   const fileInput = useRef();
+  const { plantId } = useParams();
   const [plantname, setPlantname] = useState('');
   const [species, setSpecies] = useState('');
   const [imageUrl, setImageUrl] = useState('');
@@ -26,15 +26,23 @@ export const EditPlantProfile = () => {
   const onFormSubmit = (event) => {
     // form not to reload page
     event.preventDefault();
+    const formData = new FormData();
+    formData.append('image', fileInput.current.files[0])
+    formData.append('plantname', plantname)
+    formData.append('species', species)
+    formData.append('birthday', birthday)
     const options = {
       method: 'PATCH',
       headers: {
-        'Content-Type': 'application/json',
+        // 'Content-Type': 'application/json',
         Authorization: accessToken
       },
-      body: JSON.stringify({ plantname, species, birthday })
+      // body: JSON.stringify({ plantname, species, birthday })
+      body: formData
     };
-    fetch(API_URL(`${username}/garden/${plantId}`), options)
+    const url = API_URL(`${username}/garden/${plantId}`);
+    const request = new Request(url, options);
+    fetch(request)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -42,14 +50,21 @@ export const EditPlantProfile = () => {
         console.log(plantname);
         console.log(species);
         console.log(birthday);
-        console.log(imageUrl);
         navigate(-2)
         // eslint-disable-next-line max-len
-        dispatch(plants.actions.editSinglePlant({ plantId: plantId, plantname: plantname, species: species, birthday: birthday, imageUrl: imageUrl }));
+        dispatch(
+          plants.actions.editSinglePlant(
+            { plantId: plantId,
+              plantname: plantname,
+              species: species,
+              birthday: birthday,
+              imageUrl: imageUrl }
+          )
+        );
         console.log('dispatch sent');
         dispatch(plants.actions.setError(null));
       });
-  }
+  };
   return (
     <>
       <form onSubmit={onFormSubmit}>
@@ -76,9 +91,8 @@ export const EditPlantProfile = () => {
           type="file"
           id="imageUrl"
           placeholder="Add plant photo"
-          value={imageUrl}
           ref={fileInput}
-          onChange={(e) => setImageUrl(e.target.value)} /><br /><br />
+          onChange={(e) => setImageUrl(e.target.files[0])} /><br /><br />
         <button type="submit"> Submit </button>
       </form>
       <button
