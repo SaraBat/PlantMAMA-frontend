@@ -75,14 +75,13 @@ export const PlantProfile = () => {
   return (
     <div>
       <p> Name: {plantname} </p>
-      <p> PlantMama {username} </p>
+      <p> PlantMama: {username} </p>
       <p> Species: {species} </p>
       <button type="button" onClick={onGoToPlantSpeciesButtonClick}> See plant species page </button>
-      <p> Last Drink:
-        {formatDistance(new Date(lastWatered), Date.now(), { addSuffix: true })}
+      <p> Last Drink: {formatDistance(new Date(lastWatered), Date.now(), { addSuffix: true })}
       </p>
       <p> Birthday: {birthday} </p>
-      <p> Lst Soil change: {lastSoilChange} </p>
+      <p> Last Soil change: {lastSoilChange} </p>
       <button
         type="button"
         onClick={onDeletePlantClick}> Delete Plant
