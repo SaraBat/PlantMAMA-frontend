@@ -58,6 +58,7 @@ const plants = createSlice({
       const { plantname } = action.payload;
       const { species } = action.payload;
       const { birthday } = action.payload;
+      const { imageUrl } = action.payload;
       // copy array to work in immutable way
       const copyOfPlantArrayFromStoreState = store.items;
       // the id of element we're looking for needs to match action payload id
@@ -69,6 +70,7 @@ const plants = createSlice({
       if (plantname) copyOfPlantArrayFromStoreState[foundIndex].plantname = plantname;
       if (species) copyOfPlantArrayFromStoreState[foundIndex].species = species;
       if (birthday) copyOfPlantArrayFromStoreState[foundIndex].birthday = birthday;
+      if (imageUrl) copyOfPlantArrayFromStoreState[foundIndex].imageUrl = imageUrl;
       // assign new value to original array without mutating it
       store.items = copyOfPlantArrayFromStoreState;
     }
