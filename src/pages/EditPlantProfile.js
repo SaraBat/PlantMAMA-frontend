@@ -9,6 +9,7 @@ import plants from 'reducers/plants';
 export const EditPlantProfile = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
+  // making sure the selected image can be used later in the code
   const fileInput = useRef();
   const { plantId } = useParams();
   const [plantname, setPlantname] = useState('');
@@ -19,6 +20,7 @@ export const EditPlantProfile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   console.log(plantId);
+
   const onBackClick = () => {
     navigate(-1);
   };
@@ -26,18 +28,19 @@ export const EditPlantProfile = () => {
   const onFormSubmit = (event) => {
     // form not to reload page
     event.preventDefault();
+    // constructing a form-data-object and appending all
+    // editable plant attributes to it (file and text formats)
     const formData = new FormData();
-    formData.append('image', fileInput.current.files[0])
     formData.append('plantname', plantname)
     formData.append('species', species)
     formData.append('birthday', birthday)
+    // set the key in the patch-request to "image" and the value to the uploaded image
+    formData.append('image', fileInput.current.files[0])
     const options = {
       method: 'PATCH',
       headers: {
-        // 'Content-Type': 'application/json',
         Authorization: accessToken
       },
-      // body: JSON.stringify({ plantname, species, birthday })
       body: formData
     };
     const url = API_URL(`${username}/garden/${plantId}`);
