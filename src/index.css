@@ -73,6 +73,12 @@ li a:hover {
   background-color: #111;
 }
 
+.plant-profile-picture {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
 button {
   margin: 5px;
   padding: 8px;

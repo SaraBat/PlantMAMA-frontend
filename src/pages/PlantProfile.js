@@ -17,6 +17,7 @@ export const PlantProfile = () => {
   const [lastWatered, setLastWatered] = useState(null);
   const [birthday, setBirthday] = useState(null);
   const [lastSoilChange, setLastSoilChange] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
   const dispatch = useDispatch();
 
   const onGoToPlantSpeciesButtonClick = () => {
@@ -47,6 +48,8 @@ export const PlantProfile = () => {
         setLastWatered(data.response.lastWatered);
         setBirthday(data.response.birthday);
         setLastSoilChange(data.response.lastSoilChange);
+        setImageUrl(data.response.imageUrl);
+
         setLoading(false)
       });
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -74,6 +77,7 @@ export const PlantProfile = () => {
   if (loading) return (<Loading />);
   return (
     <div>
+      <img className="plant-profile-picture" src={imageUrl} alt="profile" />
       <p> Name: {plantname} </p>
       <p> PlantMama: {username} </p>
       <p> Species: {species} </p>
