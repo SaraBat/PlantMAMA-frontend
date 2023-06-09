@@ -77,7 +77,7 @@ export const PlantProfile = () => {
   if (loading) return (<Loading />);
   return (
     <div>
-      <img className="plant-profile-picture" src={imageUrl} alt="profile" />
+      <img className="profile-picture" src={imageUrl} alt="profile" />
       <p> Name: {plantname} </p>
       <p> PlantMama: {username} </p>
       <p> Species: {species} </p>
