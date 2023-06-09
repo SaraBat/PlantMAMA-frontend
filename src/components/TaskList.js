@@ -1,15 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Task } from 'reducers/Task';
-import { API_URL } from 'utils/BackendUrl';
 
 export const TaskList = () => {
   const taskList = useSelector((store) => store.task.items);
-  console.log(taskList);
-  const accessToken = useSelector((store) => store.user.accessToken);
-  console.log(accessToken);
-  const username = useSelector((store) => store.user.username);
-  console.log(username);
   const dispatch = useDispatch();
   const OnDeleteSingleTaskButtonClick = (id) => {
     dispatch(Task.actions.deleteSingleTask(id));
@@ -21,28 +15,6 @@ export const TaskList = () => {
     dispatch(Task.actions.deleteAllTasks())
   };
 
-  useEffect(() => {
-    const options = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: accessToken
-      }
-    }
-    fetch(API_URL(`${username}/todo`), options)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          dispatch(Task.actions.setError(null));
-          dispatch(Task.actions.setItems(data.response));
-        } else {
-          dispatch(Task.actions.setError(data.response));
-          dispatch(Task.actions.setItems([]))
-        }
-      });
-  // eslint-disable-next-line
-  }, [taskList]);
-
   /* map below works because of spread operator in Task.js
   that creates an array and includes new tasks added
   without any nesting - if there were nesting
@@ -52,7 +24,7 @@ export const TaskList = () => {
       <ul>
         {taskList.map((singleTask) => {
           return (
-            <section key={singleTask.id} className="TaskListSection">
+            <section className="TaskListSection">
               <li className="singleTask" key={singleTask.id}>
                 <p>
                   <div className="round">
