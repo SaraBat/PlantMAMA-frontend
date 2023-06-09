@@ -1,13 +1,14 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from 'utils/BackendUrl';
 import user from 'reducers/user';
+import '../styling/Login.css'
 
 export const Login = () => {
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // responsible for login
   const mode = 'login';
@@ -18,9 +19,9 @@ export const Login = () => {
     navigate('/register');
   };
 
-  const onBackClick = () => {
-    navigate(-1);
-  }
+  // const onBackClick = () => {
+  //   navigate(-1);
+  // }
   // get accessToken from store
   const accessToken = useSelector((store) => store.user.accessToken);
   useEffect(() => {
@@ -38,7 +39,7 @@ export const Login = () => {
         'Content-Type': 'application/json'
       },
       // eslint-disable-next-line object-shorthand
-      body: JSON.stringify({ username: username, email: email, password: password })
+      body: JSON.stringify({ username: username, password: password })
     };
     fetch(API_URL(mode), options)
       .then((response) => response.json())
@@ -46,7 +47,6 @@ export const Login = () => {
         if (data.success) {
           dispatch(user.actions.setAccessToken(data.response.accessToken));
           dispatch(user.actions.setUsername(data.response.username));
-          dispatch(user.actions.setEmail(data.response.email));
           dispatch(user.actions.setUserId(data.response.id));
           dispatch(user.actions.setError(null));
         } else {
@@ -59,36 +59,34 @@ export const Login = () => {
       })
   }
   return (
-    <>
-      <button
-        type="button"
-        onClick={onGoToRegistrationButtonClick}> Not a plant parent yet? Register here
-      </button>
-      <form onSubmit={onFormSubmit}>
-        <label htmlFor="username"> Username </label>
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)} />
-        <label htmlFor="email"> Email </label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)} />
-        <label htmlFor="password"> Password </label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)} />
-        <button type="submit">Login</button>
-      </form>
-      <button
-        type="button"
-        onClick={onBackClick}> Back
-      </button>
-    </>
+    <section className="login-section">
+      <p>Happy to see you again!</p>
+      <h1 className="login-title">Log in</h1>
+      <div className="login-fields">
+        <form onSubmit={onFormSubmit}>
+          <input
+            type="text"
+            id="username"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)} />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)} />
+          <button className="login-btn" type="submit">Login</button>
+        </form>
+      </div>
+      <div className="register-div">
+        <p>You don't have an account?</p>
+        <button
+          className="register-btn"
+          type="button"
+          onClick={onGoToRegistrationButtonClick}> Create one now!
+        </button>
+      </div>
+    </section>
   )
 }
