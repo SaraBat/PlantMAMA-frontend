@@ -14,6 +14,7 @@ export const UserProfile = () => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
+  const imageUrl = useSelector((store) => store.user.imageUrl);
   useEffect(() => {
     if (!accessToken) {
       navigate('/login')
@@ -23,6 +24,7 @@ export const UserProfile = () => {
   const onLogoutClick = () => {
     dispatch(user.actions.setAccessToken(null));
     dispatch(user.actions.setUsername(null));
+    dispatch(user.actions.setImageUrl(null));
     dispatch(user.actions.setUserId(null));
     dispatch(user.actions.setError(null));
     dispatch(plants.actions.setItems([]));
@@ -59,6 +61,7 @@ export const UserProfile = () => {
   };
   return (
     <div>
+      <img className="profile-picture" src={imageUrl} alt="profile" />
       <h1> {username} </h1>
       <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. </p>
       <image alt="user" />
