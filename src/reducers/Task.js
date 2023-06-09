@@ -1,22 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
+// import { ui } from './ui';
 
 export const Task = createSlice({
   name: 'task',
   initialState: {
     items: [
       {
-        id: '19asdfiuhas0823hjkadsh809',
-        content: 'New to-do',
-        isChecked: false
-      },
-      {
-        id: '19asdfiuhas0823hjkadsh809',
-        content: 'Water my Plants',
-        isChecked: false
-      },
-      {
-        id: '19asdfiuhas0823hjkadsh809',
-        content: 'Trim monstera',
+        id: null,
+        content: '',
         isChecked: false
       }
     ]
@@ -55,3 +46,27 @@ export const Task = createSlice({
     }
   }
 })
+
+export const fetchTasks = () => {
+  return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true));
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      }
+    }
+    fetch(API_URL(`${username}/todo`), options)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          dispatch(Task.actions.setError(null));
+          dispatch(Task.actions.setItems(data.response));
+        } else {
+          dispatch(Task.actions.setError(data.response));
+          dispatch(Task.actions.setItems([]))
+        }
+      });
+  }
+}
