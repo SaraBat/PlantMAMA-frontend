@@ -25,9 +25,6 @@ export const Task = createSlice({
     addNewTask: (store, action) => {
       store.items = [action.payload, ...store.items];
     },
-    setItems: (store, action) => {
-      store.items = action.payload
-    },
     deleteAllTasks: (store) => {
       store.items = [];
     },
@@ -48,10 +45,6 @@ export const Task = createSlice({
       // eslint-disable-next-line max-len
       copyOfTaskArrayFromStoreState[foundIndex].isChecked = !copyOfTaskArrayFromStoreState[foundIndex].isChecked;
       store.items = copyOfTaskArrayFromStoreState;
-    },
-
-    setError: (store, action) => {
-      store.error = action.payload
     }
   }
 })

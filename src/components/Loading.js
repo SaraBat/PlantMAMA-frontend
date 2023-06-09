@@ -1,11 +1,9 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react'
 
 export const Loading = () => {
-  const isLoading = useSelector((state) => state.ui.isLoading)
   return (
     <div>
-      {isLoading && <div> LOADING....... </div>}
+       LOADING......
     </div>
   )
 }
