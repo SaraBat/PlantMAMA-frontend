@@ -18,6 +18,7 @@ import user from 'reducers/user';
 import plants from 'reducers/plants';
 import { Provider } from 'react-redux';
 import { Nav } from 'components/Nav';
+import Logo from 'assets/PlantMama_logo.svg'
 
 export const App = () => {
   const reducer = combineReducers({
@@ -27,29 +28,32 @@ export const App = () => {
   const store = configureStore({ reducer })
 
   return (
-    <div className="main">
-      <Provider store={store}>
-        <BrowserRouter>
-          <Nav />
-          <div className="content">
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/:username" element={<UserProfile />} />
-              <Route path="/:username/editUser" element={<EditUserProfile />} />
-              <Route path="/:username/garden" element={<UserGarden />} />
-              <Route path="/:username/garden/:plantId" element={<PlantProfile />} />
-              <Route path="/:username/garden/:plantId/editPlant" element={<EditPlantProfile />} />
-              <Route path="/:username/garden/:plantId/species/:plantusernamespecies" element={<PlantUsernameSpecies />} />
-              <Route path="/plantdatabase" element={<PlantDatabase />} />
-              <Route path="/plantdatabase/:id" element={<PlantSpecies />} />
-              <Route path="*" element={<NotFound />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </div>
-        </BrowserRouter>
-      </Provider>
-    </div>
+    <main>
+      <img className="logo" src={Logo} alt="PlantMama logo" />
+      <div className="main">
+        <Provider store={store}>
+          <BrowserRouter>
+            <Nav />
+            <div className="content">
+              <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/:username" element={<UserProfile />} />
+                <Route path="/:username/editUser" element={<EditUserProfile />} />
+                <Route path="/:username/garden" element={<UserGarden />} />
+                <Route path="/:username/garden/:plantId" element={<PlantProfile />} />
+                <Route path="/:username/garden/:plantId/editPlant" element={<EditPlantProfile />} />
+                <Route path="/:username/garden/:plantId/species/:plantusernamespecies" element={<PlantUsernameSpecies />} />
+                <Route path="/plantdatabase" element={<PlantDatabase />} />
+                <Route path="/plantdatabase/:id" element={<PlantSpecies />} />
+                <Route path="*" element={<NotFound />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+            </div>
+          </BrowserRouter>
+        </Provider>
+      </div>
+    </main>
   )
 }

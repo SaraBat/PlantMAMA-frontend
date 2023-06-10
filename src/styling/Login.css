@@ -12,7 +12,6 @@
     font-family: Montserrat;
     font-size: 2rem;
     font-weight: 500;
-
 }
 
 .login-fields {
@@ -22,7 +21,7 @@
     align-items: center;
 }
 
-.login-btn {
+.login-btn1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,10 +30,11 @@
     height: 50px;
 }
 
-.register-btn {
+.register-btn1 {
     color: black;
     background: white;
     box-shadow: none;
+    width: fit-content;
 }
 
 
@@ -58,9 +58,4 @@ input {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-}
-
-.register-btn {
-    width: fit-content;
 }

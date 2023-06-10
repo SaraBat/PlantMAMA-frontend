@@ -1,0 +1,39 @@
+.register-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 300px;
+}
+
+.register-title {
+    color: black;
+    font-family: Montserrat;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.register-btn2 {
+    color: white;
+    background-color: #BC5827;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 150px;
+    height: 50px;
+}
+
+.login-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-btn2 {
+    color: black;
+    background: white;
+    box-shadow: none;
+}

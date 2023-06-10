@@ -10,6 +10,12 @@ code {
     monospace;
 }
 
+.logo {
+  width: 25%;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -78,6 +84,12 @@ label {
 .profile-picture {
   width: 200px;
   height: 200px;
+  border-radius: 50%;
+}
+
+.garden-plant-picture {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
 }
 

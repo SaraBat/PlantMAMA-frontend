@@ -85,6 +85,7 @@ export const UserGarden = () => {
           plantItems.map((item) => {
             return (
               <div key={item._id}>
+                <img className="garden-plant-picture" src={item.imageUrl} alt="profile" />
                 <p> Name: {item.plantname} | <Link to={item._id}> Profile </Link></p>
               </div>
             )
