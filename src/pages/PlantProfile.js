@@ -20,6 +20,12 @@ export const PlantProfile = () => {
   const [imageUrl, setImageUrl] = useState(null);
   // const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (!accessToken) {
+      navigate('/login')
+    }
+  });
+
   const onGoToPlantSpeciesButtonClick = () => {
     navigate(`/${username}/garden/${plantId}/species/${species}`);
   };

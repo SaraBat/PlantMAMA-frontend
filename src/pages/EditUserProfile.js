@@ -2,7 +2,7 @@
 /* eslint-disable no-lone-blocks */
 /* eslint-disable object-shorthand */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from 'utils/BackendUrl';
@@ -18,6 +18,11 @@ export const EditUserProfile = () => {
   // dispatch to put access token into main component
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  useEffect(() => {
+    if (!accessToken) {
+      navigate('/login')
+    }
+  });
   const onBackClick = () => {
     navigate(-1);
   };

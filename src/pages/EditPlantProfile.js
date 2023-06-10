@@ -1,6 +1,6 @@
 /* eslint-disable object-shorthand */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { API_URL } from 'utils/BackendUrl';
@@ -20,6 +20,11 @@ export const EditPlantProfile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   console.log(plantId);
+  useEffect(() => {
+    if (!accessToken) {
+      navigate('/login')
+    }
+  });
 
   const onBackClick = () => {
     navigate(-1);
