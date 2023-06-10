@@ -51,6 +51,23 @@ export const EditUserProfile = () => {
         console.log('imgURl:', imageUrl);
       });
   }
+  const onDeleteUserClick = () => {
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      }
+    }
+    // eslint-disable-next-line space-unary-ops
+    fetch(API_URL(`${baseUsername}`), options)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        dispatch(user.actions.deleteUser());
+        navigate('/')
+      });
+  };
   return (
     <>
       <form onSubmit={onFormSubmit}>
@@ -75,6 +92,10 @@ export const EditUserProfile = () => {
           onChange={(e) => setImageUrl(e.target.files[0])} /><br /><br />
         <button type="submit"> Submit </button>
       </form>
+      <button
+        type="button"
+        onClick={onDeleteUserClick}> Delete User
+      </button>
       <button
         type="button"
         onClick={onBackClick}> Back
