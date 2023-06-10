@@ -1,5 +1,6 @@
+/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { REACT_APP_PLANT_API_KEY } from 'utils/BackendUrl';
 import { Loading } from 'components/Loading';
 
@@ -33,8 +34,15 @@ export const PlantList = ({ param }) => {
     <div>
       {plantSpeciesList.map((singleSpecies) => {
         return (
-          <div key={singleSpecies.id}>
-            <Link to={`/plantdatabase/${singleSpecies.id}`}> Learn more about {singleSpecies.common_name}  </Link>
+          <div>
+            <div key={singleSpecies.id}>
+              <button
+                onClick={() => { navigate(`/plantdatabase/${singleSpecies.id}`) }}
+                type="button">
+                {singleSpecies.common_name}
+              </button>
+            </div>
+
           </div>
         )
       })}
