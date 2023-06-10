@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import lottie from 'lottie-web'
+import lottie from 'lottie-web';
+import styled from 'styled-components';
 
 export const Loading = () => {
   const container = useRef(null);
@@ -14,8 +15,13 @@ export const Loading = () => {
     })
   }, [])
   return (
-    <div>
+    <Wrapper>
       <div className="container" ref={container}> </div>
-    </div>
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.section`
+  width: 300px;
+  height: 300px;
+`;
