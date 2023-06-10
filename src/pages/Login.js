@@ -76,13 +76,13 @@ export const Login = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)} />
-          <button className="login-btn" type="submit">Login</button>
+          <button className="login-btn1" type="submit">Login</button>
         </form>
       </div>
       <div className="register-div">
         <p>You don't have an account?</p>
         <button
-          className="register-btn"
+          className="register-btn1"
           type="button"
           onClick={onGoToRegistrationButtonClick}> Create one now!
         </button>

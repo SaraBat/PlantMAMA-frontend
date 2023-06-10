@@ -1,9 +1,11 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from 'utils/BackendUrl';
 import user from 'reducers/user';
+import '../styling/Register.css';
 
 export const Register = () => {
   const [username, setUsername] = useState('');
@@ -22,8 +24,11 @@ export const Register = () => {
   // eslint-disable-next-line
   }, [accessToken]);
 
-  const onBackClick = () => {
-    navigate(-1);
+  // const onBackClick = () => {
+  //   navigate(-1);
+  // };
+  const onGoToLoginButtonClick = () => {
+    navigate('/login');
   };
   const onFormSubmit = (event) => {
     // form not to reload page
@@ -57,30 +62,44 @@ export const Register = () => {
       })
   }
   return (
-    <form onSubmit={onFormSubmit}>
-      <label htmlFor="username"> Username </label>
-      <input
-        type="text"
-        id="username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)} />
-      <label htmlFor="email"> Email </label>
-      <input
-        type="email"
-        id="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)} />
-      <label htmlFor="password"> Password </label>
-      <input
-        type="password"
-        id="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)} />
-      <button type="submit">Register</button>
-      <button
-        type="button"
-        onClick={onBackClick}> Back
-      </button>
-    </form>
+    <section className="register-section">
+      <p>Hi! Start your journey here</p>
+      <h1 className="register-title">Create account</h1>
+      <div className="register-fields">
+        <form onSubmit={onFormSubmit}>
+          <input
+            type="text"
+            id="username"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)} />
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)} />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)} />
+          <button className="register-btn2" type="submit">Register</button>
+          {/* <button
+            type="button"
+            onClick={onBackClick}> Back
+          </button> */}
+        </form>
+      </div>
+      <div className="login-div">
+        <p>Do you already have an account?</p>
+        <button
+          className="login-btn2"
+          type="button"
+          onClick={onGoToLoginButtonClick}> Log in
+        </button>
+      </div>
+    </section>
   )
 }
