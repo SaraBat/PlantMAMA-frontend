@@ -76,10 +76,10 @@ export const UserGarden = () => {
 
   return (
     <div>
-      <h5> Weather</h5>
+      <p> Weather</p>
       <Weather />
       <div>
-        <h2> Garden of {username.toUpperCase()}</h2>
+        <p> Garden of {username.toUpperCase()}</p>
         <div className="garden">
           {plantItems ? (
             plantItems.map((item) => {
@@ -92,7 +92,7 @@ export const UserGarden = () => {
             })
           ) : ''}
         </div>
-        <h2> Add Plant </h2>
+        <p> Add Plant </p>
         {/* passing the handleAddPlant-function into the addplant-component */}
         <AddPlant handleAddPlant={handleAddPlant} />
       </div>

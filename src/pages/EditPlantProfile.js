@@ -68,6 +68,24 @@ export const EditPlantProfile = () => {
         dispatch(plants.actions.setError(null));
       });
   };
+  const onDeletePlantClick = () => {
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      }
+    }
+    // eslint-disable-next-line space-unary-ops
+    fetch(API_URL(`${username}/garden/${plantId}`), options)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        navigate(-2)
+        dispatch(plants.actions.deleteSinglePlant(plantId));
+        dispatch(plants.actions.setError(null));
+      });
+  };
   return (
     <>
       <form onSubmit={onFormSubmit}>
@@ -98,6 +116,10 @@ export const EditPlantProfile = () => {
           onChange={(e) => setImageUrl(e.target.files[0])} /><br /><br />
         <button type="submit"> Submit </button>
       </form>
+      <button
+        type="button"
+        onClick={onDeletePlantClick}> Delete Plant
+      </button>
       <button
         type="button"
         onClick={onBackClick}> Back

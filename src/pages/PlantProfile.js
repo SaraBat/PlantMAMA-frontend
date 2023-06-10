@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { API_URL } from 'utils/BackendUrl';
 import { Loading } from 'components/Loading';
 import { formatDistance } from 'date-fns';
-import plants from 'reducers/plants';
+// import plants from 'reducers/plants';
 
 export const PlantProfile = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
@@ -18,7 +18,7 @@ export const PlantProfile = () => {
   const [birthday, setBirthday] = useState(null);
   const [lastSoilChange, setLastSoilChange] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const onGoToPlantSpeciesButtonClick = () => {
     navigate(`/${username}/garden/${plantId}/species/${species}`);
@@ -55,25 +55,6 @@ export const PlantProfile = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const onDeletePlantClick = () => {
-    const options = {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: accessToken
-      }
-    }
-    // eslint-disable-next-line space-unary-ops
-    fetch(API_URL(`${username}/garden/${plantId}`), options)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        dispatch(plants.actions.deleteSinglePlant(plantId));
-        navigate(-1)
-        dispatch(plants.actions.setError(null));
-      });
-  };
-
   if (loading) return (<Loading />);
   return (
     <div>
@@ -86,10 +67,6 @@ export const PlantProfile = () => {
       </p>
       <p> Birthday: {birthday} </p>
       <p> Last Soil change: {lastSoilChange} </p>
-      <button
-        type="button"
-        onClick={onDeletePlantClick}> Delete Plant
-      </button>
       <button
         type="button"
         onClick={onEditPlantClick}> Edit Plant
