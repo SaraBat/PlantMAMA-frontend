@@ -40,11 +40,6 @@ export const PlantDatabase = () => {
 
         <button
           type="button"
-          value="&watering=none"
-          onClick={(event) => onSetParamClick(event.target.value)}> No watering
-        </button>
-        <button
-          type="button"
           value="&watering=minimum"
           onClick={(event) => onSetParamClick(event.target.value)}> Minimum watering
         </button>
