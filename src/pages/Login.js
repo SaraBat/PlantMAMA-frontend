@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from 'utils/BackendUrl';
 import user from 'reducers/user';
-import '../styling/Login.css'
+import '../styling/Login.css';
+import Swal from 'sweetalert2'
 
 export const Login = () => {
   const [username, setUsername] = useState('');
@@ -50,6 +51,7 @@ export const Login = () => {
           dispatch(user.actions.setUserId(data.response.id));
           dispatch(user.actions.setError(null));
         } else {
+          Swal.fire(data.response);
           dispatch(user.actions.setAccessToken(null));
           dispatch(user.actions.setUsername(null));
           dispatch(user.actions.setEmail(null));
