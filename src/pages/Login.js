@@ -60,6 +60,7 @@ export const Login = () => {
           dispatch(user.actions.setEmail(null));
           dispatch(user.actions.setUserId(null));
           dispatch(user.actions.setError(data.response));
+          navigate(-1);
         }
       })
   }
