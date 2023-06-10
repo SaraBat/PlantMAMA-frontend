@@ -5,6 +5,7 @@ import { Loading } from 'components/Loading';
 
 export const PlantList = ({ param }) => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
   const onBackClick = () => {
     navigate(-1);
   }
@@ -18,13 +19,16 @@ export const PlantList = ({ param }) => {
       .then(console.log(pageNumber))
       .then((response) => response.json())
       .then(console.log(param))
-      .then((data) => setPlantSpeciesList((data.data)))
+      .then((data) => {
+        setPlantSpeciesList((data.data));
+        setLoading(false)
+      })
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log(plantSpeciesList);
 
-  if (!plantSpeciesList) return (<div> <Loading /> </div>)
+  if (loading) return (<Loading />);
   return (
     <div>
       {plantSpeciesList.map((singleSpecies) => {
