@@ -36,6 +36,8 @@ export const Weather = () => {
     getLocation();
   }, []);
 
+  // CITY https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+
   useEffect(() => {
     if (latitude && longitude) {
       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&APPID=${REACT_APP_WEATHER_API_KEY}`)
