@@ -1,9 +1,16 @@
 import { PlantList } from 'components/PlantList';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 export const PlantDatabase = () => {
   const navigate = useNavigate();
+  const accessToken = useSelector((store) => store.user.accessToken);
+  useEffect(() => {
+    if (!accessToken) {
+      navigate('/login')
+    }
+  });
   const onBackClick = () => {
     navigate(-1);
   }

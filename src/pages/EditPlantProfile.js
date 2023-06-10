@@ -1,6 +1,6 @@
 /* eslint-disable object-shorthand */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { API_URL } from 'utils/BackendUrl';
@@ -20,6 +20,11 @@ export const EditPlantProfile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   console.log(plantId);
+  useEffect(() => {
+    if (!accessToken) {
+      navigate('/login')
+    }
+  });
 
   const onBackClick = () => {
     navigate(-1);
@@ -68,6 +73,24 @@ export const EditPlantProfile = () => {
         dispatch(plants.actions.setError(null));
       });
   };
+  const onDeletePlantClick = () => {
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      }
+    }
+    // eslint-disable-next-line space-unary-ops
+    fetch(API_URL(`${username}/garden/${plantId}`), options)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        navigate(-2)
+        dispatch(plants.actions.deleteSinglePlant(plantId));
+        dispatch(plants.actions.setError(null));
+      });
+  };
   return (
     <>
       <form onSubmit={onFormSubmit}>
@@ -98,6 +121,10 @@ export const EditPlantProfile = () => {
           onChange={(e) => setImageUrl(e.target.files[0])} /><br /><br />
         <button type="submit"> Submit </button>
       </form>
+      <button
+        type="button"
+        onClick={onDeletePlantClick}> Delete Plant
+      </button>
       <button
         type="button"
         onClick={onBackClick}> Back

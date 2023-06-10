@@ -2,7 +2,7 @@
 /* eslint-disable no-lone-blocks */
 /* eslint-disable object-shorthand */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from 'utils/BackendUrl';
@@ -18,6 +18,11 @@ export const EditUserProfile = () => {
   // dispatch to put access token into main component
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  useEffect(() => {
+    if (!accessToken) {
+      navigate('/login')
+    }
+  });
   const onBackClick = () => {
     navigate(-1);
   };
@@ -51,6 +56,23 @@ export const EditUserProfile = () => {
         console.log('imgURl:', imageUrl);
       });
   }
+  const onDeleteUserClick = () => {
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      }
+    }
+    // eslint-disable-next-line space-unary-ops
+    fetch(API_URL(`${baseUsername}`), options)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        dispatch(user.actions.deleteUser());
+        navigate('/')
+      });
+  };
   return (
     <>
       <form onSubmit={onFormSubmit}>
@@ -75,6 +97,10 @@ export const EditUserProfile = () => {
           onChange={(e) => setImageUrl(e.target.files[0])} /><br /><br />
         <button type="submit"> Submit </button>
       </form>
+      <button
+        type="button"
+        onClick={onDeleteUserClick}> Delete User
+      </button>
       <button
         type="button"
         onClick={onBackClick}> Back

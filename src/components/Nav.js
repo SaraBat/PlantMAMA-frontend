@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const Nav = () => {
 // NavLinks have "active" class that can be styled
@@ -7,13 +7,7 @@ export const Nav = () => {
     <nav>
       <ul>
         <li>
-          <Link to="/"> Plant Mama </Link>
-        </li>
-        <li>
           <NavLink to="/"> Home </NavLink>
-        </li>
-        <li>
-          <NavLink to="/login"> Login </NavLink>
         </li>
         <li>
           <NavLink to="/contact"> Contacts </NavLink>
