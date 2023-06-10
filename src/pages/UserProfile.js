@@ -30,9 +30,7 @@ export const UserProfile = () => {
     dispatch(plants.actions.setItems([]));
     navigate('/')
   };
-  const onGoToDatabaseButtonClick = () => {
-    navigate('/plantdatabase');
-  };
+
   const onGoToGardenButtonClick = () => {
     navigate('garden');
   };
@@ -58,7 +56,6 @@ export const UserProfile = () => {
         <ToDo />
       </div>
       <button type="button" onClick={onGoToGardenButtonClick}> Go to my Garden </button>
-      <button type="button" onClick={onGoToDatabaseButtonClick}> See plant database </button>
       <button
         type="button"
         onClick={onLogoutClick}> Log Out
