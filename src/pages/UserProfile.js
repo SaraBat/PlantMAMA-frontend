@@ -14,6 +14,9 @@ export const UserProfile = () => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
+  const city = useSelector((store) => store.user.city);
+  const level = useSelector((store) => store.user.level);
+  const bio = useSelector((store) => store.user.bio);
   const imageUrl = useSelector((store) => store.user.imageUrl);
   useEffect(() => {
     if (!accessToken) {
@@ -42,11 +45,10 @@ export const UserProfile = () => {
     <div>
       <div>
         <img className="profile-picture" src={imageUrl} alt="profile" />
-        <h1> {username} </h1>
-        <p> City </p>
-        <p> Level </p>
-        <p> Number of Plants </p>
-        <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don look even slightly believable.  </p>
+        <p> {username} </p>
+        {city ? <p> 📍 {city} </p> : null}
+        {level ? <p> 🪴 proficiency: {level} </p> : null}
+        <p> {bio} </p>
         <button
           type="button"
           onClick={onEditUserClick}> Edit User
