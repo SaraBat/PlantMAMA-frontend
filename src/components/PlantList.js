@@ -11,7 +11,7 @@ export const PlantList = ({ param }) => {
     navigate(-1);
   }
   console.log(param);
-  const pageNumber = Math.floor(Math.random() * (23 - 1 + 1)) + 1;
+  const pageNumber = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
 
   const [plantSpeciesList, setPlantSpeciesList] = useState([]);
   useEffect(() => {
