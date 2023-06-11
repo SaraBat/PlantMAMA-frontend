@@ -20,7 +20,7 @@ import plants from 'reducers/plants';
 import { Task } from 'reducers/Task';
 import { Provider } from 'react-redux';
 import { Nav } from 'components/Nav';
-import Logo from 'assets/PlantMama_logo.svg'
+import PlantVector from 'assets/plantvectorbg.svg';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -32,7 +32,6 @@ export const App = () => {
 
   return (
     <main>
-      <img className="logo" src={Logo} alt="PlantMama logo" />
       <div className="main">
         <Provider store={store}>
           <BrowserRouter>
@@ -58,6 +57,7 @@ export const App = () => {
           </BrowserRouter>
         </Provider>
       </div>
+      <img src={PlantVector} className="plant-vector" alt="background" />
     </main>
   )
 }
