@@ -39,6 +39,7 @@ const plants = createSlice({
       store.items.species = action.payload
     },
     */
+
     deleteSinglePlant: (store, action) => {
       const plantId = action.payload;
       // splice method to remove single element from array based on index
@@ -53,6 +54,14 @@ const plants = createSlice({
       // assign new value to original array without mutating it
       store.items = copyOfPlantArrayFromStoreState;
     },
+
+    /*
+    deleteSinglePlant: (store, action) => {
+      const plantId = action.payload;
+      store.items = store.items.filter((element) => element.plantId !== plantId);
+    },
+    */
+
     editSinglePlant: (store, action) => {
       const { plantId } = action.payload;
       const { plantname } = action.payload;

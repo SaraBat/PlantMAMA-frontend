@@ -58,7 +58,7 @@ export const EditPlantProfile = () => {
         console.log(plantname);
         console.log(species);
         console.log(birthday);
-        navigate(-2)
+        // navigate(-2)
         // eslint-disable-next-line max-len
         dispatch(
           plants.actions.editSinglePlant(
@@ -86,9 +86,9 @@ export const EditPlantProfile = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        navigate(-2)
         dispatch(plants.actions.deleteSinglePlant(plantId));
         dispatch(plants.actions.setError(null));
+        navigate(-2);
       });
   };
   return (

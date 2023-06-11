@@ -43,8 +43,8 @@ export const UserGarden = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          dispatch(plants.actions.setError(null));
           dispatch(plants.actions.setItems(data.response));
+          dispatch(plants.actions.setError(null));
           setLoading(false);
         } else {
           dispatch(plants.actions.setError(data.response));
@@ -52,7 +52,7 @@ export const UserGarden = () => {
         }
       });
   // eslint-disable-next-line
-  }, [plantItems]);
+  }, []);
 
   const onLogoutClick = () => {
     dispatch(user.actions.setAccessToken(null));
