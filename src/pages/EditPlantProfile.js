@@ -58,8 +58,10 @@ export const EditPlantProfile = () => {
         console.log(plantname);
         console.log(species);
         console.log(birthday);
-        // navigate(-2)
-        // eslint-disable-next-line max-len
+        navigate(-2);
+        // this code doesn't work at all
+        dispatch(plants.actions.setPlantName({ plantId: plantId, plantname: plantname }));
+        console.log('name changed');
         dispatch(
           plants.actions.editSinglePlant(
             { plantId: plantId,

@@ -19,26 +19,8 @@ const plants = createSlice({
     setError: (store, action) => {
       store.error = action.payload
     },
-    /*
-    setPlantId: (store, action) => {
-      store.items.plantID = action.payload
-    },
-    setPlantname: (store, action) => {
-      store.items.plantname = action.payload
-    },
-    setSpecies: (store, action) => {
-      store.items.species = action.payload
-    },
-    setBirthday: (store, action) => {
-      store.items.species = action.payload
-    },
-    setLastWatered: (store, action) => {
-      store.items.species = action.payload
-    },
-    setLastSoilChange: (store, action) => {
-      store.items.species = action.payload
-    },
-    */
+
+    // delete signle plant works
 
     deleteSinglePlant: (store, action) => {
       const plantId = action.payload;
@@ -55,12 +37,20 @@ const plants = createSlice({
       store.items = copyOfPlantArrayFromStoreState;
     },
 
-    /*
-    deleteSinglePlant: (store, action) => {
-      const plantId = action.payload;
-      store.items = store.items.filter((element) => element.plantId !== plantId);
+    // this code doesn't work at all
+
+    setPlantName: (store, action) => {
+      const plantId = action.payload.plantId;
+      const plantname = action.payload.plantname;
+      const copyOfTaskArrayFromStoreState = store.items;
+      const condition = (element) => element.id === plantId;
+      const foundIndex = (copyOfTaskArrayFromStoreState.findIndex(condition));
+      // eslint-disable-next-line max-len
+      copyOfTaskArrayFromStoreState[foundIndex].plantname = plantname;
+      store.items = copyOfTaskArrayFromStoreState;
     },
-    */
+
+    // this code doesn't work at all
 
     editSinglePlant: (store, action) => {
       const { plantId } = action.payload;
