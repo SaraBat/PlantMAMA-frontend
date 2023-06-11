@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { API_URL } from 'utils/BackendUrl';
 import { Loading } from 'components/Loading';
-import { formatDistance } from 'date-fns';
+import { formatDistance, format } from 'date-fns';
 // import plants from 'reducers/plants';
 
 export const PlantProfile = () => {
@@ -55,7 +55,6 @@ export const PlantProfile = () => {
         setBirthday(data.response.birthday);
         setLastSoilChange(data.response.lastSoilChange);
         setImageUrl(data.response.imageUrl);
-
         setLoading(false)
       });
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -66,13 +65,15 @@ export const PlantProfile = () => {
     <div>
       <img className="profile-picture" src={imageUrl} alt="profile" />
       <p> Name: {plantname} </p>
+      <p> Birthday: {format(new Date(birthday), 'dd/MM/yyyy')} </p>
       <p> PlantMama: {username} </p>
       <p> Species: {species} </p>
       <button type="button" onClick={onGoToPlantSpeciesButtonClick}> See plant species page </button>
       <p> Last Drink: {formatDistance(new Date(lastWatered), Date.now(), { addSuffix: true })}
       </p>
-      <p> Birthday: {birthday} </p>
-      <p> Last Soil change: {lastSoilChange} </p>
+      <p>
+      Last Soil change: {format(new Date(lastSoilChange), 'dd/MM/yyyy')}
+      </p>
       <button
         type="button"
         onClick={onEditPlantClick}> Edit Plant
