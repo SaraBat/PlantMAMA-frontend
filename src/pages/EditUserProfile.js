@@ -14,6 +14,9 @@ export const EditUserProfile = () => {
   const baseUsername = useSelector((store) => store.user.username);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [city, setCity] = useState('');
+  const [level, setLevel] = useState('');
+  const [bio, setBio] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   // dispatch to put access token into main component
   const dispatch = useDispatch();
@@ -33,6 +36,9 @@ export const EditUserProfile = () => {
     const formData = new FormData();
     formData.append('username', username)
     formData.append('email', email)
+    formData.append('city', city)
+    formData.append('level', level)
+    formData.append('bio', bio)
     formData.append('image', fileInput.current.files[0])
     const options = {
       method: 'PATCH',
@@ -50,10 +56,13 @@ export const EditUserProfile = () => {
         // eslint-disable-next-line max-len
         { username ? dispatch(user.actions.setUsername(username)) : console.log('no change') }
         { email ? dispatch(user.actions.setEmail(email)) : console.log('no change') }
+        { city ? dispatch(user.actions.setCity(city)) : console.log('no change') }
+        { level ? dispatch(user.actions.setLevel(level)) : console.log('no change') }
+        { bio ? dispatch(user.actions.setBio(bio)) : console.log('no change') }
         { imageUrl ? dispatch(user.actions.setImageUrl(imageUrl)) : console.log('no change') }
-        navigate(-1);
         console.log('dispatch sent');
         console.log('imgURl:', imageUrl);
+        navigate(-1);
       });
   }
   const onDeleteUserClick = () => {
@@ -76,25 +85,43 @@ export const EditUserProfile = () => {
   return (
     <>
       <form onSubmit={onFormSubmit}>
-        <label htmlFor="username"> New username </label>
+        <label htmlFor="city"> Your city </label>
         <input
           type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)} />
-        <label htmlFor="species"> New email </label>
+          id="city"
+          value={city}
+          onChange={(e) => setCity(e.target.value)} />
+        <label htmlFor="level"> Plant Proficiency Level </label>
         <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)} />
-        <label htmlFor="imageUrl"> New profile picture </label>
+          type="text"
+          id="level"
+          value={level}
+          onChange={(e) => setLevel(e.target.value)} />
+        <label htmlFor="imageUrl"> Profile picture </label>
         <input
           type="file"
           id="imageUrl"
           placeholder="Add profile picture"
           ref={fileInput}
           onChange={(e) => setImageUrl(e.target.files[0])} /><br /><br />
+        <label htmlFor="bio"> Biography </label>
+        <input
+          type="text"
+          id="bio"
+          value={bio}
+          onChange={(e) => setBio(e.target.value)} />
+        <label htmlFor="username"> Change username </label>
+        <input
+          type="text"
+          id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)} />
+        <label htmlFor="email"> Change email </label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)} />
         <button type="submit"> Submit </button>
       </form>
       <button

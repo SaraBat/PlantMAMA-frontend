@@ -8,6 +8,9 @@ const user = createSlice({
     userId: null,
     imageUrl: null,
     accessToken: null,
+    city: null,
+    level: null,
+    bio: null,
     error: null
   },
   reducers: {
@@ -26,6 +29,15 @@ const user = createSlice({
     setAccessToken: (store, action) => {
       store.accessToken = action.payload
     },
+    setCity: (store, action) => {
+      store.city = action.payload
+    },
+    setLevel: (store, action) => {
+      store.level = action.payload
+    },
+    setBio: (store, action) => {
+      store.bio = action.payload
+    },
     setError: (store, action) => {
       store.error = action.payload
     },
@@ -35,6 +47,9 @@ const user = createSlice({
       store.userId = null;
       store.imageUrl = null;
       store.accessToken = null;
+      store.city = null;
+      store.level = null;
+      store.bio = null;
       store.error = null
     }
   }
