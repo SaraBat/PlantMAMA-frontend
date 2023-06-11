@@ -59,7 +59,7 @@ export const EditPlantProfile = () => {
         console.log(species);
         console.log(birthday);
         navigate(-2);
-        // this code doesn't work at all
+        // this code doesn't work at all from here
         dispatch(plants.actions.setPlantName({ plantId: plantId, plantname: plantname }));
         console.log('name changed');
         dispatch(
@@ -73,6 +73,7 @@ export const EditPlantProfile = () => {
         );
         console.log('dispatch sent');
         dispatch(plants.actions.setError(null));
+        // to here
       });
   };
   const onDeletePlantClick = () => {

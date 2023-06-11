@@ -24,28 +24,26 @@ export const TaskList = () => {
       <ul>
         {taskList.map((singleTask) => {
           return (
-            <section className="TaskListSection">
-              <li className="singleTask" key={singleTask.id}>
-                <p>
-                  <div className="round">
-                    <label htmlFor={`Task_with_id${singleTask.id}`}>
-                      <input
-                        id={`Task_with_id${singleTask.id}`}
-                        type="checkbox"
-                        value={singleTask.isChecked}
-                        onChange={() => onIsCompletedCheckBoxToggle(singleTask.id)} />
-                    </label>
-                  </div>
-                  <span>
-                    {singleTask.content}
-                  </span>
-                  <button
-                    className="deleteSingleTaskButton"
-                    type="button"
-                    onClick={() => OnDeleteSingleTaskButtonClick(singleTask.id)}>
+            <section key={singleTask.id} className="TaskListSection">
+              <li className="singleTask">
+                <div className="round">
+                  <label htmlFor={`Task_with_id${singleTask.id}`}>
+                    <input
+                      id={`Task_with_id${singleTask.id}`}
+                      type="checkbox"
+                      value={singleTask.isChecked}
+                      onChange={() => onIsCompletedCheckBoxToggle(singleTask.id)} />
+                  </label>
+                </div>
+                <span>
+                  {singleTask.content}
+                </span>
+                <button
+                  className="deleteSingleTaskButton"
+                  type="button"
+                  onClick={() => OnDeleteSingleTaskButtonClick(singleTask.id)}>
                   🗑️
-                  </button>
-                </p>
+                </button>
               </li>
             </section>
           )
