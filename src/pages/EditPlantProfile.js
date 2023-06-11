@@ -16,6 +16,8 @@ export const EditPlantProfile = () => {
   const [species, setSpecies] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [birthday, setBirthday] = useState('');
+  const [lastWatered, setLastWatered] = useState('');
+  const [lastSoilChange, setLastSoilChange] = useState('');
   // dispatch to put access token into main component
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -39,6 +41,8 @@ export const EditPlantProfile = () => {
     formData.append('plantname', plantname)
     formData.append('species', species)
     formData.append('birthday', birthday)
+    formData.append('lastWatered', lastWatered)
+    formData.append('lastSoilChange', lastSoilChange)
     // set the key in the patch-request to "image" and the value to the uploaded image
     formData.append('image', fileInput.current.files[0])
     const options = {
@@ -97,19 +101,7 @@ export const EditPlantProfile = () => {
   return (
     <>
       <form onSubmit={onFormSubmit}>
-        <label htmlFor="plantnamee"> Change plantname </label>
-        <input
-          type="text"
-          id="plantname"
-          value={plantname}
-          onChange={(e) => setPlantname(e.target.value)} /><br /><br />
-        <label htmlFor="species"> Change species </label>
-        <input
-          type="text"
-          id="species"
-          value={species}
-          onChange={(e) => setSpecies(e.target.value)} /><br /><br />
-        <label htmlFor="birthday"> Change birthday </label>
+        <label htmlFor="birthday"> Birthday of your plant baby </label>
         <input
           type="date"
           id="birthday"
@@ -122,6 +114,30 @@ export const EditPlantProfile = () => {
           placeholder="Add plant photo"
           ref={fileInput}
           onChange={(e) => setImageUrl(e.target.files[0])} /><br /><br />
+        <label htmlFor="lastWatered"> Last Watered </label>
+        <input
+          type="date"
+          id="lastWatered"
+          value={lastWatered}
+          onChange={(e) => setLastWatered(e.target.value)} /><br /><br />
+        <label htmlFor="lastSoilChange"> Last Soil change </label>
+        <input
+          type="date"
+          id="lastSoilChange"
+          value={lastSoilChange}
+          onChange={(e) => setLastSoilChange(e.target.value)} /><br /><br />
+        <label htmlFor="plantnamee"> Change plantname </label>
+        <input
+          type="text"
+          id="plantname"
+          value={plantname}
+          onChange={(e) => setPlantname(e.target.value)} /><br /><br />
+        <label htmlFor="species"> Change species </label>
+        <input
+          type="text"
+          id="species"
+          value={species}
+          onChange={(e) => setSpecies(e.target.value)} /><br /><br />
         <button type="submit"> Submit </button>
       </form>
       <button
