@@ -2,11 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { REACT_APP_PLANT_API_KEY } from 'utils/BackendUrl';
 import { SinglePlantSpecies } from 'components/SinglePlantSpecies';
+import { useSelector } from 'react-redux';
 
 export const PlantUsernameSpecies = () => {
   const { plantusernamespecies } = useParams();
-  console.log(plantusernamespecies)
   const navigate = useNavigate();
+  const accessToken = useSelector((store) => store.user.accessToken);
+  useEffect(() => {
+    if (!accessToken) {
+      navigate('/login')
+    }
+  });
+  console.log(plantusernamespecies)
   const [plantSpeciesList, setPlantSpeciesList] = useState([]);
   const onBackClick = () => {
     navigate(-1);

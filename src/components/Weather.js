@@ -1,8 +1,7 @@
 // eslint-disable-no-useless-concat
-
-import { Loading } from 'components/Loading';
 import React, { useState, useEffect } from 'react'
 import { REACT_APP_WEATHER_API_KEY } from 'utils/BackendUrl';
+import { WeatherLoading } from './WeatherLoading';
 
 export const Weather = () => {
   const [loading, setLoading] = useState(true);
@@ -71,7 +70,7 @@ export const Weather = () => {
   }, [latitude, longitude]);
 
   if (!navigator.geolocation) { return (error) }
-  if (loading) { return (<Loading />) }
+  if (loading) { return (<WeatherLoading />) }
   return (
     <p>{city} | {main} | {description} | {temp}° | {humidity}% | {sunrise} | {sunset} </p>
 

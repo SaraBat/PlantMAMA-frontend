@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
 import styled from 'styled-components';
 
-export const Loading = () => {
+export const WeatherLoading = () => {
   const container = useRef(null);
   useEffect(() => {
     lottie.loadAnimation({
@@ -11,7 +11,7 @@ export const Loading = () => {
       loop: true,
       autoplay: true,
       // eslint-disable-next-line global-require
-      animationData: require('../assets/plant.json')
+      animationData: require('../assets/compass.json')
     })
   }, [])
   return (
@@ -22,6 +22,6 @@ export const Loading = () => {
 }
 
 const Wrapper = styled.section`
-  width: 300px;
-  height: 300px;
+  width: 100px;
+  height: 100px;
 `;

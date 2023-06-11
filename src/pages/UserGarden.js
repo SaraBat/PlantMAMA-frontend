@@ -22,7 +22,9 @@ export const UserGarden = () => {
   const onBackClick = () => {
     navigate(-1);
   };
-
+  const onGoToDatabaseButtonClick = () => {
+    navigate('/plantdatabase');
+  };
   useEffect(() => {
     if (!accessToken) {
       navigate('/login')
@@ -41,8 +43,8 @@ export const UserGarden = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          dispatch(plants.actions.setError(null));
           dispatch(plants.actions.setItems(data.response));
+          dispatch(plants.actions.setError(null));
           setLoading(false);
         } else {
           dispatch(plants.actions.setError(data.response));
@@ -50,7 +52,7 @@ export const UserGarden = () => {
         }
       });
   // eslint-disable-next-line
-  }, [plantItems]);
+  }, []);
 
   const onLogoutClick = () => {
     dispatch(user.actions.setAccessToken(null));
@@ -74,23 +76,29 @@ export const UserGarden = () => {
 
   return (
     <div>
-      <h5> Weather</h5>
+      <p> Weather</p>
       <Weather />
-      <h2> Add Plant </h2>
-      {/* passing the handleAddPlant-function into the addplant-component */}
-      <AddPlant handleAddPlant={handleAddPlant} />
-      <h2> Garden of {username.toUpperCase()}</h2>
-      <div className="garden">
-        {plantItems ? (
-          plantItems.map((item) => {
-            return (
-              <div key={item._id}>
-                <img className="garden-plant-picture" src={item.imageUrl} alt="profile" />
-                <p> Name: {item.plantname} | <Link to={item._id}> Profile </Link></p>
-              </div>
-            )
-          })
-        ) : ''}
+      <div>
+        <p> Garden of {username.toUpperCase()}</p>
+        <div className="garden">
+          {plantItems ? (
+            plantItems.map((item) => {
+              return (
+                <div key={item._id}>
+                  <img className="garden-plant-picture" src={item.imageUrl} alt="profile" />
+                  <p> Name: {item.plantname} | <Link to={item._id}> Profile </Link></p>
+                </div>
+              )
+            })
+          ) : ''}
+        </div>
+        <p> Add Plant </p>
+        {/* passing the handleAddPlant-function into the addplant-component */}
+        <AddPlant handleAddPlant={handleAddPlant} />
+      </div>
+      <div>
+        <p>Looking for a new plant baby? Get plant inspired!</p>
+        <button type="button" onClick={onGoToDatabaseButtonClick}> Plant inspo </button>
       </div>
       <button
         type="button"
