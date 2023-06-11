@@ -10,12 +10,12 @@ export const Task = createSlice({
         isChecked: false
       },
       {
-        id: '19asdfiuhas0823hjkadsh809',
+        id: '19asdfiuhas0823hjkadsh810',
         content: 'Water my Plants',
         isChecked: false
       },
       {
-        id: '19asdfiuhas0823hjkadsh809',
+        id: '19asdfiuhas0823hjkadsh811',
         content: 'Trim monstera',
         isChecked: false
       }
