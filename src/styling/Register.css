@@ -49,7 +49,7 @@ label {
     color: black;
   }
   
-  input {
+  .register-fields input {
     background: #BFD3BB;
     border-radius: 7px;
     width: 300px;
@@ -62,7 +62,7 @@ label {
     outline: none;
   }
   
-  ::placeholder {
+  .register-fields ::placeholder {
     color: white;
   }
   

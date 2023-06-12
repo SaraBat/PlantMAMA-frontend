@@ -20,7 +20,8 @@ import plants from 'reducers/plants';
 import { Task } from 'reducers/Task';
 import { Provider } from 'react-redux';
 import { Nav } from 'components/Nav';
-import PlantVector from 'assets/plantvectorbg.svg';
+import PlantVectorLeft from 'assets/plantvectorbg.svg';
+import PlantVectorRight from 'assets/plantvectorright.png';
 import './styling/App.css'
 
 export const App = () => {
@@ -56,7 +57,8 @@ export const App = () => {
           </div>
         </BrowserRouter>
       </Provider>
-      <img src={PlantVector} className="plant-vector" alt="background" />
+      <img src={PlantVectorLeft} className="plant-vector-left" alt="background" />
+      <img src={PlantVectorRight} className="plant-vector-right" alt="background" />
     </main>
   )
 }

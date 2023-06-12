@@ -3,6 +3,7 @@ import { NewTask } from 'components/NewTask';
 import { TaskList } from 'components/TaskList';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import '../styling/todo.css';
 
 export const ToDo = () => {
   const navigate = useNavigate();
@@ -12,18 +13,11 @@ export const ToDo = () => {
       navigate('/login')
     }
   });
-  const onBackClick = () => {
-    navigate(-1);
-  };
 
   return (
-    <section>
+    <section className="todo-main-container">
       <NewTask />
       <TaskList />
-      <button
-        type="button"
-        onClick={onBackClick}> Back
-      </button>
     </section>
   );
 }

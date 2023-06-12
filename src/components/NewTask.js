@@ -20,14 +20,12 @@ export const NewTask = () => {
 
   return (
     <section className="NewTaskSection">
-      <p> Plantastic Day! </p>
-      <p> To Do </p>
       <form className="NewTaskForm" onSubmit={onAddNewTaskSubmit}>
         <label htmlFor="NewTaskInput">
-          New Task:
           <input
             id="NewTaskInput"
             value={inputValue} /* needs to change based on user input/reset function defined up */
+            placeholder="New Task"
             onChange={(event) => setInputValue(event.target.value)} /* needed to read input */
             type="text" />
         </label>
