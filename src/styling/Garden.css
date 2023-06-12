@@ -1,21 +1,7 @@
-.garden-title-font {
-    color: #03371b;
-    font-size: 25px;
-    text-align: center;
-    font-family: Avigea;
-}
-
-.garden-plant-name {
-    color: #1b6b3c;
-    font-weight: bold;
-    line-height: 1.7rem;
-}
-
-.garden-plant-picture {
-    width: 100px;
-    height: 100px;
-    border-radius: 15px;
-    filter: drop-shadow(4px 3px 4px rgba(0, 0, 0, 0.13));
+.garden-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 .garden {
@@ -26,25 +12,70 @@
     gap: 25px;
 }
 
-.garden-wrapper {
+.addplant-div {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 7%;
+    gap: 10px;
 }
 
 .plant-inspo-div {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+    background-color: #CADAC8;
+    border-radius: 10px;
+    padding: 20px;
     gap: 10px;
+    text-align: center;
 }
 
-.addplant-div {
+.inspo-p {
+    color: #175358;
+}
+
+.logoutback-div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    justify-content: center;
+}
+
+.garden-title-font {
+    color: #03371b;
+    font-size: 25px;
+    text-align: center;
+    font-family: Avigea;
+}
+
+.singleplant-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+}
+
+.garden-plant-name {
+    color: #0d3f22;
+    font-weight: bold;
+    line-height: 1.7rem;
+    text-align: center;
+}
+
+.garden-plant-species {
+    color: #0d3f22;
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+    text-align: center;
+}
+
+.garden-plant-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
 }
 
 .addplant-btn {

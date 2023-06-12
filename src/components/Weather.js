@@ -73,11 +73,7 @@ export const Weather = () => {
   if (loading) { return (<WeatherLoading />) }
   return (
     <div className="weather-div">
-      <p className="city-name">{city}</p>
-      <p className="weather-p"> {temp}° C</p>
-      {/* <p className="weather-p">{main} </p> */}
-      <p className="weather-p">{description}</p>
-      <p className="weather-p">H. {humidity} %</p>
+      <p className="weather-p">{city} | {temp}° C | {/* <p className="weather-p">{main} </p> */} {description} | {humidity} % humidity </p>
       {/* | {sunrise} | {sunset} */}
     </div>
   )
