@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { API_URL } from 'utils/BackendUrl';
 import { Loading } from 'components/Loading';
 import { formatDistance, format } from 'date-fns';
+import '../styling/PlantProfile.css'
 // import plants from 'reducers/plants';
 
 export const PlantProfile = () => {
@@ -62,8 +63,8 @@ export const PlantProfile = () => {
 
   if (loading) return (<Loading />);
   return (
-    <div>
-      <img className="profile-picture" src={imageUrl} alt="profile" />
+    <div className="plant-profile-div">
+      <img className="garden-plant-picture" src={imageUrl} alt="profile" />
       <p> Name: {plantname} </p>
       <p> Birthday: {format(new Date(birthday), 'dd/MM/yyyy')} </p>
       <p> PlantMama: {username} </p>

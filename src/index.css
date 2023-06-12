@@ -23,6 +23,7 @@ code {
 
 .plant-vector {
   position: sticky;
+  width: 100%;
   bottom: 0;
   left: 0;
   opacity: 80%;
@@ -47,13 +48,6 @@ code {
   margin-bottom: auto;
   width: 90%;
   color: white;
-}
-
-.garden {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 5%;
 }
 
 nav {
@@ -94,24 +88,6 @@ label {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-}
-
-.garden-plant-picture {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-
-.garden-plant-name {
-  color: #1B666B;
-  font-weight: bold;
-}
-
-.garden-title-font {
-  color: #8D2A00;
-  font-size: 25px;
-  text-align: center;
-  font-family: Avigea;
 }
 
 p {

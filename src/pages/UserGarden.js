@@ -9,6 +9,7 @@ import plants from 'reducers/plants';
 import { API_URL } from 'utils/BackendUrl';
 import user from 'reducers/user';
 import { AddPlant } from 'components/AddPlant';
+import '../styling/Garden.css'
 
 // why does this component call the API inside of AddPlant?
 
@@ -75,9 +76,11 @@ export const UserGarden = () => {
   }
 
   return (
-    <div>
-      <Weather />
-      <div>
+    <section>
+      <div className="weather-div">
+        <Weather />
+      </div>
+      <div className="garden-wrapper">
         <h1 className="garden-title-font"> Garden of {username}</h1>
         <div className="garden">
           {plantItems ? (
@@ -91,11 +94,12 @@ export const UserGarden = () => {
             })
           ) : ''}
         </div>
-        <p> Add Plant </p>
-        {/* passing the handleAddPlant-function into the addplant-component */}
-        <AddPlant handleAddPlant={handleAddPlant} />
+        <div className="add-plant-div">
+          {/* passing the handleAddPlant-function into the addplant-component */}
+          <AddPlant handleAddPlant={handleAddPlant} />
+        </div>
       </div>
-      <div>
+      <div className="plant-inspo-div">
         <p>Looking for a new plant baby? Get plant inspired!</p>
         <button type="button" onClick={onGoToDatabaseButtonClick}> Plant inspo </button>
       </div>
@@ -107,6 +111,6 @@ export const UserGarden = () => {
         type="button"
         onClick={onBackClick}> Back
       </button>
-    </div>
+    </section>
   )
 };
