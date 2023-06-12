@@ -1,0 +1,105 @@
+.landing-main-container{
+    margin-top: 20%;
+  }
+
+  .landing-button-div {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .hands-image {
+        display: none;
+    }
+  .hand-image {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .landing-title {
+        color: #337B5B;
+        font-size: 2em;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 2%;
+    }
+
+  .landing-button{
+    z-index: 0;
+    margin: 5px;
+    padding: 8px;
+    color: white;
+    font-family: Montserrat;
+    background-color: #BC5827;
+    opacity: 0.9;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 0px 15px;
+    padding: 10px 15px;
+    box-shadow: 0px 3.82609px 3.82609px rgba(0, 0, 0, 0.25);
+  }
+  
+  .landing-button:hover {
+    color: black;
+    opacity: 1;
+  }
+
+  @media (min-width: 667px) {
+    .landing-main-container{
+      margin-top: 1%;
+      height: 100vh;
+      position: relative;
+      text-align: center;
+    }  
+    .landing-hands-image {
+        display: block;
+        width: 100vw;
+        z-index: -1;
+      }
+
+      .landing-button-div {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .landing-title {
+        color: #337B5B;
+        font-size: 3em;
+        font-weight: 700;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .landing-main-container{
+      margin-top: 1%;
+      height: 100vh;
+      position: relative;
+    text-align: center;
+    }  
+    .hand-image {
+        display: none;
+    }
+    .hands-image {
+        display: block;
+        width: 100vw;
+        z-index: -1;
+      }
+    
+      .landing-button-div {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .landing-title {
+        color: #337B5B;
+        font-size: 3em;
+        font-weight: 700;
+    }
+  }

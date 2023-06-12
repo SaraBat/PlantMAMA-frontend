@@ -21,6 +21,7 @@ import { Task } from 'reducers/Task';
 import { Provider } from 'react-redux';
 import { Nav } from 'components/Nav';
 import PlantVector from 'assets/plantvectorbg.svg';
+import './styling/App.css'
 
 export const App = () => {
   const reducer = combineReducers({
@@ -32,10 +33,10 @@ export const App = () => {
 
   return (
     <main>
-      <div className="main">
-        <Provider store={store}>
-          <BrowserRouter>
-            <Nav />
+      <Provider store={store}>
+        <BrowserRouter>
+          <Nav />
+          <div className="main">
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/register" element={<Register />} />
@@ -52,10 +53,9 @@ export const App = () => {
               <Route path="*" element={<NotFound />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
-
-          </BrowserRouter>
-        </Provider>
-      </div>
+          </div>
+        </BrowserRouter>
+      </Provider>
       <img src={PlantVector} className="plant-vector" alt="background" />
     </main>
   )
