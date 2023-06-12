@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from 'utils/BackendUrl';
 import plants from 'reducers/plants';
+import '../styling/Garden.css'
 
 export const AddPlant = ({ handleAddPlant }) => {
   const [plantname, setPlantname] = useState('');
@@ -56,20 +57,23 @@ export const AddPlant = ({ handleAddPlant }) => {
   };
 
   return (
-    <form onSubmit={onFormSubmit}>
-      <label htmlFor="plantname"> Name of your plant baby </label>
-      <input
-        type="text"
-        id="plantname"
-        value={plantname}
-        onChange={(e) => setPlantname(e.target.value)} />
-      <label htmlFor="species"> Species </label>
-      <input
-        type="text"
-        id="species"
-        value={species}
-        onChange={(e) => setSpecies(e.target.value)} />
-      <button type="submit"> Add Plant to my garden </button>
-    </form>
+    <div className="addplant-div">
+      <h1 className="garden-title-font"> Add Plant </h1>
+      <form onSubmit={onFormSubmit}>
+        <input
+          type="text"
+          id="plantname"
+          placeholder="Name of plant baby"
+          value={plantname}
+          onChange={(e) => setPlantname(e.target.value)} />
+        <input
+          type="text"
+          id="species"
+          placeholder="Plant species"
+          value={species}
+          onChange={(e) => setSpecies(e.target.value)} />
+        <button className="addplant-btn" type="submit">Add plant</button>
+      </form>
+    </div>
   )
 }

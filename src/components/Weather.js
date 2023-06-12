@@ -9,7 +9,7 @@ export const Weather = () => {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [city, setCity] = useState('');
-  const [main, setMain] = useState('');
+  // const [main, setMain] = useState('');
   const [description, setDescription] = useState('');
   const [temp, setTemp] = useState(null);
   const [humidity, setHumidity] = useState(null);
@@ -45,11 +45,10 @@ export const Weather = () => {
         .then((data) => {
           if (data) {
             setCity(data.name);
-            setMain(data.weather[0].main);
+            // setMain(data.weather[0].main);
             setDescription(data.weather[0].description);
             setTemp(data.main.temp);
             setHumidity(data.main.humidity);
-
             // const sunriseTimeStamp = (data.sys.sunrise * 1000);
             // const sunriseFormat = new Date(sunriseTimeStamp);
             // const sunriseHours = sunriseFormat.getHours().toString().padStart(2, '0');
@@ -75,10 +74,10 @@ export const Weather = () => {
   return (
     <div className="weather-div">
       <p className="city-name">{city}</p>
-      <p> {temp}° C</p>
-      <p>{main} </p>
-      <p>{description}</p>
-      <p>{humidity} %</p>
+      <p className="weather-p"> {temp}° C</p>
+      {/* <p className="weather-p">{main} </p> */}
+      <p className="weather-p">{description}</p>
+      <p className="weather-p">H. {humidity} %</p>
       {/* | {sunrise} | {sunset} */}
     </div>
   )
