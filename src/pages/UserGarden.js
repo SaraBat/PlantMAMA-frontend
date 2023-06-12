@@ -86,10 +86,13 @@ export const UserGarden = () => {
           {plantItems ? (
             plantItems.map((item) => {
               return (
-                <div key={item._id}>
-                  <Link to={item._id}><img className="garden-plant-picture" src={item.imageUrl} alt="profile" /></Link>
-                  <p className="garden-plant-name"> {item.plantname} </p>
-                </div>
+                <Link to={item._id}>
+                  <div className="singleplant-div" key={item._id}>
+                    <img className="garden-plant-picture" src={item.imageUrl} alt="profile" />
+                    <p className="garden-plant-name"> {item.plantname} </p>
+                    <p className="garden-plant-species">{item.species}</p>
+                  </div>
+                </Link>
               )
             })
           ) : ''}
@@ -98,19 +101,21 @@ export const UserGarden = () => {
           {/* passing the handleAddPlant-function into the addplant-component */}
           <AddPlant handleAddPlant={handleAddPlant} />
         </div>
+        <div className="plant-inspo-div">
+          <p className="inspo-p">Looking for a new plant baby? Get plant inspired!</p>
+          <button type="button" onClick={onGoToDatabaseButtonClick}> Plant inspo </button>
+        </div>
+        <div className="logoutback-div">
+          <button
+            type="button"
+            onClick={onLogoutClick}> Log Out
+          </button>
+          <button
+            type="button"
+            onClick={onBackClick}> Back
+          </button>
+        </div>
       </div>
-      <div className="plant-inspo-div">
-        <p>Looking for a new plant baby? Get plant inspired!</p>
-        <button type="button" onClick={onGoToDatabaseButtonClick}> Plant inspo </button>
-      </div>
-      <button
-        type="button"
-        onClick={onLogoutClick}> Log Out
-      </button>
-      <button
-        type="button"
-        onClick={onBackClick}> Back
-      </button>
     </section>
   )
 };
