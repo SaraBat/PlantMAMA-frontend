@@ -1,0 +1,58 @@
+.plantspecies-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.plantspecies-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.img-div {
+    display: flex;
+    justify-content: center;
+}
+
+.plantspecies-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+}
+.plantspecies-h1 {
+    font-size: 1.5rem;
+    color: #1D585D;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.carelevel-p {
+   background-color: #D5D283;
+   color: #1D585D;
+   padding: 15px;
+   border-radius: 10px;
+   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.2));
+}
+
+.plantspecies-name-div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.plant-description {
+    background-color: #BFD3BB;
+    padding: 15px;
+    border-radius: 10px;
+    line-height: 1.7rem;
+}
+
+.plantspecies-p {
+    color: #1D585D;
+    word-wrap: inherit;
+}

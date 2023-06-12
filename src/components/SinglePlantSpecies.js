@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { REACT_APP_PLANT_API_KEY } from 'utils/BackendUrl';
 import { Loading } from './Loading';
+import '../styling/SinglePlantSpecies.css';
 
 export const SinglePlantSpecies = ({ id }) => {
   const [loading, setLoading] = useState(true);
@@ -39,40 +40,44 @@ export const SinglePlantSpecies = ({ id }) => {
   // picture doesn't work
 
   return (
-    <div>
-      <section>
-        <div key={plantSpecies.id}>
-          <img alt="profile" src={pictureUrl} />
-          {plantSpecies.common_name ? <p> {plantSpecies.common_name} </p> : ''}
-          {ScientificName ? <p> Scientific name: {ScientificName}</p> : ''}
-          {plantSpecies.description ? <p> {plantSpecies.description} </p> : ''}
-          {plantSpecies.care_level ? <p> Care Level:{plantSpecies.care_level} </p> : ''}
-          {plantSpecies.maintenance ? <p> Maintenance:{plantSpecies.maintenance} </p> : ''}
-          {origin ? <p> Origin: {origin}</p> : ''}
-          {plantSpecies.family ? <p> Family:{plantSpecies.family} </p> : ''}
-          {plantSpecies.type ? <p> Type:{plantSpecies.type} </p> : ''}
-          {plantSpecies.cycle ? <p> Cycle: {plantSpecies.cycle} </p> : ''}
-          {plantSpecies.watering ? <p> Watering: {plantSpecies.watering} </p> : ''}
-          {sunlight ? <p> Sunlight: {sunlight} </p> : ''}
-          {plantSpecies.growth_rate ? <p> Growth: {plantSpecies.growth_rate} </p> : ''}
-          {plantSpecies.flowering_season ? <p> Flowering season: {plantSpecies.flowering_season} </p> : ''}
-          <div className="TrueOrFalseData">
-            {plantSpecies.drought_tolerant === true ? <p> Drought tolerant: 🍃 </p> : <p> Drought tolerant: 🍂 </p>}
-            {plantSpecies.salt_tolerant === true ? <p> Salt tolerant: 🍃 </p> : <p> Salt tolerant: 🍂 </p>}
-            {plantSpecies.thorny === true ? <p> Thorny: 🍃 </p> : <p> Thorny: 🍂 </p>}
-            {plantSpecies.invasive === true ? <p> Invasive: 🍃 </p> : <p> Invasive: 🍂 </p>}
-            {plantSpecies.tropical === true ? <p> Tropical: 🍃 </p> : <p> Tropical: 🍂 </p>}
-            {plantSpecies.indoor === true ? <p> Indoor: 🍃 </p> : <p> Indoor: 🍂 </p>}
-            {plantSpecies.flowers === true ? <p> Flowers: 🍃 </p> : <p> Flowers: 🍂 </p>}
-            {plantSpecies.cones === true ? <p> Cones: 🍃 </p> : <p> Cones: 🍂 </p>}
-            {plantSpecies.fruits === true ? <p> Fruits: 🍃 </p> : <p> Fruits: 🍂 </p>}
-            {plantSpecies.edible_fruit === true ? <p> Edible fruits: 🍃 </p> : <p> Edible fruits: 🍂 </p>}
-            {plantSpecies.leaf === true ? <p> Leaf: 🍃 </p> : <p> Leaf: 🍂 </p>}
-            {plantSpecies.edible_leaf === true ? <p> Edible Leaf: 🍃 </p> : <p> Edible Leaf: 🍂 </p>}
-            {plantSpecies.medicinal === true ? <p> Medicinal: 🍃 </p> : <p> Medicinal: 🍂 </p>}
-          </div>
+    <section className="plantspecies-wrapper">
+      <div className="img-div">
+        <img alt="profile" className="plantspecies-pic" src={pictureUrl} />
+      </div>
+      <div className="plantspecies-div" key={plantSpecies.id}>
+        <div className="plantspecies-name-div">
+          {plantSpecies.common_name ? <h1 className="plantspecies-h1"> {plantSpecies.common_name} </h1> : ''}
+          {ScientificName ? <p className="plantspecies-p"> <b>Scientific name:</b> {ScientificName}</p> : ''}
         </div>
-      </section>
-    </div>
+        <div className="plant-description">
+          {plantSpecies.description ? <p className="plantspecies-p"> {plantSpecies.description} </p> : ''}
+        </div>
+        {plantSpecies.care_level ? <p className="carelevel-p"> <b>Care Level:</b> {plantSpecies.care_level} </p> : ''}
+        {plantSpecies.maintenance ? <p className="carelevel-p"> <b>Maintenance:</b> {plantSpecies.maintenance} </p> : ''}
+        {origin ? <p className="carelevel-p"> <b>Origin:</b> {origin}</p> : ''}
+        {/* {plantSpecies.family ? <p className="carelevel-p"> Family: {plantSpecies.family} </p> : ''} */}
+        {plantSpecies.type ? <p className="carelevel-p"> <b>Type:</b> {plantSpecies.type} </p> : ''}
+        {/* {plantSpecies.cycle ? <p className="carelevel-p"> Cycle: {plantSpecies.cycle} </p> : ''} */}
+        {plantSpecies.watering ? <p className="carelevel-p"> <b>Watering:</b> {plantSpecies.watering} </p> : ''}
+        {sunlight ? <p className="carelevel-p"> <b>Sunlight:</b> {sunlight} </p> : ''}
+        {plantSpecies.growth_rate ? <p className="carelevel-p"> <b>Growth:</b> {plantSpecies.growth_rate} </p> : ''}
+        {plantSpecies.flowering_season ? <p className="carelevel-p"> <b>Flowering season:</b> {plantSpecies.flowering_season} </p> : ''}
+        <div className="TrueOrFalseData">
+          {plantSpecies.drought_tolerant === true ? <p> Drought tolerant: 🍃 </p> : <p> Drought tolerant: 🍂 </p>}
+          {plantSpecies.salt_tolerant === true ? <p> Salt tolerant: 🍃 </p> : <p> Salt tolerant: 🍂 </p>}
+          {plantSpecies.thorny === true ? <p> Thorny: 🍃 </p> : <p> Thorny: 🍂 </p>}
+          {plantSpecies.invasive === true ? <p> Invasive: 🍃 </p> : <p> Invasive: 🍂 </p>}
+          {plantSpecies.tropical === true ? <p> Tropical: 🍃 </p> : <p> Tropical: 🍂 </p>}
+          {plantSpecies.indoor === true ? <p> Indoor: 🍃 </p> : <p> Indoor: 🍂 </p>}
+          {plantSpecies.flowers === true ? <p> Flowers: 🍃 </p> : <p> Flowers: 🍂 </p>}
+          {plantSpecies.cones === true ? <p> Cones: 🍃 </p> : <p> Cones: 🍂 </p>}
+          {plantSpecies.fruits === true ? <p> Fruits: 🍃 </p> : <p> Fruits: 🍂 </p>}
+          {plantSpecies.edible_fruit === true ? <p> Edible fruits: 🍃 </p> : <p> Edible fruits: 🍂 </p>}
+          {plantSpecies.leaf === true ? <p> Leaf: 🍃 </p> : <p> Leaf: 🍂 </p>}
+          {plantSpecies.edible_leaf === true ? <p> Edible Leaf: 🍃 </p> : <p> Edible Leaf: 🍂 </p>}
+          {plantSpecies.medicinal === true ? <p> Medicinal: 🍃 </p> : <p> Medicinal: 🍂 </p>}
+        </div>
+      </div>
+    </section>
   )
 }
