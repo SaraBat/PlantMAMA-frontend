@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Avigea;
+  src: url(./assets/Avigea-Font/avigea.ttf);
+}
+
 body {
   margin: 0;
   font-family: Montserrat;
@@ -16,6 +21,14 @@ code {
   margin-top: 2%;
 }
 
+.plant-vector {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  opacity: 80%;
+  z-index: -1;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -23,8 +36,6 @@ code {
   align-content: center;
   margin: auto;
   width: 80%;
-  height: 100vh;
-  background-color: white;
 }
 
 .content {
@@ -55,7 +66,6 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #EB7453;
 }
 
 li {
@@ -64,16 +74,15 @@ li {
 
 li a {
   display: block;
-  color: white;
+  color: #804229;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-family: Montserrat;
 }
 
-/* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: #111;
+  font-weight: bold;
 }
 
 label {
@@ -82,15 +91,27 @@ label {
 }
 
 .profile-picture {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
 }
 
 .garden-plant-picture {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
+}
+
+.garden-plant-name {
+  color: #1B666B;
+  font-weight: bold;
+}
+
+.garden-title-font {
+  color: #8D2A00;
+  font-size: 25px;
+  text-align: center;
+  font-family: Avigea;
 }
 
 p {

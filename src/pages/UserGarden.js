@@ -76,17 +76,16 @@ export const UserGarden = () => {
 
   return (
     <div>
-      <p> Weather</p>
       <Weather />
       <div>
-        <p> Garden of {username.toUpperCase()}</p>
+        <h1 className="garden-title-font"> Garden of {username}</h1>
         <div className="garden">
           {plantItems ? (
             plantItems.map((item) => {
               return (
                 <div key={item._id}>
-                  <img className="garden-plant-picture" src={item.imageUrl} alt="profile" />
-                  <p> Name: {item.plantname} | <Link to={item._id}> Profile </Link></p>
+                  <Link to={item._id}><img className="garden-plant-picture" src={item.imageUrl} alt="profile" /></Link>
+                  <p className="garden-plant-name"> {item.plantname} </p>
                 </div>
               )
             })
