@@ -8,6 +8,7 @@ import user from 'reducers/user';
 import { API_URL } from 'utils/BackendUrl';
 import { Loading } from 'components/Loading';
 import { ToDo } from './ToDo';
+import '../styling/UserProfile.css'
 
 export const UserProfile = () => {
   const navigate = useNavigate();
@@ -71,7 +72,7 @@ export const UserProfile = () => {
   }, [])
   if (loading) return (<Loading />);
   return (
-    <div>
+    <div className="main-container">
       <div>
         <img className="profile-picture" src={imageUrl} alt="profile" />
         <p> {username} </p>
