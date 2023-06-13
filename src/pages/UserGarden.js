@@ -29,6 +29,13 @@ export const UserGarden = () => {
     }
   });
 
+  // function that takes a new plant as a param and updates the state of the plants
+  // array using spread operator. it creates a new array with the existing plants
+  // and the new plant added to it.
+  const handleAddPlant = (newPlant) => {
+    dispatch(plants.actions.setItems([...plantItems, newPlant]));
+  };
+
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -50,14 +57,7 @@ export const UserGarden = () => {
         }
       });
   // eslint-disable-next-line
-  }, []);
-
-  // function that takes a new plant as a param and updates the state of the plants
-  // array using spread operator. it creates a new array with the existing plants
-  // and the new plant added to it.
-  const handleAddPlant = (newPlant) => {
-    dispatch(plants.actions.setItems([...plantItems, newPlant]));
-  };
+  }, [handleAddPlant]);
 
   if (loading) {
     return (<Loading />)
