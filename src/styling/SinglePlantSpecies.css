@@ -122,17 +122,34 @@ label {
   }
 
   @media (min-width: 1024px) {
+    .plantimgandinfo-div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: auto;
+    }
     .species-basicinfo-div {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-column-gap: 10px;
-      grid-row-gap: 10px;
-      width: 50%;
+      grid-template-columns: repeat(1, 1fr);
     }
     
    .plant-description {
-    width: 50%;
+    width: 60%;
+    margin: auto;
   }
+
+  .imgandname-div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .img-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
   .plantspecies-pic {
     width: 250px;

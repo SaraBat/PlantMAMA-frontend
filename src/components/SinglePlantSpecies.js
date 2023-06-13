@@ -32,13 +32,17 @@ export const SinglePlantSpecies = ({ id }) => {
 
   return (
     <section className="plantspecies-wrapper">
-      <div className="img-div">
-        <img alt="profile" className="plantspecies-pic" src={pictureUrl} />
-      </div>
-      <div className="plantspecies-div" key={plantSpecies.id}>
-        <div className="plantspecies-name-div">
-          {plantSpecies.common_name ? <h1 className="plantspecies-h1"> {plantSpecies.common_name} </h1> : ''}
-          {ScientificName ? <p className="plantspecies-p"> <b>Scientific name:</b> {ScientificName}</p> : ''}
+      <div className="plantimgandinfo-div">
+        <div className="imgandname-div">
+          <div className="img-div">
+            <img alt="profile" className="plantspecies-pic" src={pictureUrl} />
+          </div>
+          <div className="plantspecies-div" key={plantSpecies.id}>
+            <div className="plantspecies-name-div">
+              {plantSpecies.common_name ? <h1 className="plantspecies-h1"> {plantSpecies.common_name} </h1> : ''}
+              {ScientificName ? <p className="plantspecies-p"> <b>Scientific name:</b> {ScientificName}</p> : ''}
+            </div>
+          </div>
         </div>
         <div className="species-basicinfo-div">
           {plantSpecies.care_level ? <p className="species-basicinfo-p"> <b>Care Level:</b> {plantSpecies.care_level} </p> : ''}
@@ -52,9 +56,9 @@ export const SinglePlantSpecies = ({ id }) => {
           {plantSpecies.growth_rate ? <p className="species-basicinfo-p"> <b>Growth:</b> {plantSpecies.growth_rate} </p> : ''}
           {plantSpecies.flowering_season ? <p className="species-basicinfo-p"> <b>Flowering season:</b> {plantSpecies.flowering_season} </p> : ''}
         </div>
-        <div className="plant-description">
-          {plantSpecies.description ? <p className="plantspecies-p"> {plantSpecies.description} </p> : ''}
-        </div>
+      </div>
+      <div className="plant-description">
+        {plantSpecies.description ? <p className="plantspecies-p"> {plantSpecies.description} </p> : ''}
       </div>
     </section>
   )
