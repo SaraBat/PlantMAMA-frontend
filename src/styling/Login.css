@@ -54,6 +54,18 @@ input {
     margin-bottom: 20px;
   }
 
+ /* add placeholders to date and file input types */
+  input[type="date"]:not(.has-value):before{
+    color: white;
+    content: attr(placeholder);
+    padding-right: 7px;
+  }
+
+  input[type="file"]:not(.has-value):before{
+    color: white;
+    content: attr(placeholder);
+    padding-right: 7px;
+  }
 
 .register-div {
     display: flex;

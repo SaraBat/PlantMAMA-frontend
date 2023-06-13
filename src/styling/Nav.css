@@ -10,15 +10,16 @@
 nav {
     width: 100%;
     background-color: white;
-    position:fixed;
+    position: sticky;
     overflow: hidden;
     display: flex;
     flex-direction: row;
     align-items: space-between;
     margin-top: 0;
     margin-right: 0;
-    margin-bottom: 1%;
+    margin-bottom: 10%;
   }
+
 .top-right {
     width: 70%;
     display: flex;
@@ -41,7 +42,7 @@ nav {
   
   .top-right li a {
     display: block;
-    color: #804229;
+    color: #03371b;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -50,19 +51,18 @@ nav {
   
   .top-right li a:hover {
     font-weight: bold;
-    text-decoration: underline;
   }
 
   @media (min-width: 667px) {
     nav {
       position: static;
-      margin-bottom: 0;
+      margin-bottom: 2%;
     }   
   }
 
   @media (min-width: 1024px) {
     nav {
       position: static;
-      margin-bottom: 0;
+      margin-bottom: 2%;
     }   
   }

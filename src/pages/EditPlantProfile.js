@@ -101,41 +101,40 @@ export const EditPlantProfile = () => {
   return (
     <>
       <form onSubmit={onFormSubmit}>
-        <label htmlFor="birthday"> Birthday of your plant baby </label>
         <input
           type="date"
           id="birthday"
+          placeholder="Add plant birthday:"
           value={birthday}
           onChange={(e) => setBirthday(e.target.value)} /><br /><br />
-        <label htmlFor="imageUrl"> Change picture </label>
         <input
           type="file"
           id="imageUrl"
-          placeholder="Add plant photo"
+          placeholder="Add plant photo:"
           ref={fileInput}
           onChange={(e) => setImageUrl(e.target.files[0])} /><br /><br />
-        <label htmlFor="lastWatered"> Last Watered </label>
         <input
           type="date"
           id="lastWatered"
+          placeholder="Last watered:"
           value={lastWatered}
           onChange={(e) => setLastWatered(e.target.value)} /><br /><br />
-        <label htmlFor="lastSoilChange"> Last Soil change </label>
         <input
           type="date"
           id="lastSoilChange"
+          placeholder="Last soil change:"
           value={lastSoilChange}
           onChange={(e) => setLastSoilChange(e.target.value)} /><br /><br />
-        <label htmlFor="plantnamee"> Change plantname </label>
         <input
           type="text"
           id="plantname"
+          placeholder="Change plantname"
           value={plantname}
           onChange={(e) => setPlantname(e.target.value)} /><br /><br />
-        <label htmlFor="species"> Change species </label>
         <input
           type="text"
           id="species"
+          placeholder="Change species"
           value={species}
           onChange={(e) => setSpecies(e.target.value)} /><br /><br />
         <button type="submit"> Submit </button>
