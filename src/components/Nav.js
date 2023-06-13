@@ -7,13 +7,7 @@ import '../styling/Nav.css'
 
 export const Nav = () => {
 // NavLinks have "active" class that can be styled
-/*
-  const location = useLocation();
-  const showUserGardenLink = () => {
-    location.pathname !== `/${username}/garden`
-      ? <li> <NavLink to={`/${username}/garden`}>User Garden</NavLink> </li> : null
-  };
-  */
+
   return (
     <nav>
       <div className="top-left">
@@ -39,3 +33,10 @@ export const Nav = () => {
             <NavLink to={`/${username}/garden`}> Home </NavLink>
           </li>
 */
+/*
+  const location = useLocation();
+  const showUserGardenLink = () => {
+    location.pathname !== `/${username}/garden`
+      ? <li> <NavLink to={`/${username}/garden`}>User Garden</NavLink> </li> : null
+  };
+  */

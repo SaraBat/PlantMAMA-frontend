@@ -12,17 +12,10 @@ export const PlantSpecies = () => {
       navigate('/login')
     }
   });
-  const onBackClick = () => {
-    navigate(-1);
-  }
 
   return (
     <section>
       <SinglePlantSpecies id={id} />
-      <button
-        type="button"
-        onClick={onBackClick}> Back
-      </button>
     </section>
   )
 }

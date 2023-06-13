@@ -11,9 +11,6 @@ export const PlantDatabase = () => {
       navigate('/login')
     }
   });
-  const onBackClick = () => {
-    navigate(-1);
-  }
   const [param, setParam] = useState(null);
   const onSetParamClick = (value) => {
     setParam(value)
@@ -73,11 +70,6 @@ export const PlantDatabase = () => {
           type="button"
           value="&sunlight=full_sun"
           onClick={(event) => onSetParamClick(event.target.value)}> Solar
-        </button>
-
-        <button
-          type="button"
-          onClick={onBackClick}> Back
         </button>
       </div>
     )

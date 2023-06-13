@@ -15,9 +15,6 @@ export const PlantUsernameSpecies = () => {
   });
   console.log(plantusernamespecies)
   const [plantSpeciesList, setPlantSpeciesList] = useState([]);
-  const onBackClick = () => {
-    navigate(-1);
-  };
   useEffect(() => {
     fetch(`https://perenual.com/api/species-list?key=${REACT_APP_PLANT_API_KEY}&q=${plantusernamespecies}`)
     // https://perenual.com/api/species-list?key=[YOUR-API-KEY]&q=monstera
@@ -36,10 +33,6 @@ export const PlantUsernameSpecies = () => {
   return (
     <section>
       <SinglePlantSpecies id={id} />
-      <button
-        type="button"
-        onClick={onBackClick}> Back
-      </button>
     </section>
   )
 }

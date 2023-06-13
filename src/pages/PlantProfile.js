@@ -31,9 +31,6 @@ export const PlantProfile = () => {
     navigate(`/${username}/garden/${plantId}/species/${species}`);
   };
 
-  const onBackClick = () => {
-    navigate(-1);
-  };
   const onEditPlantClick = () => {
     navigate(`/${username}/garden/${plantId}/editPlant`);
   };
@@ -78,10 +75,6 @@ export const PlantProfile = () => {
       <button
         type="button"
         onClick={onEditPlantClick}> Edit Plant
-      </button>
-      <button
-        type="button"
-        onClick={onBackClick}> Back
       </button>
     </div>
   )

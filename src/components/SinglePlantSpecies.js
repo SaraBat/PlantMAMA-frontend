@@ -28,16 +28,7 @@ export const SinglePlantSpecies = ({ id }) => {
     sunlight = plantSpecies.sunlight.map((item) => item);
   } else { sunlight = [] }
 
-  /*
-  let soil = [];
-  if (plantSpecies.soil) {
-    soil = plantSpecies.soil.map((item) => item);
-  } else { soil = [] }
- */
-
   if (loading) { return (<Loading />) }
-
-  // picture doesn't work
 
   return (
     <section className="plantspecies-wrapper">
@@ -62,6 +53,19 @@ export const SinglePlantSpecies = ({ id }) => {
         {sunlight ? <p className="carelevel-p"> <b>Sunlight:</b> {sunlight} </p> : ''}
         {plantSpecies.growth_rate ? <p className="carelevel-p"> <b>Growth:</b> {plantSpecies.growth_rate} </p> : ''}
         {plantSpecies.flowering_season ? <p className="carelevel-p"> <b>Flowering season:</b> {plantSpecies.flowering_season} </p> : ''}
+      </div>
+    </section>
+  )
+}
+
+/*
+ADDITIONAL PLANT INFO
+
+  let soil = [];
+  if (plantSpecies.soil) {
+    soil = plantSpecies.soil.map((item) => item);
+  } else { soil = [] }
+
         <div className="TrueOrFalseData">
           {plantSpecies.drought_tolerant === true ? <p> Drought tolerant: 🍃 </p> : <p> Drought tolerant: 🍂 </p>}
           {plantSpecies.salt_tolerant === true ? <p> Salt tolerant: 🍃 </p> : <p> Salt tolerant: 🍂 </p>}
@@ -77,7 +81,4 @@ export const SinglePlantSpecies = ({ id }) => {
           {plantSpecies.edible_leaf === true ? <p> Edible Leaf: 🍃 </p> : <p> Edible Leaf: 🍂 </p>}
           {plantSpecies.medicinal === true ? <p> Medicinal: 🍃 </p> : <p> Medicinal: 🍂 </p>}
         </div>
-      </div>
-    </section>
-  )
-}
+*/

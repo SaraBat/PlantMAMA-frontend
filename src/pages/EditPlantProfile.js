@@ -28,10 +28,6 @@ export const EditPlantProfile = () => {
     }
   });
 
-  const onBackClick = () => {
-    navigate(-1);
-  };
-
   const onFormSubmit = (event) => {
     // form not to reload page
     event.preventDefault();
@@ -142,10 +138,6 @@ export const EditPlantProfile = () => {
       <button
         type="button"
         onClick={onDeletePlantClick}> Delete Plant
-      </button>
-      <button
-        type="button"
-        onClick={onBackClick}> Back
       </button>
     </>
   )

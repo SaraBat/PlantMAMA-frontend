@@ -7,9 +7,7 @@ import { Loading } from 'components/Loading';
 export const PlantList = ({ param }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const onBackClick = () => {
-    navigate(-1);
-  }
+
   console.log(param);
   const pageNumber = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
 
@@ -46,10 +44,6 @@ export const PlantList = ({ param }) => {
           </div>
         )
       })}
-      <button
-        type="button"
-        onClick={onBackClick}> Back
-      </button>
     </div>
   )
 }

@@ -26,9 +26,6 @@ export const EditUserProfile = () => {
       navigate('/login')
     }
   });
-  const onBackClick = () => {
-    navigate(-1);
-  };
 
   const onFormSubmit = (event) => {
     // form not to reload page
@@ -127,10 +124,6 @@ export const EditUserProfile = () => {
       <button
         type="button"
         onClick={onDeleteUserClick}> Delete User
-      </button>
-      <button
-        type="button"
-        onClick={onBackClick}> Back
       </button>
     </>
   )
