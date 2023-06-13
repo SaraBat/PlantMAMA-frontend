@@ -65,11 +65,12 @@ export const UserProfile = () => {
     <div className="main-container-user-profile">
       <div className="user-profile">
         <img className="profile-picture" src={imageUrl} alt="profile" />
-        <p> {username} </p>
-        {city ? <p> 📍 {city} </p> : null}
-        {level ? <p> 🪴 proficiency: {level} </p> : null}
         <p> {bio} </p>
+        <span className="user-text"> 👤 {username} </span>
+        {city ? <span className="user-text"> 📍 {city} </span> : null}
+        {level ? <span className="user-text">  🪴 Proficiency: {level} </span> : null}
         <button
+          className="on-edit-user-button"
           type="button"
           onClick={onEditUserClick}> Edit User
         </button>
