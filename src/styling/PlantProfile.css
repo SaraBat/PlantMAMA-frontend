@@ -51,6 +51,25 @@ label {
   ::placeholder {
     color: white;
   }
+
+  .on-edit-user-button {
+    color: black;
+    background: transparent;
+    box-shadow: none;
+    width: fit-content;
+    margin: 5px;
+    padding: 8px;
+    font-family: Montserrat;
+    opacity: 0.9;
+    text-align: center;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: none;
+    padding:none;
+  }
   
   button {
     margin: 5px;

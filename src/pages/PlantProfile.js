@@ -73,6 +73,7 @@ export const PlantProfile = () => {
       Last Soil change: {format(new Date(lastSoilChange), 'dd/MM/yyyy')}
       </p>
       <button
+        className="on-edit-plant-button"
         type="button"
         onClick={onEditPlantClick}> Edit Plant
       </button>
