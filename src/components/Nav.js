@@ -2,6 +2,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from 'assets/PlantMama_logo.svg';
+import log from 'assets/log.png'
 import '../styling/Nav.css'
 
 export const Nav = () => {
@@ -23,10 +24,10 @@ export const Nav = () => {
           <NavLink to={-1}> Back </NavLink>
         </li>
         <li>
-          <NavLink to="/" onClick={() => { window.location.reload() }}> Log out </NavLink>
+          <NavLink to="/contact"> Contacts </NavLink>
         </li>
         <li>
-          <NavLink to="/contact"> Contacts </NavLink>
+          <NavLink to="/" onClick={() => { window.location.reload() }}> <img className="log-icon" alt="login-logout" src={log} /> </NavLink>
         </li>
       </ul>
     </nav>
