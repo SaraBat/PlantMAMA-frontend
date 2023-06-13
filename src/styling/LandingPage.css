@@ -10,6 +10,7 @@
   }
     .landing-title {
         color: #337B5B;
+        text-shadow: 2px 2px #BC5827;
         font-size: 2em;
         font-weight: 600;
         text-align: center;
