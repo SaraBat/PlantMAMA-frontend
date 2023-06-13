@@ -1,12 +1,28 @@
 .main-container-user-profile{
-  margin-top: 20%;
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
 }
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-profile-buttons-bio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-profile-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .profile-picture {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
   }
   label {
@@ -93,6 +109,12 @@
     opacity: 1;
   }
 
+  .user-profile-buttons-bio p {
+    background-color: #D5D283;
+    padding: 15px;
+    border-radius: 10px;
+    line-height: 1.7rem;
+  }
 
   @media (min-width: 667px) {
     .main-container-user-profile{
@@ -111,11 +133,9 @@
       width: 50%;
     }
 
-    .pic-bio {
-
-    }
-    .user-profile-buttons {
+    .user-profile-buttons-bio {
       width: 50%;
+      justify-content: space-around;
     }
 
   }
