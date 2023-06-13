@@ -21,34 +21,32 @@ export const TaskList = () => {
   we would get an undefined error doing map */
   return (
     <section className="widerTaskListSection">
-      <ul>
+      <u className="todo-ul">
         {taskList.map((singleTask) => {
           return (
             <section key={singleTask.id} className="TaskListSection">
-              <li className="singleTask">
-                <div className="round">
-                  <label htmlFor={`Task_with_id${singleTask.id}`}>
-                    <input
-                      id={`Task_with_id${singleTask.id}`}
-                      type="checkbox"
-                      value={singleTask.isChecked}
-                      onChange={() => onIsCompletedCheckBoxToggle(singleTask.id)} />
-                  </label>
-                </div>
+              <div className="singleTask">
                 <p>
                   {singleTask.content}
                 </p>
+                <label htmlFor={`Task_with_id${singleTask.id}`}>
+                  <input
+                    id={`Task_with_id${singleTask.id}`}
+                    type="checkbox"
+                    value={singleTask.isChecked}
+                    onChange={() => onIsCompletedCheckBoxToggle(singleTask.id)} />
+                </label>
                 <button
                   className="deleteSingleTaskButton"
                   type="button"
                   onClick={() => OnDeleteSingleTaskButtonClick(singleTask.id)}>
                   🗑️
                 </button>
-              </li>
+              </div>
             </section>
           )
         })}
-      </ul>
+      </u>
       <button
         className="ClearListButton"
         type="button"
