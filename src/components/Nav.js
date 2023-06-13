@@ -11,7 +11,7 @@ export const Nav = () => {
   return (
     <nav>
       <div className="top-left">
-        <img className="logo" src={Logo} alt="PlantMama logo" />
+        <NavLink to="/"> <img className="logo" src={Logo} alt="PlantMama logo" /> </NavLink>
       </div>
       <ul className="top-right">
         <li>

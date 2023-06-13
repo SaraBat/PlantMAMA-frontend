@@ -59,7 +59,7 @@ export const AddPlant = ({ handleAddPlant }) => {
   return (
     <div className="addplant-div">
       <h1 className="garden-title-font"> Add Plant </h1>
-      <form onSubmit={onFormSubmit}>
+      <form className="addplant-form" onSubmit={onFormSubmit}>
         <input
           type="text"
           id="plantname"

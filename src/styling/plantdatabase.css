@@ -1,0 +1,84 @@
+.div-plant-inspo-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.plant-inspo-button {
+    width: 140px;
+    height: 140px;
+    margin: null;
+    padding: null;
+    color: white;
+    font-family: Montserrat;
+    background-color: #BFD3BB;
+    opacity: 0.9;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    padding: none;
+    box-shadow: 0px 3.82609px 3.82609px rgba(0, 0, 0, 0.25);
+    outline: none;
+}
+
+.plant-list-button {
+    width: 100px;
+    height: 100px;
+    margin: null;
+    padding: null;
+    color: #1B666B;
+    font-family: Montserrat;
+    background-color: #D5D283;
+    opacity: 1;
+    text-align: start;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.70em;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    padding: none;
+    box-shadow: 0px 3.82609px 3.82609px rgba(0, 0, 0, 0.25);
+    outline: none;
+}
+
+.inspo-plant-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (min-width: 667px) {
+    .div-plant-inspo-button {
+        display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+    .plant-inspo-button {
+        margin-top: 10%;
+        width: 200px;
+        height: 200px;
+    }
+    .inspo-plant-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .div-plant-inspo-button {
+        display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+    .plant-inspo-button {
+        width: 250px;
+        height: 250px;
+    }
+    .inspo-plant-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
