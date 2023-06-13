@@ -21,7 +21,7 @@ import { Task } from 'reducers/Task';
 import { Provider } from 'react-redux';
 import { Nav } from 'components/Nav';
 import PlantVectorLeft from 'assets/plantvectorbg.svg';
-import PlantVectorRight from 'assets/plantvectorright.png';
+import PlantVectorRight from 'assets/plantvectorright.svg';
 import './styling/App.css'
 
 export const App = () => {
