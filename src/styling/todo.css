@@ -1,0 +1,18 @@
+
+.todo-main-container{
+    margin-top: 20%;
+    max-width: 90%;
+  }
+
+@media (min-width: 667px) {
+    .todo-main-container{
+      margin-top: 1%;
+    }  
+
+  }
+
+  @media (min-width: 1024px) {
+    .todo-main-container{
+        margin-top: 1%;
+      }  
+    }

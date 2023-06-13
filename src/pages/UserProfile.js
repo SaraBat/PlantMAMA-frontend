@@ -2,17 +2,13 @@
 /* eslint no-underscore-dangle: ["error", { "allow": [ "_id"] }] */
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import plants from 'reducers/plants';
-import user from 'reducers/user';
+import { useSelector } from 'react-redux';
 import { API_URL } from 'utils/BackendUrl';
 import { Loading } from 'components/Loading';
-import { ToDo } from './ToDo';
 import '../styling/UserProfile.css'
 
 export const UserProfile = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
@@ -33,18 +29,12 @@ export const UserProfile = () => {
     }
   // eslint-disable-next-line
   }, [accessToken]);
-  const onLogoutClick = () => {
-    dispatch(user.actions.setAccessToken(null));
-    dispatch(user.actions.setUsername(null));
-    dispatch(user.actions.setImageUrl(null));
-    dispatch(user.actions.setUserId(null));
-    dispatch(user.actions.setError(null));
-    dispatch(plants.actions.setItems([]));
-    navigate('/')
-  };
 
   const onGoToGardenButtonClick = () => {
     navigate('garden');
+  };
+  const onGoToTodoButtonClick = () => {
+    navigate(`/${username}/todo`);
   };
   const onEditUserClick = () => {
     navigate(`/${username}/editUser`);
@@ -72,8 +62,8 @@ export const UserProfile = () => {
   }, [])
   if (loading) return (<Loading />);
   return (
-    <div className="main-container">
-      <div>
+    <div className="main-container-user-profile">
+      <div className="user-profile">
         <img className="profile-picture" src={imageUrl} alt="profile" />
         <p> {username} </p>
         {city ? <p> 📍 {city} </p> : null}
@@ -84,14 +74,8 @@ export const UserProfile = () => {
           onClick={onEditUserClick}> Edit User
         </button>
       </div>
-      <div>
-        <ToDo />
-      </div>
+      <button type="button" onClick={onGoToTodoButtonClick}> Go to my To-do List </button>
       <button type="button" onClick={onGoToGardenButtonClick}> Go to my Garden </button>
-      <button
-        type="button"
-        onClick={onLogoutClick}> Log Out
-      </button>
     </div>
   )
 }

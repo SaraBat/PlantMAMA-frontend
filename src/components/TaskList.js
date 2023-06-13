@@ -35,9 +35,9 @@ export const TaskList = () => {
                       onChange={() => onIsCompletedCheckBoxToggle(singleTask.id)} />
                   </label>
                 </div>
-                <span>
+                <p>
                   {singleTask.content}
-                </span>
+                </p>
                 <button
                   className="deleteSingleTaskButton"
                   type="button"

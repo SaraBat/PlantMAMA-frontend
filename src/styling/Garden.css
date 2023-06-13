@@ -93,7 +93,7 @@ label {
     color: black;
   }
   
-  input {
+  .add-plant-div input {
     background: #BFD3BB;
     border-radius: 7px;
     width: 300px;
@@ -106,7 +106,7 @@ label {
     outline: none;
   }
   
-  ::placeholder {
+  .add-plant-div ::placeholder {
     color: white;
   }
   

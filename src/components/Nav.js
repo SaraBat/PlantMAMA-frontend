@@ -20,13 +20,13 @@ export const Nav = () => {
       </div>
       <ul className="top-right">
         <li>
-          <NavLink to="/"> Home </NavLink>
+          <NavLink to={-1}> Back </NavLink>
+        </li>
+        <li>
+          <NavLink to="/" onClick={() => { window.location.reload() }}> Log out </NavLink>
         </li>
         <li>
           <NavLink to="/contact"> Contacts </NavLink>
-        </li>
-        <li>
-          <NavLink to={-1}> Back </NavLink>
         </li>
       </ul>
     </nav>

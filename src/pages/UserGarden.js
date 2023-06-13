@@ -7,7 +7,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import plants from 'reducers/plants';
 import { API_URL } from 'utils/BackendUrl';
-import user from 'reducers/user';
 import { AddPlant } from 'components/AddPlant';
 import '../styling/Garden.css'
 
@@ -20,9 +19,7 @@ export const UserGarden = () => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
-  const onBackClick = () => {
-    navigate(-1);
-  };
+
   const onGoToDatabaseButtonClick = () => {
     navigate('/plantdatabase');
   };
@@ -54,15 +51,6 @@ export const UserGarden = () => {
       });
   // eslint-disable-next-line
   }, []);
-
-  const onLogoutClick = () => {
-    dispatch(user.actions.setAccessToken(null));
-    dispatch(user.actions.setUsername(null));
-    dispatch(user.actions.setUserId(null));
-    dispatch(user.actions.setError(null));
-    dispatch(plants.actions.setItems([]));
-    navigate('/')
-  };
 
   // function that takes a new plant as a param and updates the state of the plants
   // array using spread operator. it creates a new array with the existing plants
@@ -104,16 +92,6 @@ export const UserGarden = () => {
         <div className="plant-inspo-div">
           <p className="inspo-p">Looking for a new plant baby? Get plant inspired!</p>
           <button type="button" onClick={onGoToDatabaseButtonClick}> Plant inspo </button>
-        </div>
-        <div className="logoutback-div">
-          <button
-            type="button"
-            onClick={onLogoutClick}> Log Out
-          </button>
-          <button
-            type="button"
-            onClick={onBackClick}> Back
-          </button>
         </div>
       </div>
     </section>
