@@ -64,36 +64,34 @@ export const UserGarden = () => {
   }
 
   return (
-    <section>
-      <div className="weather-div">
+    <div className="garden-wrapper">
+      <div className="weather-wrapper">
         <Weather />
       </div>
-      <div className="garden-wrapper">
-        <h1 className="garden-title-font"> Garden of {username}</h1>
-        <div className="garden">
-          {plantItems ? (
-            plantItems.map((item) => {
-              return (
-                <Link to={item._id}>
-                  <div className="singleplant-div" key={item._id}>
-                    <img className="garden-plant-picture" src={item.imageUrl} alt="profile" />
-                    <p className="garden-plant-name"> {item.plantname} </p>
-                    <p className="garden-plant-species">{item.species}</p>
-                  </div>
-                </Link>
-              )
-            })
-          ) : ''}
-        </div>
-        <div className="add-plant-div">
-          {/* passing the handleAddPlant-function into the addplant-component */}
-          <AddPlant handleAddPlant={handleAddPlant} />
-        </div>
-        <div className="plant-inspo-div">
-          <p className="inspo-p">Looking for a new plant baby? Get plant inspired!</p>
-          <button type="button" onClick={onGoToDatabaseButtonClick}> Plant inspo </button>
-        </div>
+      <h1 className="garden-title-font"> Garden of {username}</h1>
+      <div className="garden">
+        {plantItems ? (
+          plantItems.map((item) => {
+            return (
+              <Link to={item._id}>
+                <div className="singleplant-div" key={item._id}>
+                  <img className="garden-plant-picture" src={item.imageUrl} alt="profile" />
+                  <p className="garden-plant-name"> {item.plantname} </p>
+                  <p className="garden-plant-species">{item.species}</p>
+                </div>
+              </Link>
+            )
+          })
+        ) : ''}
       </div>
-    </section>
+      <div className="add-plant-div">
+        {/* passing the handleAddPlant-function into the addplant-component */}
+        <AddPlant handleAddPlant={handleAddPlant} />
+      </div>
+      <div className="plant-inspo-div">
+        <p className="inspo-p">Looking for a new plant baby? Get plant inspired!</p>
+        <button type="button" onClick={onGoToDatabaseButtonClick}> Plant inspo </button>
+      </div>
+    </div>
   )
 };

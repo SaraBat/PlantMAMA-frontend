@@ -4,6 +4,11 @@
     gap: 30px;
 }
 
+.weather-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .garden {
     display: flex;
     flex-direction: row;
@@ -61,7 +66,7 @@
 .garden-plant-name {
     color: #0d3f22;
     font-weight: bold;
-    line-height: 1.7rem;
+    line-height: 1.5rem;
     text-align: center;
 }
 
