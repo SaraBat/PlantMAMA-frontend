@@ -93,7 +93,8 @@ export const UserGarden = () => {
             <AddPlant handleAddPlant={handleAddPlant} />
           </div>
           <div className="plant-inspo-div">
-            <p className="inspo-p">Looking for a new plant baby? Get plant inspired!</p>
+            <p className="inspo-p">Looking for a new plant baby? </p>
+            <p className="inspo-p">Get plant inspired!</p>
             <button type="button" onClick={onGoToDatabaseButtonClick}> Plant inspo </button>
           </div>
         </div>

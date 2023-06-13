@@ -2,6 +2,7 @@ import { PlantList } from 'components/PlantList';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import '../styling/plantdatabase.css';
 
 export const PlantDatabase = () => {
   const navigate = useNavigate();
@@ -18,22 +19,42 @@ export const PlantDatabase = () => {
 
   if (!param) {
     return (
-      <div>
+      <div className="div-plant-inspo-button">
         <button
+          className="plant-inspo-button"
           type="button"
           value="&poisonous=1"
           onClick={(event) => onSetParamClick(event.target.value)}> Poisonous
         </button>
         <button
+          className="plant-inspo-button"
           type="button"
           value="&edible=1"
           onClick={(event) => onSetParamClick(event.target.value)}> Edible
         </button>
         <button
+          className="plant-inspo-button"
           type="button"
           value="&indoor=1"
           onClick={(event) => onSetParamClick(event.target.value)}> Indoor
         </button>
+        <button
+          className="plant-inspo-button"
+          type="button"
+          value="&medicinal=1"
+          onClick={(event) => onSetParamClick(event.target.value)}> Medicinal
+        </button>
+      </div>
+    )
+  } else {
+    return (
+      <div> <PlantList param={param} /> </div>
+    )
+  }
+}
+
+/*
+OTHER POSSIBLE QUERIES
 
         <button
           type="button"
@@ -71,11 +92,5 @@ export const PlantDatabase = () => {
           value="&sunlight=full_sun"
           onClick={(event) => onSetParamClick(event.target.value)}> Solar
         </button>
-      </div>
-    )
-  } else {
-    return (
-      <div> <PlantList param={param} /> </div>
-    )
-  }
-}
+
+        */

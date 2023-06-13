@@ -63,10 +63,10 @@ export const PlantProfile = () => {
     <div className="plant-profile-div">
       <img className="plant-profile-picture" src={imageUrl} alt="profile" />
       <p className="plantprofile-p"> Name: {plantname} </p>
-      <p className="plantprofile-p"> Birthday: {format(new Date(birthday), 'dd/MM/yyyy')} </p>
-      <p className="plantprofile-p"> PlantMama: {username} </p>
       <p className="plantprofile-p"> Species: {species} </p>
       <button type="button" onClick={onGoToPlantSpeciesButtonClick}> See plant species page </button>
+      <p className="plantprofile-p"> Birthday: {format(new Date(birthday), 'dd/MM/yyyy')} </p>
+      <p className="plantprofile-p"> PlantMama: {username} </p>
       <p className="plantprofile-p"> Last Drink: {formatDistance(new Date(lastWatered), Date.now(), { addSuffix: true })}
       </p>
       <p className="plantprofile-p">
