@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Login } from 'pages/Login';
 import { LandingPage } from 'pages/LandingPage';
 import { Register } from 'pages/Register';

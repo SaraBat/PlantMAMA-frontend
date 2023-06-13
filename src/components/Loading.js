@@ -11,7 +11,7 @@ export const Loading = () => {
       loop: true,
       autoplay: true,
       // eslint-disable-next-line global-require
-      animationData: require('../assets/plant.json')
+      animationData: require('../assets/leafloader.json')
     })
   }, [])
   return (
