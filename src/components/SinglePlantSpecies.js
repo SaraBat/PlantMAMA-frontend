@@ -40,19 +40,21 @@ export const SinglePlantSpecies = ({ id }) => {
           {plantSpecies.common_name ? <h1 className="plantspecies-h1"> {plantSpecies.common_name} </h1> : ''}
           {ScientificName ? <p className="plantspecies-p"> <b>Scientific name:</b> {ScientificName}</p> : ''}
         </div>
+        <div className="species-basicinfo-div">
+          {plantSpecies.care_level ? <p className="species-basicinfo-p"> <b>Care Level:</b> {plantSpecies.care_level} </p> : ''}
+          {plantSpecies.maintenance ? <p className="species-basicinfo-p"> <b>Maintenance:</b> {plantSpecies.maintenance} </p> : ''}
+          {origin ? <p className="species-basicinfo-p"> <b>Origin:</b> {origin}</p> : ''}
+          {/* {plantSpecies.family ? <p className="carelevel-p"> Family: {plantSpecies.family} </p> : ''} */}
+          {plantSpecies.type ? <p className="species-basicinfo-p"> <b>Type:</b> {plantSpecies.type} </p> : ''}
+          {/* {plantSpecies.cycle ? <p className="carelevel-p"> Cycle: {plantSpecies.cycle} </p> : ''} */}
+          {plantSpecies.watering ? <p className="species-basicinfo-p"> <b>Watering:</b> {plantSpecies.watering} </p> : ''}
+          {sunlight ? <p className="species-basicinfo-p"> <b>Sunlight:</b> {sunlight} </p> : ''}
+          {plantSpecies.growth_rate ? <p className="species-basicinfo-p"> <b>Growth:</b> {plantSpecies.growth_rate} </p> : ''}
+          {plantSpecies.flowering_season ? <p className="species-basicinfo-p"> <b>Flowering season:</b> {plantSpecies.flowering_season} </p> : ''}
+        </div>
         <div className="plant-description">
           {plantSpecies.description ? <p className="plantspecies-p"> {plantSpecies.description} </p> : ''}
         </div>
-        {plantSpecies.care_level ? <p className="carelevel-p"> <b>Care Level:</b> {plantSpecies.care_level} </p> : ''}
-        {plantSpecies.maintenance ? <p className="carelevel-p"> <b>Maintenance:</b> {plantSpecies.maintenance} </p> : ''}
-        {origin ? <p className="carelevel-p"> <b>Origin:</b> {origin}</p> : ''}
-        {/* {plantSpecies.family ? <p className="carelevel-p"> Family: {plantSpecies.family} </p> : ''} */}
-        {plantSpecies.type ? <p className="carelevel-p"> <b>Type:</b> {plantSpecies.type} </p> : ''}
-        {/* {plantSpecies.cycle ? <p className="carelevel-p"> Cycle: {plantSpecies.cycle} </p> : ''} */}
-        {plantSpecies.watering ? <p className="carelevel-p"> <b>Watering:</b> {plantSpecies.watering} </p> : ''}
-        {sunlight ? <p className="carelevel-p"> <b>Sunlight:</b> {sunlight} </p> : ''}
-        {plantSpecies.growth_rate ? <p className="carelevel-p"> <b>Growth:</b> {plantSpecies.growth_rate} </p> : ''}
-        {plantSpecies.flowering_season ? <p className="carelevel-p"> <b>Flowering season:</b> {plantSpecies.flowering_season} </p> : ''}
       </div>
     </section>
   )
