@@ -8,15 +8,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .hands-image {
-        display: none;
-    }
-  .hand-image {
-        display: block;
-        width: 100vw;
-        height: 100vh;
-    }
-
     .landing-title {
         color: #337B5B;
         font-size: 2em;
@@ -54,13 +45,8 @@
       margin-top: 1%;
       height: 100vh;
       position: relative;
-      text-align: center;
+
     }  
-    .landing-hands-image {
-        display: block;
-        width: 100vw;
-        z-index: -1;
-      }
 
       .landing-button-div {
         position: absolute;
@@ -82,15 +68,7 @@
       position: relative;
     text-align: center;
     }  
-    .hand-image {
-        display: none;
-    }
-    .hands-image {
-        display: block;
-        width: 100vw;
-        z-index: -1;
-      }
-    
+
       .landing-button-div {
         position: absolute;
         top: 30%;
