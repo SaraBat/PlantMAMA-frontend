@@ -64,8 +64,10 @@ export const UserProfile = () => {
   return (
     <div className="main-container-user-profile">
       <div className="user-profile">
-        <img className="profile-picture" src={imageUrl} alt="profile" />
-        <p> {bio} </p>
+        <div className="pic-bio">
+          <img className="profile-picture" src={imageUrl} alt="profile" />
+          <p> {bio} </p>
+        </div>
         <span className="user-text"> 👤 {username} </span>
         {city ? <span className="user-text"> 📍 {city} </span> : null}
         {level ? <span className="user-text">  🪴 Proficiency: {level} </span> : null}
@@ -75,8 +77,10 @@ export const UserProfile = () => {
           onClick={onEditUserClick}> Edit User
         </button>
       </div>
-      <button type="button" onClick={onGoToTodoButtonClick}> Go to my To-do List </button>
-      <button type="button" onClick={onGoToGardenButtonClick}> Go to my Garden </button>
+      <div className="user-profile-buttons">
+        <button type="button" onClick={onGoToTodoButtonClick}> Go to my To-do List </button>
+        <button type="button" onClick={onGoToGardenButtonClick}> Go to my Garden </button>
+      </div>
     </div>
   )
 }

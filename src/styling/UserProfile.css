@@ -39,18 +39,37 @@
 
   .user-text {
     margin-top: 3%;
+    padding-left: 5%;
     background-color: #CADAC8;
     color: #174C51;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
+    width: 40%;
     height: 45px;
     border-radius: 6px;
-    padding: 3px;
     font-weight: 500;
   }
   
+  .on-edit-user-button {
+    color: black;
+    background: transparent;
+    box-shadow: none;
+    width: fit-content;
+    margin: 5px;
+    padding: 8px;
+    font-family: Montserrat;
+    opacity: 0.9;
+    text-align: center;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: none;
+    padding:none;
+  }
+
   button {
     margin: 5px;
     padding: 8px;
@@ -85,7 +104,18 @@
   @media (min-width: 1024px) {
     .main-container-user-profile{
       margin-top: 2%;
+      flex-direction: row;
       
     }  
+    .user-profile {
+      width: 50%;
+    }
+
+    .pic-bio {
+
+    }
+    .user-profile-buttons {
+      width: 50%;
+    }
 
   }
