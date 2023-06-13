@@ -3,21 +3,28 @@
   }
 
   .landing-button-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
     .landing-title {
         color: #337B5B;
+        opacity: 0.9;
         text-shadow: 2px 2px #BC5827;
         font-size: 2em;
         font-weight: 600;
         text-align: center;
-        margin-bottom: 2%;
+        margin-bottom: 10%;
     }
 
   .landing-button{
+    width: 150px;
+    height: 50px;
+
     z-index: 0;
     margin: 5px;
     padding: 8px;

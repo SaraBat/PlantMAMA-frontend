@@ -4,9 +4,6 @@ import '../styling/LandingPage.css'
 
 export const LandingPage = () => {
   const navigate = useNavigate();
-  const onRegisterButtonClick = () => {
-    navigate('/register');
-  };
   const onLoginButtonClick = () => {
     navigate('/login');
   }
@@ -14,8 +11,7 @@ export const LandingPage = () => {
     <div className="landing-main-container">
       <div className="landing-button-div">
         <h1 className="landing-title"> THE BEST ALLY FOR THE CARE OF YOUR PLANTS</h1>
-        <button className="landing-button" type="button" onClick={onRegisterButtonClick}> Register </button>
-        <button className="landing-button" type="button" onClick={onLoginButtonClick}> Login </button>
+        <button className="landing-button" type="button" onClick={onLoginButtonClick}> Continue </button>
       </div>
     </div>
   )
