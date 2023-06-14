@@ -9,24 +9,18 @@ export const PlantList = ({ param }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
-  console.log(param);
   const pageNumber = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
 
   const [plantSpeciesList, setPlantSpeciesList] = useState([]);
   useEffect(() => {
     fetch(`https://perenual.com/api/species-list?page=${pageNumber}&key=${REACT_APP_PLANT_API_KEY}${param}`)
-      .then(console.log(param))
-      .then(console.log(pageNumber))
       .then((response) => response.json())
-      .then(console.log(param))
       .then((data) => {
         setPlantSpeciesList((data.data));
         setLoading(false)
       })
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log(plantSpeciesList);
 
   if (loading) return (<Loading />);
   return (

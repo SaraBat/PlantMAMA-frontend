@@ -21,7 +21,6 @@ export const EditPlantProfile = () => {
   // dispatch to put access token into main component
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(plantId);
   useEffect(() => {
     if (!accessToken) {
       navigate('/login')
@@ -54,10 +53,6 @@ export const EditPlantProfile = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        console.log(plantId);
-        console.log(plantname);
-        console.log(species);
-        console.log(birthday);
         navigate(-2);
         // this code doesn't work at all from here
         dispatch(plants.actions.setPlantName({ plantId: plantId, plantname: plantname }));

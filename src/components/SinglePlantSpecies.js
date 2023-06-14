@@ -21,7 +21,6 @@ export const SinglePlantSpecies = ({ id }) => {
   const pictureUrl = plantSpecies ? plantSpecies.default_image.small_url : '';
   const ScientificName = plantSpecies ? plantSpecies.scientific_name[0] : '';
   const origin = plantSpecies ? plantSpecies.origin[0] : '';
-  console.log(pictureUrl);
 
   let sunlight = [];
   if (plantSpecies.sunlight) {
