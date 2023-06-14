@@ -46,7 +46,6 @@ export const PlantProfile = () => {
     fetch(API_URL(`${username}/garden/${plantId}`), options)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setPlantname(data.response.plantname);
         setSpecies(data.response.species);
         setLastWatered(data.response.lastWatered);
