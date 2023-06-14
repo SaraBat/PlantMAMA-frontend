@@ -82,43 +82,42 @@ export const EditUserProfile = () => {
   return (
     <>
       <form onSubmit={onFormSubmit}>
-        <label htmlFor="city"> Your city </label>
         <input
           type="text"
           id="city"
+          placeholder="Your city"
           value={city}
-          onChange={(e) => setCity(e.target.value)} />
-        <label htmlFor="level"> Plant Proficiency Level </label>
+          onChange={(e) => setCity(e.target.value)} /><br /><br />
         <input
           type="text"
           id="level"
+          placeholder="Plant Proficiency Level"
           value={level}
-          onChange={(e) => setLevel(e.target.value)} />
-        <label htmlFor="imageUrl"> Profile picture </label>
+          onChange={(e) => setLevel(e.target.value)} /><br /><br />
         <input
           type="file"
           id="imageUrl"
           placeholder="Add profile picture"
           ref={fileInput}
           onChange={(e) => setImageUrl(e.target.files[0])} /><br /><br />
-        <label htmlFor="bio"> Biography </label>
         <input
           type="text"
           id="bio"
+          placeholder="Biography"
           value={bio}
-          onChange={(e) => setBio(e.target.value)} />
-        <label htmlFor="username"> Change username </label>
+          onChange={(e) => setBio(e.target.value)} /><br /><br />
         <input
           type="text"
           id="username"
+          placeholder="Change username"
           value={username}
-          onChange={(e) => setUsername(e.target.value)} />
-        <label htmlFor="email"> Change email </label>
+          onChange={(e) => setUsername(e.target.value)} /><br /><br />
         <input
           type="email"
           id="email"
+          placeholder="Change email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)} />
+          onChange={(e) => setEmail(e.target.value)} /><br /><br />
         <button type="submit"> Submit </button>
       </form>
       <button

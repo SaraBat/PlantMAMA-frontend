@@ -81,8 +81,8 @@ export const UserProfile = () => {
           <p> {bio} </p>
         </div>
         <div className="user-profile-buttons">
-          <button type="button" onClick={onGoToTodoButtonClick}> Go to my To-do List </button>
-          <button type="button" onClick={onGoToGardenButtonClick}> Go to my Garden </button>
+          <button type="button" className="profilebutton" onClick={onGoToTodoButtonClick}> TO-DO LIST </button>
+          <button type="button" className="profilebutton" onClick={onGoToGardenButtonClick}> GARDEN </button>
         </div>
       </div>
     </div>
