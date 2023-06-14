@@ -78,8 +78,10 @@ export const UserGarden = () => {
                   <Link to={item._id}>
                     <div className="singleplant-div" key={item._id}>
                       <img className="garden-plant-picture" src={item.imageUrl} alt="profile" />
-                      <p className="garden-plant-name"> {item.plantname} </p>
-                      <p className="garden-plant-species">{item.species}</p>
+                      <div className="name-species-div">
+                        <p className="garden-plant-name"> {item.plantname} </p>
+                        <p className="garden-plant-species">{item.species}</p>
+                      </div>
                     </div>
                   </Link>
                 )
