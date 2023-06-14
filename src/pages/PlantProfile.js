@@ -62,16 +62,18 @@ export const PlantProfile = () => {
   return (
     <div className="plant-profile-div">
       <img className="plant-profile-picture" src={imageUrl} alt="profile" />
-      <p className="plantprofile-p"> Name: {plantname} </p>
-      <p className="plantprofile-p"> Species: {species} </p>
+      <div className="plant-info-div">
+        <p className="plantprofile-p"> <b>Name:&nbsp;</b> {plantname} </p>
+        <p className="plantprofile-p"> <b>Species:&nbsp;</b> {species} </p>
+        <p className="plantprofile-p"> <b>Birthday:&nbsp;</b> {format(new Date(birthday), 'dd/MM/yyyy')} </p>
+        <p className="plantprofile-p"> <b>PlantMama:&nbsp;</b>{username} </p>
+        <p className="plantprofile-p"> <b>Last Drink:&nbsp;</b> {formatDistance(new Date(lastWatered), Date.now(), { addSuffix: true })}
+        </p>
+        <p className="plantprofile-p">
+          <b>Last soil change:&nbsp;</b>{format(new Date(lastSoilChange), 'dd/MM/yyyy')}
+        </p>
+      </div>
       <button type="button" onClick={onGoToPlantSpeciesButtonClick}> See plant species page </button>
-      <p className="plantprofile-p"> Birthday: {format(new Date(birthday), 'dd/MM/yyyy')} </p>
-      <p className="plantprofile-p"> PlantMama: {username} </p>
-      <p className="plantprofile-p"> Last Drink: {formatDistance(new Date(lastWatered), Date.now(), { addSuffix: true })}
-      </p>
-      <p className="plantprofile-p">
-      Last Soil change: {format(new Date(lastSoilChange), 'dd/MM/yyyy')}
-      </p>
       <button
         className="on-edit-plant-button"
         type="button"
