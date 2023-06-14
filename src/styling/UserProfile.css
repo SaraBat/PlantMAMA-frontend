@@ -98,8 +98,8 @@ input {
     border: none;
     cursor: pointer;
     border-radius: 0px 15px;
-    width: 100px;
-    height: 80px;
+    width: 150px;
+    height: 70px;
     box-shadow: 0px 3.82609px 3.82609px rgba(0, 0, 0, 0.25);
   }
   
@@ -134,8 +134,8 @@ input {
     }
 
     .user-profile-buttons-bio {
-      width: 50%;
-      justify-content: space-around;
+      width: 32%;
+      justify-content: space-evenly;
       gap: 0px;
     }
 
