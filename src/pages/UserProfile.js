@@ -21,7 +21,6 @@ export const UserProfile = () => {
   const [level, setLevel] = useState('');
   const [bio, setBio] = useState('');
   const [imageUrl, setImageUrl] = useState('');
-  console.log(imageUrl);
 
   useEffect(() => {
     if (!accessToken) {
@@ -51,7 +50,6 @@ export const UserProfile = () => {
     fetch(API_URL(`${username}`), options)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setCity(data.body.city)
         setLevel(data.body.level)
         setBio(data.body.bio)

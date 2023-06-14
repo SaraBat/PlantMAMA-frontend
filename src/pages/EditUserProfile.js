@@ -58,7 +58,6 @@ export const EditUserProfile = () => {
         { bio ? dispatch(user.actions.setBio(bio)) : console.log('no change') }
         { imageUrl ? dispatch(user.actions.setImageUrl(imageUrl)) : console.log('no change') }
         console.log('dispatch sent');
-        console.log('imgURl:', imageUrl);
         navigate(-1);
       });
   }
