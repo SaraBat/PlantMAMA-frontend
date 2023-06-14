@@ -14,7 +14,8 @@ const plants = createSlice({
   },
   reducers: {
     setItems: (store, action) => {
-      store.items = action.payload
+      // show plants array in reverse order so the newest is first
+      store.items = action.payload.reverse();
     },
     setError: (store, action) => {
       store.error = action.payload
