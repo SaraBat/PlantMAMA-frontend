@@ -75,9 +75,7 @@ export const UserProfile = () => {
         </button>
       </div>
       <div className="user-profile-buttons-bio">
-        <div className="user-bio">
-          <p> {bio} </p>
-        </div>
+        {bio ? <div className="user-bio"> <p> {bio} </p> </div> : null}
         <div className="user-profile-buttons">
           <button type="button" className="profilebutton" onClick={onGoToTodoButtonClick}> TO-DO LIST </button>
           <button type="button" className="profilebutton" onClick={onGoToGardenButtonClick}> GARDEN </button>
