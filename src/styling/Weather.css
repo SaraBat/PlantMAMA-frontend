@@ -1,10 +1,17 @@
 .weather-div {
     display: flex;
+    flex-direction: column;
     border-radius: 20px;
     margin: 20px;
+}
+
+.weather-div p {
+    color: #23521b;
 }
 
 .weather-p {
     color: #23521b;
     font-size: 0.8rem;
+    display: flex;
+    justify-content: flex-end;
 }

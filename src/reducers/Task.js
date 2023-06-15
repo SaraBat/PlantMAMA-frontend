@@ -6,17 +6,17 @@ export const Task = createSlice({
     items: [
       {
         id: '19asdfiuhas0823hjkadsh809',
-        content: 'New to-do',
+        content: 'Check Lilys birthday',
         isChecked: false
       },
       {
         id: '19asdfiuhas0823hjkadsh810',
-        content: 'Water my Plants',
+        content: 'Dont poison the ivy',
         isChecked: false
       },
       {
         id: '19asdfiuhas0823hjkadsh811',
-        content: 'Trim monstera',
+        content: 'Trim Big the monstera',
         isChecked: false
       }
     ]
