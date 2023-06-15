@@ -1,0 +1,90 @@
+.wider-contact-div {
+    margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    gap: 100px;
+    justify-content: space-evenly;
+}
+
+.contact-sara, .contact-antonia {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-antonia {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-pic {
+    margin-bottom: 20%;
+}
+
+.profile-pic img {
+    border-radius: 50%;
+    width: 100%;
+    margin-bottom: 10%;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.links img {
+    width: 50%;
+}
+
+.links a {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+
+.profile-pic p {
+   text-align: center;
+   padding: 10px;
+    background-color: #D5D283;
+    color: #1D585D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.inks img {
+    display: flex;
+}
+
+@media (min-width: 667px) {
+    .wider-contact-div {
+        margin-top: 10%;
+        flex-direction: column;
+        align-items: none;
+
+    }
+    .contact-sara, .contact-antonia {
+        width: 20%;
+    }
+
+  }
+
+  @media (min-width: 1024px) {
+    .wider-contact-div {
+        margin-top: 5%;
+        flex-direction: row;
+        align-items: none;
+    }
+    .contact-sara, .contact-antonia {
+        width: 20%;
+    }
+  }
