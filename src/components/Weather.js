@@ -75,6 +75,7 @@ export const Weather = () => {
     <div className="weather-div">
       <p className="weather-p">{city} | {temp}° C | {/* <p className="weather-p">{main} </p> */} {description} | {humidity} % humidity </p>
       {/* | {sunrise} | {sunset} */}
+      <p> ☀️ its hot today, remember to mist your plant babies ☀️ </p>
     </div>
   )
 }
