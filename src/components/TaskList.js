@@ -26,22 +26,26 @@ export const TaskList = () => {
           return (
             <section key={singleTask.id} className="TaskListSection">
               <div className="singleTask">
-                <p>
-                  {singleTask.content}
-                </p>
-                <label htmlFor={`Task_with_id${singleTask.id}`}>
-                  <input
-                    id={`Task_with_id${singleTask.id}`}
-                    type="checkbox"
-                    value={singleTask.isChecked}
-                    onChange={() => onIsCompletedCheckBoxToggle(singleTask.id)} />
-                </label>
-                <button
-                  className="deleteSingleTaskButton"
-                  type="button"
-                  onClick={() => OnDeleteSingleTaskButtonClick(singleTask.id)}>
+                <div className="taskText">
+                  <label htmlFor={`Task_with_id${singleTask.id}`}>
+                    <input
+                      id={`Task_with_id${singleTask.id}`}
+                      type="checkbox"
+                      value={singleTask.isChecked}
+                      onChange={() => onIsCompletedCheckBoxToggle(singleTask.id)} />
+                  </label>
+                  <p>
+                    {singleTask.content}
+                  </p>
+                </div>
+                <div className="delete-task">
+                  <button
+                    className="deleteSingleTaskButton"
+                    type="button"
+                    onClick={() => OnDeleteSingleTaskButtonClick(singleTask.id)}>
                   🗑️
-                </button>
+                  </button>
+                </div>
               </div>
             </section>
           )

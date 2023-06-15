@@ -22,12 +22,20 @@
   display: flex;
   flex-direction: column;
 }
+
 .singleTask {
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  justify-content: flex-end;
+  justify-content:space-between;
   gap: 5%;
+}
+
+.taskText {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-self: center;
 }
 
 .ClearListButton {
