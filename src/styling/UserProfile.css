@@ -127,11 +127,11 @@ input {
       margin-top: 2%;
       flex-direction: row;
       justify-content: center;
-      gap: 15%;
+      gap: 2%;
     } 
 
     .user-profile {
-      width: 40%;
+      width: 30%;
     }
 
     .user-text {
