@@ -127,16 +127,26 @@ input {
       margin-top: 2%;
       flex-direction: row;
       justify-content: center;
+      gap: 15%;
     } 
 
     .user-profile {
       width: 40%;
     }
 
+    .user-text {
+      width: 70%;
+    }
+
     .user-profile-buttons-bio {
-      width: 32%;
+      width: 40%;
       justify-content: space-evenly;
-      gap: 0px;
+      gap: 10px;
+    }
+
+    .user-bio {
+      min-width: 300px;
+      min-height: 150px;
     }
 
   }
