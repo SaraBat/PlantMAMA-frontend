@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from 'utils/BackendUrl';
 import user from 'reducers/user';
+import '../styling/EditUserProfile.css'
 
 export const EditUserProfile = () => {
   const fileInput = useRef();
@@ -79,7 +80,7 @@ export const EditUserProfile = () => {
       });
   };
   return (
-    <>
+    <div className="editUserProfile">
       <form onSubmit={onFormSubmit}>
         <input
           type="text"
@@ -120,9 +121,10 @@ export const EditUserProfile = () => {
         <button type="submit"> Submit </button>
       </form>
       <button
+        className="on-delete-user-button"
         type="button"
         onClick={onDeleteUserClick}> Delete User
       </button>
-    </>
+    </div>
   )
 }

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { API_URL } from 'utils/BackendUrl';
 import plants from 'reducers/plants';
+import '../styling/EditPlantProfile.css'
 
 export const EditPlantProfile = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
@@ -90,7 +91,7 @@ export const EditPlantProfile = () => {
       });
   };
   return (
-    <>
+    <div className="editPlantProfile">
       <form onSubmit={onFormSubmit}>
         <input
           type="date"
@@ -131,9 +132,10 @@ export const EditPlantProfile = () => {
         <button type="submit"> Submit </button>
       </form>
       <button
+        className="on-delete-plant-button"
         type="button"
         onClick={onDeletePlantClick}> Delete Plant
       </button>
-    </>
+    </div>
   )
 }

@@ -1,0 +1,30 @@
+.editUserProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.editUserProfile form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.on-delete-user-button {
+    color: #1D585D;
+    background: transparent;
+    box-shadow: none;
+    width: fit-content;
+    margin: 5px;
+    padding: 8px;
+    font-family: Montserrat;
+    opacity: 0.9;
+    text-align: center;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: none;
+    padding:none;
+  }
