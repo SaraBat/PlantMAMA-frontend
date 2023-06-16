@@ -57,7 +57,7 @@ export const UserGarden = () => {
         }
       });
   // eslint-disable-next-line
-  }, [handleAddPlant]);
+  }, []);
 
   if (loading) {
     return (<Loading />)
