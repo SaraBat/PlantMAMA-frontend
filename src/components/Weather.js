@@ -1,5 +1,6 @@
 // eslint-disable-no-useless-concat
 import React, { useState, useEffect } from 'react'
+import swal from 'sweetalert';
 import { REACT_APP_WEATHER_API_KEY } from 'utils/BackendUrl';
 import { WeatherLoading } from './WeatherLoading';
 import '../styling/Weather.css'
@@ -69,13 +70,28 @@ export const Weather = () => {
     }
   }, [latitude, longitude]);
 
+  const weatherNoticiation = () => {
+    if (temp >= 20) {
+      swal({
+        title: 'Its warm today! ☀️',
+        text: 'Remember to mist your plant babies 🌱',
+        button: 'Copy that'
+      })
+    } else {
+      swal({
+        title: 'Brr!',
+        text: 'Close the windows and protect your plants from the cold breeze!',
+        button: 'Copy that'
+      })
+    }
+  }
+
   if (!navigator.geolocation) { return (error) }
   if (loading) { return (<WeatherLoading />) }
   return (
     <div className="weather-div">
-      <p className="weather-p">{city} | {temp}° C | {/* <p className="weather-p">{main} </p> */} {description} | {humidity} % humidity </p>
-      {/* | {sunrise} | {sunset} */}
-      <p> ☀️ its hot today, remember to mist your plant babies ☀️ </p>
+      <p className="weather-p">{city} | {temp}° C | {description} | {humidity} % humidity </p>
+      {weatherNoticiation()}
     </div>
   )
 }
