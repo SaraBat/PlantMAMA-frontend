@@ -10,12 +10,9 @@ export const Weather = () => {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [city, setCity] = useState('');
-  // const [main, setMain] = useState('');
   const [description, setDescription] = useState('');
   const [temp, setTemp] = useState(null);
   const [humidity, setHumidity] = useState(null);
-  // const [sunset, setSunset] = useState(null);
-  // const [sunrise, setSunrise] = useState(null);
 
   const error = () => {
     alert('Geolocation not avalible.');
@@ -46,23 +43,9 @@ export const Weather = () => {
         .then((data) => {
           if (data) {
             setCity(data.name);
-            // setMain(data.weather[0].main);
             setDescription(data.weather[0].description);
             setTemp(data.main.temp);
             setHumidity(data.main.humidity);
-            // const sunriseTimeStamp = (data.sys.sunrise * 1000);
-            // const sunriseFormat = new Date(sunriseTimeStamp);
-            // const sunriseHours = sunriseFormat.getHours().toString().padStart(2, '0');
-            // const sunriseMinutes = sunriseFormat.getMinutes().toString().padStart(2, '0');
-            // const sunriseFinal = `${sunriseHours}:${sunriseMinutes}`;
-            // setSunrise(sunriseFinal);
-
-            // const sunsetTimeStamp = (data.sys.sunset * 1000);
-            // const sunsetFormat = new Date(sunsetTimeStamp);
-            // const sunsetHours = sunsetFormat.getHours().toString().padStart(2, '0');
-            // const sunsetMinutes = sunsetFormat.getMinutes().toString().padStart(2, '0');
-            // const sunsetFinal = `${sunsetHours}:${sunsetMinutes}`;
-            // setSunset(sunsetFinal);
             setLoading(false);
           }
         })

@@ -16,7 +16,6 @@ export const PlantUsernameSpecies = () => {
   const [plantSpeciesList, setPlantSpeciesList] = useState([]);
   useEffect(() => {
     fetch(`https://perenual.com/api/species-list?key=${REACT_APP_PLANT_API_KEY}&q=${plantusernamespecies}`)
-    // https://perenual.com/api/species-list?key=[YOUR-API-KEY]&q=monstera
       .then((response) => response.json())
       .then((data) => setPlantSpeciesList(data.data))
       .catch((e) => console.log(e))

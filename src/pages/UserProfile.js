@@ -12,10 +12,6 @@ export const UserProfile = () => {
   const [loading, setLoading] = useState(true);
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
-  // const city = useSelector((store) => store.user.city);
-  // const level = useSelector((store) => store.user.level);
-  // const bio = useSelector((store) => store.user.bio);
-  // const imageUrl = useSelector((store) => store.user.imageUrl);
 
   const [city, setCity] = useState('');
   const [level, setLevel] = useState('');

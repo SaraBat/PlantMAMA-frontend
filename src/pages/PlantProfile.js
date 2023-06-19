@@ -19,7 +19,6 @@ export const PlantProfile = () => {
   const [birthday, setBirthday] = useState(null);
   const [lastSoilChange, setLastSoilChange] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
-  // const dispatch = useDispatch();
 
   useEffect(() => {
     if (!accessToken) {

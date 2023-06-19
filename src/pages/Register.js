@@ -24,9 +24,6 @@ export const Register = () => {
   // eslint-disable-next-line
   }, [accessToken]);
 
-  // const onBackClick = () => {
-  //   navigate(-1);
-  // };
   const onGoToLoginButtonClick = () => {
     navigate('/login');
   };
@@ -85,10 +82,6 @@ export const Register = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)} />
           <button className="register-btn2" type="submit">Register</button>
-          {/* <button
-            type="button"
-            onClick={onBackClick}> Back
-          </button> */}
         </form>
       </div>
       <div className="login-div">

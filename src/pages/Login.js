@@ -22,10 +22,6 @@ export const Login = () => {
     navigate('/register');
   };
 
-  // const onBackClick = () => {
-  //   navigate(-1);
-  // }
-  // get accessToken from store
   const accessToken = useSelector((store) => store.user.accessToken);
   useEffect(() => {
     if (accessToken) {
