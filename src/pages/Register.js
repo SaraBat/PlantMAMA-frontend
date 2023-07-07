@@ -5,12 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from 'utils/BackendUrl';
 import user from 'reducers/user';
+import { Loading } from 'components/Loading';
 import '../styling/Register.css';
 
 export const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const mode = 'register';
   // dispatch to put access token into main component
   const dispatch = useDispatch();
@@ -38,6 +40,7 @@ export const Register = () => {
       // eslint-disable-next-line object-shorthand
       body: JSON.stringify({ username: username, email: email, password: password })
     };
+    setLoading(true);
     fetch(API_URL(mode), options)
       .then((response) => response.json())
       .then((data) => {
@@ -57,41 +60,43 @@ export const Register = () => {
         }
       })
   }
-  return (
-    <section className="register-section">
-      <p>Hi! Start your journey here</p>
-      <h1 className="register-title">Create account</h1>
-      <div className="register-fields">
-        <form onSubmit={onFormSubmit}>
-          <input
-            type="text"
-            id="username"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)} />
-          <input
-            type="email"
-            id="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)} />
-          <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)} />
-          <button className="register-btn2" type="submit">Register</button>
-        </form>
-      </div>
-      <div className="login-div">
-        <p>Do you already have an account?</p>
-        <button
-          className="login-btn2"
-          type="button"
-          onClick={onGoToLoginButtonClick}> Log in
-        </button>
-      </div>
-    </section>
-  )
+  if (!loading) {
+    return (
+      <section className="register-section">
+        <p>Hi! Start your journey here</p>
+        <h1 className="register-title">Create account</h1>
+        <div className="register-fields">
+          <form onSubmit={onFormSubmit}>
+            <input
+              type="text"
+              id="username"
+              placeholder="Username *"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)} />
+            <input
+              type="password"
+              id="password"
+              placeholder="Password *"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)} />
+            <input
+              type="email"
+              id="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} />
+            <button className="register-btn2" type="submit">Register</button>
+          </form>
+        </div>
+        <div className="login-div">
+          <p>Do you already have an account?</p>
+          <button
+            className="login-btn2"
+            type="button"
+            onClick={onGoToLoginButtonClick}> Log in
+          </button>
+        </div>
+      </section>
+    )
+  } else { return (<div> <Loading /></div>) }
 }
