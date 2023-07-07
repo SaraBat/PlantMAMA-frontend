@@ -1,6 +1,6 @@
 /* eslint-disable-no-useless-concat */
 /* eslint-disable no-underscore-dangle */
-// import { Weather } from 'components/Weather';
+import { Weather } from 'components/Weather';
 import { Loading } from 'components/Loading';
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
@@ -62,7 +62,7 @@ export const UserGarden = () => {
         <div className="garden-left">
           <h1 className="garden-title-font"> Garden of {username}</h1>
           <div className="weather-wrapper">
-            {/* <Weather /> */}
+            <Weather />
           </div>
           <div className="garden">
             {plantItems ? (
