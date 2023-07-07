@@ -15,8 +15,8 @@ import '../styling/Garden.css'
 export const UserGarden = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const plantItems = useSelector((store) => store.plants.items);
   const dispatch = useDispatch();
+  const plantItems = useSelector((store) => store.plants.items);
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
 
@@ -28,13 +28,6 @@ export const UserGarden = () => {
       navigate('/login')
     }
   });
-
-  // function that takes a new plant as a param and updates the state of the plants
-  // array using spread operator. it creates a new array with the existing plants
-  // and the new plant added to it.
-  const handleAddPlant = (newPlant) => {
-    dispatch(plants.actions.setItems([...plantItems, newPlant]));
-  };
 
   useEffect(() => {
     const options = {
@@ -57,7 +50,7 @@ export const UserGarden = () => {
         }
       });
   // eslint-disable-next-line
-  }, [plantItems]);
+  }, []);
 
   if (loading) {
     return (<Loading />)
@@ -92,7 +85,7 @@ export const UserGarden = () => {
         <div className="garden-right">
           <div className="add-plant-div">
             {/* passing the handleAddPlant-function into the addplant-component */}
-            <AddPlant handleAddPlant={handleAddPlant} />
+            <AddPlant />
           </div>
           <div className="plant-inspo-div">
             <p className="inspo-p">Looking for a new plant baby? </p>

@@ -6,8 +6,9 @@ import { API_URL } from 'utils/BackendUrl';
 import plants from 'reducers/plants';
 import '../styling/Garden.css'
 
-export const AddPlant = ({ handleAddPlant }) => {
+export const AddPlant = () => {
   const [plantname, setPlantname] = useState('');
+  const plantItems = useSelector((store) => store.plants.items);
   const [species, setSpecies] = useState('');
 
   // dispatch to put access token into main component
@@ -15,6 +16,13 @@ export const AddPlant = ({ handleAddPlant }) => {
 
   // get accessToken from store
   const accessToken = useSelector((store) => store.user.accessToken);
+
+  // function that takes a new plant as a param and updates the state of the plants
+  // array using spread operator. it creates a new array with the existing plants
+  // and the new plant added to it.
+  const handleAddPlant = (newPlant) => {
+    dispatch(plants.actions.setItems([...plantItems, newPlant]));
+  };
 
   const onFormSubmit = (event) => {
     // form not to reload page
@@ -33,12 +41,13 @@ export const AddPlant = ({ handleAddPlant }) => {
         if (data.success) {
           // creating a new plant-object with data based on the plant-schema:
           const newPlant = {
-            _id: data.response._id,
+            _id: data.response.plants._id,
             plantname,
             species,
-            birthday: data.response.birthday,
-            lastWatered: data.response.lastWatered,
-            lastSoilChange: data.response.lastSoilChange
+            birthday: data.response.plants.birthday,
+            lastWatered: data.response.plants.lastWatered,
+            lastSoilChange: data.response.plants.lastSoilChange,
+            imageUrl: data.response.plants.imageUrl
           };
           dispatch(plants.actions.setError(null));
           // calling the handleAddPlant-function with the newPlant-object
